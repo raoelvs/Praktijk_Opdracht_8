@@ -170,6 +170,7 @@
             this.btnOpslaan.TabIndex = 3;
             this.btnOpslaan.Text = "Opslaan";
             this.btnOpslaan.UseVisualStyleBackColor = true;
+            this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
             // 
             // btnAnnuleren
             // 
@@ -179,6 +180,7 @@
             this.btnAnnuleren.TabIndex = 1;
             this.btnAnnuleren.Text = "Annuleren";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // label2
             // 
@@ -295,7 +297,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSpelerUpdate";
-            this.Text = "FrmSpelerUpdate";
+            this.Text = "Kickbokstoernooi de vlugge handjes";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
