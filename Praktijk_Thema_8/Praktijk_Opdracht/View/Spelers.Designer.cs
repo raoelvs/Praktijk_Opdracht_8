@@ -198,6 +198,7 @@ namespace Praktijk_Opdracht.View
             this.Controls.Add(this.groupBox1);
             this.Name = "Spelers";
             this.Text = "Kickbokstoernooi de vlugge handjes";
+            this.Load += new System.EventHandler(this.Spelers_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
