@@ -25,8 +25,12 @@ namespace Praktijk_Opdracht
 
         private void btnInlog_Click(object sender, EventArgs e)
         {
-            FrmSpelers frm = new FrmSpelers();
-            frm.Show();
+            
+            
+            
+            // code om frm spelers te starten om een test te doen
+            //FrmSpelers frm = new FrmSpelers();
+            //frm.Show();
         }
     }
 }

@@ -27,9 +27,9 @@ namespace Praktijk_Opdracht.View
 
         private void FrmSpelerUpdate_Load(object sender, EventArgs e)
         {
-            txtVoornaam.Text = permSpeler.Voornaam;
-            txtTussenvoegsel.Text = permSpeler.Tussenvoegsel;
-            txtAchternaam.Text = permSpeler.Achternaam;
+            txtVoornaam.Text = permSpeler.Voornaam.ToString();
+            txtTussenvoegsel.Text = permSpeler.Tussenvoegsel.ToString();
+            txtAchternaam.Text = permSpeler.Achternaam.ToString();
             dtpGeboortedatum.Value = permSpeler.Geboortedatum;
             txtGroep.Text = permSpeler.Groep.ToString();
 
@@ -55,21 +55,23 @@ namespace Praktijk_Opdracht.View
             updatedspeler.Achternaam = txtAchternaam.Text;
             updatedspeler.Geboortedatum = dtpGeboortedatum.Value;
             updatedspeler.Groep = Convert.ToInt32(txtGroep.Text);
-            updatedspeler.SchoolId.Naam = cbSchool.Value; ////////// aanpassing nodig
+            updatedspeler.SchoolId.Naam = cbSchool.Text; 
 
 
             //doctor nummer gebruiken van de geslecteerde doctor uit listview
-            updatedspeler.SpelerId = updatedspeler.SpelerId;
+            updatedspeler.SpelerId = permSpeler.SpelerId;
 
-            try
-            {
-                spelerController.Update(updatedspeler);
-                MessageBox.Show("Klant is geupdate");
-            }
-            catch
-            {
-                MessageBox.Show("Het is niet gelukt");
-            }
+            this.Close();
+
+            //try
+            //{
+            //    spelerController.Update(updatedspeler);
+            //    MessageBox.Show("Klant is geupdate");
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Het is niet gelukt");
+            //}
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
