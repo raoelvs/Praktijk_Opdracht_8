@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Praktijk_Opdracht.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,12 @@ namespace Praktijk_Opdracht
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnInlog_Click(object sender, EventArgs e)
+        {
+            FrmSpelers frm = new FrmSpelers();
+            frm.Show();
         }
     }
 }

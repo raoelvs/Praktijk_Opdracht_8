@@ -15,12 +15,13 @@ namespace Praktijk_Opdracht.View
     public partial class FrmSpelerUpdate : Form
     {
         SpelerController spelerController = new SpelerController();
-        SpelerModel permSpeler = null;
+        SpelerModel permSpeler;
 
         public FrmSpelerUpdate(SpelerModel tmpSpeler)
         {
             InitializeComponent();
 
+            //tijdelijk opslaan in een globale variable
             permSpeler = tmpSpeler;
         }
 
@@ -32,6 +33,7 @@ namespace Praktijk_Opdracht.View
             dtpGeboortedatum.Value = permSpeler.Geboortedatum;
             txtGroep.Text = permSpeler.Groep.ToString();
 
+            // Uit de SpelerController Readall() uitvoeren
             List<SpelerModel> schoolList = spelerController.ReadAll();
 
             foreach (SpelerModel item in schoolList)
@@ -40,17 +42,39 @@ namespace Praktijk_Opdracht.View
                 cbSchool.Items.Add(item);
             }
 
-            cbSchool.Text = permSpeler.SchoolId.ToString() + permSpeler.SchoolId.Naam;
+            cbSchool.Text = permSpeler.SchoolId.Naam;
         }
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            // opslaan wijzizgen.
+            // klantmodel aanmaken met de aagepaste gegevens
+            SpelerModel updatedspeler = new SpelerModel();
+
+            updatedspeler.Voornaam = txtVoornaam.Text;
+            updatedspeler.Tussenvoegsel = txtTussenvoegsel.Text;
+            updatedspeler.Achternaam = txtAchternaam.Text;
+            updatedspeler.Geboortedatum = dtpGeboortedatum.Value;
+            updatedspeler.Groep = Convert.ToInt32(txtGroep.Text);
+            updatedspeler.SchoolId.Naam = cbSchool.Value; ////////// aanpassing nodig
+
+
+            //doctor nummer gebruiken van de geslecteerde doctor uit listview
+            updatedspeler.SpelerId = updatedspeler.SpelerId;
+
+            try
+            {
+                spelerController.Update(updatedspeler);
+                MessageBox.Show("Klant is geupdate");
+            }
+            catch
+            {
+                MessageBox.Show("Het is niet gelukt");
+            }
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            // terug naar speler overview.
+            this.Close();
         }
     }
 }

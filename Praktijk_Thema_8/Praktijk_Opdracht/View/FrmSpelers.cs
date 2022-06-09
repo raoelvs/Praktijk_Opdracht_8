@@ -26,14 +26,12 @@ namespace Praktijk_Opdracht.View
         private void Spelers_Load(object sender, EventArgs e)
         {
             //listvieuw tonen 
-            lvSpeler.Columns.Add("SpelerID", 50);
-            lvSpeler.Columns.Add("Voornaam", 150);
-            lvSpeler.Columns.Add("Tussenvoegsel", 150);
-            lvSpeler.Columns.Add("Achternaam", 150);
+            lvSpeler.Columns.Add("Voornaam", 100);
+            lvSpeler.Columns.Add("Tussenvoegsel", 100);
+            lvSpeler.Columns.Add("Achternaam", 100);
             lvSpeler.Columns.Add("Geboortedatum", 150);
-            lvSpeler.Columns.Add("Groep", 150);
-            lvSpeler.Columns.Add("SchoolId", 150);
-            lvSpeler.Columns.Add("SchoolNaam", 50);
+            lvSpeler.Columns.Add("Groep", 50);
+            lvSpeler.Columns.Add("SchoolNaam", 100);
 
             //geeft itema weer als in een row
             lvSpeler.View = System.Windows.Forms.View.Details;
@@ -58,13 +56,11 @@ namespace Praktijk_Opdracht.View
             {
                 //listvieuw item aanmaken
 
-                ListViewItem lvItem = new ListViewItem(item.SpelerId.ToString());
-                lvItem.SubItems.Add(item.Voornaam);
+                ListViewItem lvItem = new ListViewItem(item.Voornaam);
                 lvItem.SubItems.Add(item.Tussenvoegsel);
                 lvItem.SubItems.Add(item.Achternaam);
                 lvItem.SubItems.Add(item.Geboortedatum.ToString());
                 lvItem.SubItems.Add(item.Groep.ToString());
-                lvItem.SubItems.Add(item.SchoolId.SchoolId.ToString());
                 lvItem.SubItems.Add(item.SchoolId.Naam);
 
                 lvItem.Tag = item;
@@ -106,12 +102,15 @@ namespace Praktijk_Opdracht.View
 
         private void btnWijzigen_Click(object sender, EventArgs e)
         {
-            SpelerModel toBeUpdated = (SpelerModel)lvSpeler.SelectedItems[0].Tag;
+            SpelerModel toBeUpdated = (SpelerModel) lvSpeler.SelectedItems[0].Tag;
 
             // Versturen naar nieuw UI
             FrmSpelerUpdate frm = new FrmSpelerUpdate(toBeUpdated);
             frm.Show();
 
+            frm.ShowDialog();
+
+            FillListVieuw();
         }
     }
 }

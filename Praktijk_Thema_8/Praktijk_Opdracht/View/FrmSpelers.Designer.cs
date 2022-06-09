@@ -31,18 +31,18 @@ namespace Praktijk_Opdracht.View
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.btnResultaten = new System.Windows.Forms.Button();
-            this.btnSpelers = new System.Windows.Forms.Button();
-            this.btnScholen = new System.Windows.Forms.Button();
-            this.btnSluiten = new System.Windows.Forms.Button();
             this.btnScheidsrechter = new System.Windows.Forms.Button();
+            this.btnSluiten = new System.Windows.Forms.Button();
+            this.btnScholen = new System.Windows.Forms.Button();
+            this.btnSpelers = new System.Windows.Forms.Button();
+            this.btnResultaten = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnToevoegen = new System.Windows.Forms.Button();
-            this.btnWijzigen = new System.Windows.Forms.Button();
-            this.btnVerwijderen = new System.Windows.Forms.Button();
             this.lvSpeler = new System.Windows.Forms.ListView();
+            this.btnVerwijderen = new System.Windows.Forms.Button();
+            this.btnWijzigen = new System.Windows.Forms.Button();
+            this.btnToevoegen = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -74,41 +74,14 @@ namespace Praktijk_Opdracht.View
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // btnHome
+            // btnScheidsrechter
             // 
-            this.btnHome.Location = new System.Drawing.Point(0, 68);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(200, 42);
-            this.btnHome.TabIndex = 1;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = true;
-            // 
-            // btnResultaten
-            // 
-            this.btnResultaten.Location = new System.Drawing.Point(0, 107);
-            this.btnResultaten.Name = "btnResultaten";
-            this.btnResultaten.Size = new System.Drawing.Size(200, 42);
-            this.btnResultaten.TabIndex = 2;
-            this.btnResultaten.Text = "Resultaten";
-            this.btnResultaten.UseVisualStyleBackColor = true;
-            // 
-            // btnSpelers
-            // 
-            this.btnSpelers.Location = new System.Drawing.Point(0, 145);
-            this.btnSpelers.Name = "btnSpelers";
-            this.btnSpelers.Size = new System.Drawing.Size(200, 42);
-            this.btnSpelers.TabIndex = 3;
-            this.btnSpelers.Text = "Spelers";
-            this.btnSpelers.UseVisualStyleBackColor = true;
-            // 
-            // btnScholen
-            // 
-            this.btnScholen.Location = new System.Drawing.Point(0, 184);
-            this.btnScholen.Name = "btnScholen";
-            this.btnScholen.Size = new System.Drawing.Size(200, 42);
-            this.btnScholen.TabIndex = 4;
-            this.btnScholen.Text = "Scholen";
-            this.btnScholen.UseVisualStyleBackColor = true;
+            this.btnScheidsrechter.Location = new System.Drawing.Point(0, 223);
+            this.btnScheidsrechter.Name = "btnScheidsrechter";
+            this.btnScheidsrechter.Size = new System.Drawing.Size(200, 42);
+            this.btnScheidsrechter.TabIndex = 6;
+            this.btnScheidsrechter.Text = "Scheidsrechters";
+            this.btnScheidsrechter.UseVisualStyleBackColor = true;
             // 
             // btnSluiten
             // 
@@ -119,14 +92,41 @@ namespace Praktijk_Opdracht.View
             this.btnSluiten.Text = "Sluiten";
             this.btnSluiten.UseVisualStyleBackColor = true;
             // 
-            // btnScheidsrechter
+            // btnScholen
             // 
-            this.btnScheidsrechter.Location = new System.Drawing.Point(0, 223);
-            this.btnScheidsrechter.Name = "btnScheidsrechter";
-            this.btnScheidsrechter.Size = new System.Drawing.Size(200, 42);
-            this.btnScheidsrechter.TabIndex = 6;
-            this.btnScheidsrechter.Text = "Scheidsrechters";
-            this.btnScheidsrechter.UseVisualStyleBackColor = true;
+            this.btnScholen.Location = new System.Drawing.Point(0, 184);
+            this.btnScholen.Name = "btnScholen";
+            this.btnScholen.Size = new System.Drawing.Size(200, 42);
+            this.btnScholen.TabIndex = 4;
+            this.btnScholen.Text = "Scholen";
+            this.btnScholen.UseVisualStyleBackColor = true;
+            // 
+            // btnSpelers
+            // 
+            this.btnSpelers.Location = new System.Drawing.Point(0, 145);
+            this.btnSpelers.Name = "btnSpelers";
+            this.btnSpelers.Size = new System.Drawing.Size(200, 42);
+            this.btnSpelers.TabIndex = 3;
+            this.btnSpelers.Text = "Spelers";
+            this.btnSpelers.UseVisualStyleBackColor = true;
+            // 
+            // btnResultaten
+            // 
+            this.btnResultaten.Location = new System.Drawing.Point(0, 107);
+            this.btnResultaten.Name = "btnResultaten";
+            this.btnResultaten.Size = new System.Drawing.Size(200, 42);
+            this.btnResultaten.TabIndex = 2;
+            this.btnResultaten.Text = "Resultaten";
+            this.btnResultaten.UseVisualStyleBackColor = true;
+            // 
+            // btnHome
+            // 
+            this.btnHome.Location = new System.Drawing.Point(0, 68);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(200, 42);
+            this.btnHome.TabIndex = 1;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -143,34 +143,14 @@ namespace Praktijk_Opdracht.View
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
-            // label2
+            // lvSpeler
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(16, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Spelers:";
-            // 
-            // btnToevoegen
-            // 
-            this.btnToevoegen.Location = new System.Drawing.Point(16, 404);
-            this.btnToevoegen.Name = "btnToevoegen";
-            this.btnToevoegen.Size = new System.Drawing.Size(173, 42);
-            this.btnToevoegen.TabIndex = 1;
-            this.btnToevoegen.Text = "Toevoegen";
-            this.btnToevoegen.UseVisualStyleBackColor = true;
-            // 
-            // btnWijzigen
-            // 
-            this.btnWijzigen.Location = new System.Drawing.Point(216, 404);
-            this.btnWijzigen.Name = "btnWijzigen";
-            this.btnWijzigen.Size = new System.Drawing.Size(173, 42);
-            this.btnWijzigen.TabIndex = 2;
-            this.btnWijzigen.Text = "Wijzigen";
-            this.btnWijzigen.UseVisualStyleBackColor = true;
-            this.btnWijzigen.Click += new System.EventHandler(this.btnWijzigen_Click);
+            this.lvSpeler.HideSelection = false;
+            this.lvSpeler.Location = new System.Drawing.Point(16, 45);
+            this.lvSpeler.Name = "lvSpeler";
+            this.lvSpeler.Size = new System.Drawing.Size(572, 342);
+            this.lvSpeler.TabIndex = 4;
+            this.lvSpeler.UseCompatibleStateImageBehavior = false;
             // 
             // btnVerwijderen
             // 
@@ -182,23 +162,43 @@ namespace Praktijk_Opdracht.View
             this.btnVerwijderen.UseVisualStyleBackColor = true;
             this.btnVerwijderen.Click += new System.EventHandler(this.btnVerwijderen_Click);
             // 
-            // lvSpeler
+            // btnWijzigen
             // 
-            this.lvSpeler.HideSelection = false;
-            this.lvSpeler.Location = new System.Drawing.Point(16, 45);
-            this.lvSpeler.Name = "lvSpeler";
-            this.lvSpeler.Size = new System.Drawing.Size(572, 342);
-            this.lvSpeler.TabIndex = 4;
-            this.lvSpeler.UseCompatibleStateImageBehavior = false;
+            this.btnWijzigen.Location = new System.Drawing.Point(216, 404);
+            this.btnWijzigen.Name = "btnWijzigen";
+            this.btnWijzigen.Size = new System.Drawing.Size(173, 42);
+            this.btnWijzigen.TabIndex = 2;
+            this.btnWijzigen.Text = "Wijzigen";
+            this.btnWijzigen.UseVisualStyleBackColor = true;
+            this.btnWijzigen.Click += new System.EventHandler(this.btnWijzigen_Click);
             // 
-            // Spelers
+            // btnToevoegen
+            // 
+            this.btnToevoegen.Location = new System.Drawing.Point(16, 404);
+            this.btnToevoegen.Name = "btnToevoegen";
+            this.btnToevoegen.Size = new System.Drawing.Size(173, 42);
+            this.btnToevoegen.TabIndex = 1;
+            this.btnToevoegen.Text = "Toevoegen";
+            this.btnToevoegen.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(16, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 25);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Spelers:";
+            // 
+            // FrmSpelers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Spelers";
+            this.Name = "FrmSpelers";
             this.Text = "Kickbokstoernooi de vlugge handjes";
             this.Load += new System.EventHandler(this.Spelers_Load);
             this.groupBox1.ResumeLayout(false);

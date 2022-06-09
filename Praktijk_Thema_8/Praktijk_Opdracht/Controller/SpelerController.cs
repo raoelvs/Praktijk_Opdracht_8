@@ -48,7 +48,7 @@ namespace Praktijk_Opdracht.Controller
 
                         string achternaam = (string)reader["Achternaam"];
                         DateTime geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
-                        int groep = (int)reader["Groep"];
+                        int groep = (byte)reader["Groep"];
 
                         // ophalen table school gegevens
                         int schoolId = (int)reader["SchoolId"];
@@ -97,6 +97,34 @@ namespace Praktijk_Opdracht.Controller
                     // Voer de query uit en vang de doctor op
                     rowsAffected = command.ExecuteNonQuery();
 
+                }
+            }
+            return rowsAffected;
+        }
+
+        public int Update(SpelerModel update)
+        {
+            int rowsAffected = 0;
+            string sqlQuery = "UPDATE Speler SET Voornaam = @VoornaamValue, Tussenvoegsel = @TussenvoegselValue, Achternaam = @AchternaamValue, Geboortedatum = " +
+                "@GeboortedatumValue, Groep = @GroepValue, SchoolId = @SchoolIdValue WHERE SpelerId = @SpelerIdValue ";
+
+            // Opstarten connection
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                // Opstarten van SqlCommand
+                using (SqlCommand command = new SqlCommand(sqlQuery, con))
+                {
+                    command.Parameters.AddWithValue("SpelerIdValue", update.SpelerId);
+                    command.Parameters.AddWithValue("VoornaamValue", update.Voornaam);
+                    command.Parameters.AddWithValue("TussenvoegselValue", update.Tussenvoegsel);
+                    command.Parameters.AddWithValue("AchternaamValue", update.Achternaam);
+                    command.Parameters.AddWithValue("GeboortedatumValue", update.Geboortedatum);
+                    command.Parameters.AddWithValue("GroepValue", update.Groep);
+                    command.Parameters.AddWithValue("SchoolIdValue", update.SchoolId);
+
+                    con.Open();
+
+                    rowsAffected = command.ExecuteNonQuery();
                 }
             }
             return rowsAffected;

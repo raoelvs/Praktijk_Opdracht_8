@@ -41,8 +41,9 @@ namespace Praktijk_Opdracht
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Location = new System.Drawing.Point(0, 0);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(173, 40);
+            this.btnClose.Size = new System.Drawing.Size(151, 30);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Sluiten";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -52,9 +53,10 @@ namespace Praktijk_Opdracht
             // 
             this.btnExportCSV.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnExportCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportCSV.Location = new System.Drawing.Point(315, 0);
+            this.btnExportCSV.Location = new System.Drawing.Point(276, 0);
+            this.btnExportCSV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExportCSV.Name = "btnExportCSV";
-            this.btnExportCSV.Size = new System.Drawing.Size(173, 40);
+            this.btnExportCSV.Size = new System.Drawing.Size(151, 30);
             this.btnExportCSV.TabIndex = 1;
             this.btnExportCSV.Text = "CSV exporteren";
             this.btnExportCSV.UseVisualStyleBackColor = true;
@@ -63,12 +65,14 @@ namespace Praktijk_Opdracht
             // 
             this.btnInlog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInlog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInlog.Location = new System.Drawing.Point(627, 0);
+            this.btnInlog.Location = new System.Drawing.Point(549, 0);
+            this.btnInlog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInlog.Name = "btnInlog";
-            this.btnInlog.Size = new System.Drawing.Size(173, 40);
+            this.btnInlog.Size = new System.Drawing.Size(151, 30);
             this.btnInlog.TabIndex = 2;
             this.btnInlog.Text = "Inloggen";
             this.btnInlog.UseVisualStyleBackColor = true;
+            this.btnInlog.Click += new System.EventHandler(this.btnInlog_Click);
             // 
             // panel1
             // 
@@ -77,17 +81,19 @@ namespace Praktijk_Opdracht
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnInlog);
             this.panel1.Controls.Add(this.btnExportCSV);
-            this.panel1.Location = new System.Drawing.Point(0, 410);
+            this.panel1.Location = new System.Drawing.Point(0, 308);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 40);
+            this.panel1.Size = new System.Drawing.Size(700, 30);
             this.panel1.TabIndex = 3;
             // 
             // StartView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "StartView";
             this.Text = "De Vluggehandjes";
             this.panel1.ResumeLayout(false);
