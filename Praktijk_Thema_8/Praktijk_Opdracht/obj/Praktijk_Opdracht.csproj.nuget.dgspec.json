@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Applicaties\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj": {}
+    "C:\\Users\\jarno\\source\\repos\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj": {}
   },
   "projects": {
-    "D:\\Applicaties\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj": {
+    "C:\\Users\\jarno\\source\\repos\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Applicaties\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj",
+        "projectUniqueName": "C:\\Users\\jarno\\source\\repos\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj",
         "projectName": "Praktijk_Opdracht",
-        "projectPath": "D:\\Applicaties\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj",
-        "packagesPath": "C:\\Users\\quint\\.nuget\\packages\\",
-        "outputPath": "D:\\Applicaties\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\obj\\",
+        "projectPath": "C:\\Users\\jarno\\source\\repos\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj",
+        "packagesPath": "C:\\Users\\jarno\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jarno\\source\\repos\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\quint\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jarno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }
