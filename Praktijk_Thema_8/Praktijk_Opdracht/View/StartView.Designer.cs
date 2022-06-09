@@ -1,7 +1,7 @@
 ﻿
 namespace Praktijk_Opdracht
 {
-    partial class Form1
+    partial class StartView
     {
         /// <summary>
         ///  Required designer variable.

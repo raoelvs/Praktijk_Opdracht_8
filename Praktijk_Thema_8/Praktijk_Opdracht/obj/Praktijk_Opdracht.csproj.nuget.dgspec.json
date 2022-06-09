@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Applicaties\\Praktijk_Thema_8\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj": {}
+    "D:\\Applicaties\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj": {}
   },
   "projects": {
-    "C:\\Applicaties\\Praktijk_Thema_8\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj": {
+    "D:\\Applicaties\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Applicaties\\Praktijk_Thema_8\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj",
+        "projectUniqueName": "D:\\Applicaties\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj",
         "projectName": "Praktijk_Opdracht",
-        "projectPath": "C:\\Applicaties\\Praktijk_Thema_8\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj",
-        "packagesPath": "C:\\Users\\raoel\\.nuget\\packages\\",
-        "outputPath": "C:\\Applicaties\\Praktijk_Thema_8\\Praktijk_Thema_8\\Praktijk_Opdracht\\obj\\",
+        "projectPath": "D:\\Applicaties\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\Praktijk_Opdracht.csproj",
+        "packagesPath": "C:\\Users\\quint\\.nuget\\packages\\",
+        "outputPath": "D:\\Applicaties\\T8_Project\\Praktijk_Thema_8\\Praktijk_Opdracht\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\raoel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\quint\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
