@@ -85,7 +85,7 @@ namespace Praktijk_Opdracht.Controller
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 // Opstarten van SqlCommand
-                string query = "DELETE FROM Speler WHERE SpelerId = @SpelerIdValue"; // Query nog aanpassen!
+                string query = "DELETE FROM Speler WHERE SpelerId = @SpelerIdValue"; // Query nog aanpassen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
