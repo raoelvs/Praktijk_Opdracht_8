@@ -14,7 +14,7 @@ namespace Praktijk_Opdracht.Model
         public DateTime Eindtijd { get; set; }
         public SpelerModel Thuis { get; set; }
         public SpelerModel Uit { get; set; }
-        public ScheidsrechterModel Scheidsrechter { get; set; }
+        public ScheidsrechterModel ScheidsrechterCode { get; set; }
         public SpelerModel Winnaar { get; set; }
     }
 }
