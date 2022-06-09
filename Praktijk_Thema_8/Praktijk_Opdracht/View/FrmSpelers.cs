@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace Praktijk_Opdracht.View
 {
-    public partial class Spelers : Form
+    public partial class FrmSpelers : Form
     {
 
         SpelerController spelerController = new SpelerController();
 
-        public Spelers()
+        public FrmSpelers()
         {
             InitializeComponent();
         }
@@ -102,6 +102,16 @@ namespace Praktijk_Opdracht.View
             }
 
             FillListVieuw();
+        }
+
+        private void btnWijzigen_Click(object sender, EventArgs e)
+        {
+            SpelerModel toBeUpdated = (SpelerModel)lvSpeler.SelectedItems[0].Tag;
+
+            // Versturen naar nieuw UI
+            FrmSpelerUpdate frm = new FrmSpelerUpdate(toBeUpdated);
+            frm.Show();
+
         }
     }
 }

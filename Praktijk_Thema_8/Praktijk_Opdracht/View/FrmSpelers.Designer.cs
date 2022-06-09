@@ -1,7 +1,7 @@
 ﻿
 namespace Praktijk_Opdracht.View
 {
-    partial class Spelers
+    partial class FrmSpelers
     {
         /// <summary>
         /// Required designer variable.
@@ -170,6 +170,7 @@ namespace Praktijk_Opdracht.View
             this.btnWijzigen.TabIndex = 2;
             this.btnWijzigen.Text = "Wijzigen";
             this.btnWijzigen.UseVisualStyleBackColor = true;
+            this.btnWijzigen.Click += new System.EventHandler(this.btnWijzigen_Click);
             // 
             // btnVerwijderen
             // 
