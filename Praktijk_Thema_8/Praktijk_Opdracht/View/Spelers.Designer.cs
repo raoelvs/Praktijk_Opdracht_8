@@ -185,7 +185,7 @@ namespace Praktijk_Opdracht.View
             this.lvSpeler.HideSelection = false;
             this.lvSpeler.Location = new System.Drawing.Point(16, 45);
             this.lvSpeler.Name = "lvSpeler";
-            this.lvSpeler.Size = new System.Drawing.Size(572, 325);
+            this.lvSpeler.Size = new System.Drawing.Size(572, 342);
             this.lvSpeler.TabIndex = 4;
             this.lvSpeler.UseCompatibleStateImageBehavior = false;
             // 
