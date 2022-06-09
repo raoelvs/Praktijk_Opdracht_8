@@ -179,6 +179,7 @@ namespace Praktijk_Opdracht.View
             this.btnVerwijderen.TabIndex = 3;
             this.btnVerwijderen.Text = "Verwijderen";
             this.btnVerwijderen.UseVisualStyleBackColor = true;
+            this.btnVerwijderen.Click += new System.EventHandler(this.btnVerwijderen_Click);
             // 
             // lvSpeler
             // 

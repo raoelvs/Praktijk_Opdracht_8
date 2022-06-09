@@ -76,5 +76,30 @@ namespace Praktijk_Opdracht.Controller
             }
             return resultList;
         }
+
+        public int Delete(SpelerModel speler)
+        {
+            int rowsAffected = 0;
+
+            // Opstarten connection
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                // Opstarten van SqlCommand
+                string query = "DELETE FROM Speler WHERE SpelerId = @SpelerIdValue"; // Query nog aanpassen!
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("SpelerIdValue", speler.SpelerId);
+
+                    // Open de connection
+                    conn.Open();
+
+                    // Voer de query uit en vang de doctor op
+                    rowsAffected = command.ExecuteNonQuery();
+
+                }
+            }
+            return rowsAffected;
+        }
     }
 }
