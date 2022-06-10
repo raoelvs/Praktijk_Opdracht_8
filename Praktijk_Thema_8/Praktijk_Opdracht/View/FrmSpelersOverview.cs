@@ -102,19 +102,25 @@ namespace Praktijk_Opdracht.View
 
         private void btnWijzigen_Click(object sender, EventArgs e)
         {
+            //het sluiten van huidige sherm
+            this.Hide();
+
             SpelerModel toBeUpdated = (SpelerModel) lvSpeler.SelectedItems[0].Tag;
 
             // Versturen naar nieuw UI
             FrmSpelerUpdate frm = new FrmSpelerUpdate(toBeUpdated);
             frm.Show();
 
-            //frm.ShowDialog();
+            frm.ShowDialog();
 
             FillListVieuw();
         }
 
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
+            //het sluiten van huidige sherm
+            this.Hide();
+
             FrmSpelerAdd frm = new FrmSpelerAdd();
 
             DialogResult result = frm.ShowDialog();
@@ -154,8 +160,21 @@ namespace Praktijk_Opdracht.View
 
         private void btnResultaten_Click(object sender, EventArgs e)
         {
+            //het sluiten van huidige sherm
+            this.Hide();
+
             //opent frm resultaten overview
             FrmResultatenOverview frm = new FrmResultatenOverview();
+            frm.Show();
+        }
+
+        private void btnScheidsrechter_Click(object sender, EventArgs e)
+        {
+            //het sluiten van huidige sherm
+            this.Hide();
+
+            // opent frm scheidsrechter overview
+            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
             frm.Show();
         }
     }
