@@ -94,7 +94,7 @@ namespace Praktijk_Opdracht.View
             FrmScheidsrechterUpdate frm = new FrmScheidsrechterUpdate(toBeUpdated);
             frm.Show();
 
-            frm.ShowDialog();
+            //frm.ShowDialog();
 
             FillListVieuw();
         }

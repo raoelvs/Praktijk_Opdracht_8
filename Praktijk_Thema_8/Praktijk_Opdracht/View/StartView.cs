@@ -29,8 +29,8 @@ namespace Praktijk_Opdracht
             
             
             // code om frm spelers te starten om een test te doen
-            //FrmSpelersOverview frm = new FrmSpelersOverview();
-            //frm.Show();
+            FrmSpelersOverview frm = new FrmSpelersOverview();
+            frm.Show();
         }
     }
 }

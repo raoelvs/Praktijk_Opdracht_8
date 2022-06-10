@@ -73,9 +73,9 @@ namespace Praktijk_Opdracht.Controller
         }
 
         /// <summary>
-        /// This methode is for updating the speler
+        /// This methode is for updating the Scheidsrechter
         /// </summary>
-        /// <param name="update"> This variable has the new information to change the speler</param>
+        /// <param name="update"> This variable has the new information to change the Scheidsrechter</param>
         /// <returns> The rows affected </returns>
         public int Update(ScheidsrechterModel update)
         {

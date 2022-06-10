@@ -111,7 +111,7 @@ namespace Praktijk_Opdracht.View
             FrmSpelerUpdate frm = new FrmSpelerUpdate(toBeUpdated);
             frm.Show();
 
-            frm.ShowDialog();
+            //frm.ShowDialog();
 
             FillListVieuw();
         }
