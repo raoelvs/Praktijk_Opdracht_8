@@ -176,7 +176,6 @@ namespace Praktijk_Opdracht.Controller
                     rowsAffected = command.ExecuteNonQuery();
                 }
             }
-
             return rowsAffected;
         }
 

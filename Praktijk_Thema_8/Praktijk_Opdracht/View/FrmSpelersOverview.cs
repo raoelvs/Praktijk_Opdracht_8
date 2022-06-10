@@ -151,5 +151,12 @@ namespace Praktijk_Opdracht.View
         {
             this.Close();
         }
+
+        private void btnResultaten_Click(object sender, EventArgs e)
+        {
+            //opent frm resultaten overview
+            FrmResultatenOverview frm = new FrmResultatenOverview();
+            frm.Show();
+        }
     }
 }

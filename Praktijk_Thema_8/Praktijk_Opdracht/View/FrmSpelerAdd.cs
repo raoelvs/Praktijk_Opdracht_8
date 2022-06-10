@@ -27,7 +27,7 @@ namespace Praktijk_Opdracht.View
 
             foreach(SpelerModel speler in spelers)
             {
-                cbSchool.Items.Add(speler.SchoolId + speler.SchoolId.Naam);
+                cbSchool.Items.Add(speler.SchoolId.Naam);
             }
         }
 
@@ -59,6 +59,20 @@ namespace Praktijk_Opdracht.View
             }
 
             this.Close();
+        }
+
+        private void btnResultaten_Click(object sender, EventArgs e)
+        {
+            //opent frm resultaten overview
+            FrmResultatenOverview frm = new FrmResultatenOverview();
+            frm.Show();
+        }
+
+        private void btnSpelers_Click(object sender, EventArgs e)
+        {
+            // opent frm spelers overview
+            FrmSpelersOverview frm = new FrmSpelersOverview();
+            frm.Show();
         }
     }
 }

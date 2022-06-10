@@ -219,6 +219,7 @@ namespace Praktijk_Opdracht.View
             this.btnSpelers.TabIndex = 3;
             this.btnSpelers.Text = "Spelers";
             this.btnSpelers.UseVisualStyleBackColor = true;
+            this.btnSpelers.Click += new System.EventHandler(this.btnSpelers_Click);
             // 
             // btnResultaten
             // 
@@ -228,6 +229,7 @@ namespace Praktijk_Opdracht.View
             this.btnResultaten.TabIndex = 2;
             this.btnResultaten.Text = "Resultaten";
             this.btnResultaten.UseVisualStyleBackColor = true;
+            this.btnResultaten.Click += new System.EventHandler(this.btnResultaten_Click);
             // 
             // btnHome
             // 

@@ -57,7 +57,6 @@ namespace Praktijk_Opdracht.View
             updatedspeler.Groep = Convert.ToInt32(txtGroep.Text);
             updatedspeler.SchoolId.Naam = cbSchool.Text;  //////////////////// aanpassen naar een model nog geen idee hoe >:) 
 
-
             //doctor nummer gebruiken van de geslecteerde doctor uit listview
             updatedspeler.SpelerId = permSpeler.SpelerId;
 
