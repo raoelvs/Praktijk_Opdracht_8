@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace Praktijk_Opdracht.View
 {
-    public partial class FrmSpelers : Form
+    public partial class FrmSpelersOverview : Form
     {
 
         SpelerController spelerController = new SpelerController();
 
-        public FrmSpelers()
+        public FrmSpelersOverview()
         {
             InitializeComponent();
         }
