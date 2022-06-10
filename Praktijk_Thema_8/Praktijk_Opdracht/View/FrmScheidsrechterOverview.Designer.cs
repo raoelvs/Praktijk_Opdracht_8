@@ -1,7 +1,7 @@
 ﻿
 namespace Praktijk_Opdracht.View
 {
-    partial class FrmSpelersOverview
+    partial class FrmScheidsrechterOverview
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@ namespace Praktijk_Opdracht.View
             this.btnResultaten = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lvSpeler = new System.Windows.Forms.ListView();
+            this.lvScheidsrechter = new System.Windows.Forms.ListView();
             this.btnVerwijderen = new System.Windows.Forms.Button();
             this.btnWijzigen = new System.Windows.Forms.Button();
             this.btnToevoegen = new System.Windows.Forms.Button();
@@ -68,10 +68,10 @@ namespace Praktijk_Opdracht.View
             this.groupBox1.Controls.Add(this.btnResultaten);
             this.groupBox1.Controls.Add(this.btnHome);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(0, -8);
+            this.groupBox1.Location = new System.Drawing.Point(0, -4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 459);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
             // btnScheidsrechter
@@ -82,7 +82,6 @@ namespace Praktijk_Opdracht.View
             this.btnScheidsrechter.TabIndex = 6;
             this.btnScheidsrechter.Text = "Scheidsrechters";
             this.btnScheidsrechter.UseVisualStyleBackColor = true;
-            this.btnScheidsrechter.Click += new System.EventHandler(this.btnScheidsrechter_Click);
             // 
             // btnSluiten
             // 
@@ -120,7 +119,6 @@ namespace Praktijk_Opdracht.View
             this.btnResultaten.TabIndex = 2;
             this.btnResultaten.Text = "Resultaten";
             this.btnResultaten.UseVisualStyleBackColor = true;
-            this.btnResultaten.Click += new System.EventHandler(this.btnResultaten_Click);
             // 
             // btnHome
             // 
@@ -135,26 +133,26 @@ namespace Praktijk_Opdracht.View
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.lvSpeler);
+            this.groupBox2.Controls.Add(this.lvScheidsrechter);
             this.groupBox2.Controls.Add(this.btnVerwijderen);
             this.groupBox2.Controls.Add(this.btnWijzigen);
             this.groupBox2.Controls.Add(this.btnToevoegen);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(200, -8);
+            this.groupBox2.Location = new System.Drawing.Point(200, -4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(600, 459);
-            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             // 
-            // lvSpeler
+            // lvScheidsrechter
             // 
-            this.lvSpeler.HideSelection = false;
-            this.lvSpeler.Location = new System.Drawing.Point(16, 45);
-            this.lvSpeler.Name = "lvSpeler";
-            this.lvSpeler.Size = new System.Drawing.Size(572, 342);
-            this.lvSpeler.TabIndex = 4;
-            this.lvSpeler.UseCompatibleStateImageBehavior = false;
-            this.lvSpeler.SelectedIndexChanged += new System.EventHandler(this.lvSpeler_SelectedIndexChanged);
+            this.lvScheidsrechter.HideSelection = false;
+            this.lvScheidsrechter.Location = new System.Drawing.Point(16, 45);
+            this.lvScheidsrechter.Name = "lvScheidsrechter";
+            this.lvScheidsrechter.Size = new System.Drawing.Size(572, 342);
+            this.lvScheidsrechter.TabIndex = 4;
+            this.lvScheidsrechter.UseCompatibleStateImageBehavior = false;
+            this.lvScheidsrechter.SelectedIndexChanged += new System.EventHandler(this.lvScheidsrechter_SelectedIndexChanged);
             // 
             // btnVerwijderen
             // 
@@ -165,7 +163,6 @@ namespace Praktijk_Opdracht.View
             this.btnVerwijderen.TabIndex = 3;
             this.btnVerwijderen.Text = "Verwijderen";
             this.btnVerwijderen.UseVisualStyleBackColor = true;
-            this.btnVerwijderen.Click += new System.EventHandler(this.btnVerwijderen_Click);
             // 
             // btnWijzigen
             // 
@@ -186,7 +183,6 @@ namespace Praktijk_Opdracht.View
             this.btnToevoegen.TabIndex = 1;
             this.btnToevoegen.Text = "Toevoegen";
             this.btnToevoegen.UseVisualStyleBackColor = true;
-            this.btnToevoegen.Click += new System.EventHandler(this.btnToevoegen_Click);
             // 
             // label2
             // 
@@ -194,20 +190,20 @@ namespace Praktijk_Opdracht.View
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(16, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 25);
+            this.label2.Size = new System.Drawing.Size(140, 25);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Spelers:";
+            this.label2.Text = "Scheidsrechter:";
             // 
-            // FrmSpelersOverview
+            // FrmScheidsrechterOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmSpelersOverview";
-            this.Text = "Kickbokstoernooi de vlugge handjes";
-            this.Load += new System.EventHandler(this.Spelers_Load);
+            this.Controls.Add(this.groupBox2);
+            this.Name = "FrmScheidsrechterOverview";
+            this.Text = "FrmScheidsrechterOverview";
+            this.Load += new System.EventHandler(this.FrmScheidsrechterOverview_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -227,7 +223,7 @@ namespace Praktijk_Opdracht.View
         private System.Windows.Forms.Button btnResultaten;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ListView lvSpeler;
+        private System.Windows.Forms.ListView lvScheidsrechter;
         private System.Windows.Forms.Button btnVerwijderen;
         private System.Windows.Forms.Button btnWijzigen;
         private System.Windows.Forms.Button btnToevoegen;

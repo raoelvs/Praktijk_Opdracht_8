@@ -1,7 +1,7 @@
 ﻿
 namespace Praktijk_Opdracht.View
 {
-    partial class FrmSpelerAdd
+    partial class FrmScheidsrechterUpdate
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,9 @@ namespace Praktijk_Opdracht.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpGeboortedatum = new System.Windows.Forms.DateTimePicker();
-            this.cbSchool = new System.Windows.Forms.ComboBox();
-            this.txtGroep = new System.Windows.Forms.TextBox();
             this.txtAchternaam = new System.Windows.Forms.TextBox();
             this.txtTussenvoegsel = new System.Windows.Forms.TextBox();
             this.txtVoornaam = new System.Windows.Forms.TextBox();
@@ -50,39 +44,12 @@ namespace Praktijk_Opdracht.View
             this.btnSpelers = new System.Windows.Forms.Button();
             this.btnResultaten = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(61, 267);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 15);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "School";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(61, 226);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 15);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Groep";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(61, 190);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 15);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Geboortedatum";
             // 
             // label5
             // 
@@ -110,28 +77,6 @@ namespace Praktijk_Opdracht.View
             this.label3.Size = new System.Drawing.Size(61, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "Voornaam";
-            // 
-            // dtpGeboortedatum
-            // 
-            this.dtpGeboortedatum.Location = new System.Drawing.Point(200, 184);
-            this.dtpGeboortedatum.Name = "dtpGeboortedatum";
-            this.dtpGeboortedatum.Size = new System.Drawing.Size(200, 23);
-            this.dtpGeboortedatum.TabIndex = 9;
-            // 
-            // cbSchool
-            // 
-            this.cbSchool.FormattingEnabled = true;
-            this.cbSchool.Location = new System.Drawing.Point(200, 264);
-            this.cbSchool.Name = "cbSchool";
-            this.cbSchool.Size = new System.Drawing.Size(200, 23);
-            this.cbSchool.TabIndex = 8;
-            // 
-            // txtGroep
-            // 
-            this.txtGroep.Location = new System.Drawing.Point(200, 223);
-            this.txtGroep.Name = "txtGroep";
-            this.txtGroep.Size = new System.Drawing.Size(200, 23);
-            this.txtGroep.TabIndex = 7;
             // 
             // txtAchternaam
             // 
@@ -219,7 +164,6 @@ namespace Praktijk_Opdracht.View
             this.btnSpelers.TabIndex = 3;
             this.btnSpelers.Text = "Spelers";
             this.btnSpelers.UseVisualStyleBackColor = true;
-            this.btnSpelers.Click += new System.EventHandler(this.btnSpelers_Click);
             // 
             // btnResultaten
             // 
@@ -229,7 +173,6 @@ namespace Praktijk_Opdracht.View
             this.btnResultaten.TabIndex = 2;
             this.btnResultaten.Text = "Resultaten";
             this.btnResultaten.UseVisualStyleBackColor = true;
-            this.btnResultaten.Click += new System.EventHandler(this.btnResultaten_Click);
             // 
             // btnHome
             // 
@@ -239,6 +182,23 @@ namespace Praktijk_Opdracht.View
             this.btnHome.TabIndex = 1;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.btnScheidsrechter);
+            this.groupBox1.Controls.Add(this.btnSluiten);
+            this.groupBox1.Controls.Add(this.btnScholen);
+            this.groupBox1.Controls.Add(this.btnSpelers);
+            this.groupBox1.Controls.Add(this.btnResultaten);
+            this.groupBox1.Controls.Add(this.btnHome);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(0, -4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 459);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
             // 
             // label1
             // 
@@ -254,73 +214,44 @@ namespace Praktijk_Opdracht.View
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.dtpGeboortedatum);
-            this.groupBox2.Controls.Add(this.cbSchool);
-            this.groupBox2.Controls.Add(this.txtGroep);
             this.groupBox2.Controls.Add(this.txtAchternaam);
             this.groupBox2.Controls.Add(this.txtTussenvoegsel);
             this.groupBox2.Controls.Add(this.txtVoornaam);
             this.groupBox2.Controls.Add(this.btnOpslaan);
             this.groupBox2.Controls.Add(this.btnAnnuleren);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(200, -12);
+            this.groupBox2.Location = new System.Drawing.Point(200, -4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(600, 467);
+            this.groupBox2.Size = new System.Drawing.Size(600, 459);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.btnScheidsrechter);
-            this.groupBox1.Controls.Add(this.btnSluiten);
-            this.groupBox1.Controls.Add(this.btnScholen);
-            this.groupBox1.Controls.Add(this.btnSpelers);
-            this.groupBox1.Controls.Add(this.btnResultaten);
-            this.groupBox1.Controls.Add(this.btnHome);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(0, -12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 467);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            // 
-            // FrmSpelerAdd
+            // FrmScheidsrechterUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmSpelerAdd";
-            this.Text = "FrmSpelerAdd";
-            this.Load += new System.EventHandler(this.FrmSpelerAdd_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.Controls.Add(this.groupBox2);
+            this.Name = "FrmScheidsrechterUpdate";
+            this.Text = "FrmScheidsrechterUpdate";
+            this.Load += new System.EventHandler(this.FrmScheidsrechterUpdate_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpGeboortedatum;
-        private System.Windows.Forms.ComboBox cbSchool;
-        private System.Windows.Forms.TextBox txtGroep;
         private System.Windows.Forms.TextBox txtAchternaam;
         private System.Windows.Forms.TextBox txtTussenvoegsel;
         private System.Windows.Forms.TextBox txtVoornaam;
@@ -333,8 +264,8 @@ namespace Praktijk_Opdracht.View
         private System.Windows.Forms.Button btnSpelers;
         private System.Windows.Forms.Button btnResultaten;
         private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

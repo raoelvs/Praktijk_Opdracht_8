@@ -102,6 +102,9 @@ namespace Praktijk_Opdracht.View
 
         private void btnWijzigen_Click(object sender, EventArgs e)
         {
+            //het sluiten van huidige sherm
+            this.Hide();
+
             SpelerModel toBeUpdated = (SpelerModel) lvSpeler.SelectedItems[0].Tag;
 
             // Versturen naar nieuw UI
@@ -111,6 +114,68 @@ namespace Praktijk_Opdracht.View
             //frm.ShowDialog();
 
             FillListVieuw();
+        }
+
+        private void btnToevoegen_Click(object sender, EventArgs e)
+        {
+            //het sluiten van huidige sherm
+            this.Hide();
+
+            FrmSpelerAdd frm = new FrmSpelerAdd();
+
+            DialogResult result = frm.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show("Speler is toegevoegd");
+            }
+            else
+            {
+                MessageBox.Show("Het is niet gelukt om de speler toe te voegen");
+            }
+
+            FillListVieuw();
+        }
+
+        private void lvSpeler_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int amountSelected = lvSpeler.SelectedItems.Count;
+
+            if (amountSelected > 0)
+            {
+                btnVerwijderen.Enabled = true;
+                btnWijzigen.Enabled = true;
+            }
+            else
+            {
+                btnVerwijderen.Enabled = false;
+                btnWijzigen.Enabled = false;
+            }
+        }
+
+        private void btnSluiten_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnResultaten_Click(object sender, EventArgs e)
+        {
+            //het sluiten van huidige sherm
+            this.Hide();
+
+            //opent frm resultaten overview
+            FrmResultatenOverview frm = new FrmResultatenOverview();
+            frm.Show();
+        }
+
+        private void btnScheidsrechter_Click(object sender, EventArgs e)
+        {
+            //het sluiten van huidige sherm
+            this.Hide();
+
+            // opent frm scheidsrechter overview
+            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
+            frm.Show();
         }
     }
 }
