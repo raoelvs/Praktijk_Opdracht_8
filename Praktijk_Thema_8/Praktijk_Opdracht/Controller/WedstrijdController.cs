@@ -18,7 +18,7 @@ namespace Praktijk_Opdracht.Controller
             List<WedstrijdModel> list = new List<WedstrijdModel>();
             using(SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "";
+                string query = "SELECT * FROM vWedstrijden";
                 using(SqlCommand command = new SqlCommand(query,con))
                 {
                     con.Open();
@@ -34,32 +34,86 @@ namespace Praktijk_Opdracht.Controller
                         item.Ronde = (int)reader["Ronde"];
 
                         ScheidsrechterModel scheidsrechter = new ScheidsrechterModel();
+                        scheidsrechter.ScheidsrechterCode = (string)reader["ScheidsrechterCode"];
+                        scheidsrechter.Voornaam = (string)reader["ScheidsrechterVoornaam"];
+                        scheidsrechter.Tussenvoegsel = "";
+                        if (reader["ScheidsrechterTussenvoegsel"] != DBNull.Value)
+                        {
+                            scheidsrechter.Tussenvoegsel = (string)reader["ScheidsrechterTussenvoegsel"];
+                        }
+                        scheidsrechter.Achternaam = (string)reader["ScheidsrechterAchternaam"];
+                        scheidsrechter.Wachtwoord = (string)reader["Wachtwoord"];
 
                         SpelerModel thuis = new SpelerModel();
-                        thuis.SpelerId = (int)reader["ThuisId"];
+                        thuis.SpelerId = (int)reader["Thuis"];
                         thuis.Voornaam = (string)reader["ThuisVoornaam"];
-                        thuis.Tussenvoegsel = (string)reader["ThuisTussenvoegsel"];
+                        thuis.Tussenvoegsel = "";
+                        if (reader["ThuisTussenvoegsel"] != DBNull.Value)
+                        {
+                            thuis.Tussenvoegsel = (string)reader["ThuisTussenvoegsel"];
+                        }
                         thuis.Achternaam = (string)reader["ThuisAchternaam"];
                         thuis.Groep = (int)reader["ThuisGroep"];
                         thuis.Geboortedatum = (DateTime)reader["ThuisGeboortedatum"];
 
                         SchoolModel thuisSchool = new SchoolModel();
                         thuisSchool.SchoolId = (int)reader["ThuisSchoolId"];
-                        thuisSchool.Naam = (string)reader["ThuisNaam"];
+                        thuisSchool.Naam = (string)reader["ThuisSchoolNaam"];
 
                         SpelerModel uit = new SpelerModel();
-                        uit.SpelerId = (int)reader["UitId"];
+                        uit.SpelerId = (int)reader["Uit"];
                         uit.Voornaam = (string)reader["UitVoornaam"];
-                        uit.Tussenvoegsel = (string)reader["UitTussenvoegsel"];
+                        uit.Tussenvoegsel = "";
+                        if (reader["UitTussenvoegsel"] != DBNull.Value)
+                        {
+                            uit.Tussenvoegsel = (string)reader["UitTussenvoegsel"];
+                        }                        
                         uit.Achternaam = (string)reader["UitAchternaam"];
                         uit.Groep = (int)reader["UitGroep"];
                         uit.Geboortedatum = (DateTime)reader["UitGeboortedatum"];
 
                         SchoolModel uitSchool = new SchoolModel();
                         uitSchool.SchoolId = (int)reader["UitSchoolId"];
-                        uitSchool.Naam = (string)reader["UitNaam"];
+                        uitSchool.Naam = (string)reader["UitSchoolNaam"];
 
                         SpelerModel winnaar = new SpelerModel();
+                        winnaar.SpelerId = 0;
+                        winnaar.Voornaam = "";
+                        winnaar.Tussenvoegsel = "";
+                        winnaar.Achternaam = "";
+                        winnaar.Groep = 0;
+                        winnaar.Geboortedatum = DateTime.MinValue;
+
+                        SchoolModel winnaarSchool = new SchoolModel();
+                        winnaarSchool.SchoolId = 0;
+                        winnaarSchool.Naam = "";
+
+                        if (reader["Winnaar"] != DBNull.Value)
+                        {
+                            winnaar.SpelerId = (int)reader["Winnaar"];
+                            winnaar.Voornaam = (string)reader["WinnaarVoornaam"];
+                            winnaar.Tussenvoegsel = "";
+                            if (reader["WinnaarTussenvoegsel"] != DBNull.Value)
+                            {
+                                winnaar.Tussenvoegsel = (string)reader["WinnaarTussenvoegsel"];
+                            }                            
+                            winnaar.Achternaam = (string)reader["WinnaarAchternaam"];
+                            winnaar.Groep = (int)reader["WinnaarGroep"];
+                            winnaar.Geboortedatum = (DateTime)reader["WinnaarGeboortedatum"];
+
+                            winnaarSchool.SchoolId = (int)reader["WinnaarSchoolId"];
+                            winnaarSchool.Naam = (string)reader["WinnaarSchoolNaam"];
+                        }
+                        winnaar.SchoolId = winnaarSchool;
+                        uit.SchoolId = uitSchool;
+                        thuis.SchoolId = thuisSchool;
+
+                        item.ScheidsrechterCode = scheidsrechter;
+                        item.Thuis = thuis;
+                        item.Uit = uit;
+                        item.Winnaar = winnaar;
+
+                        list.Add(item);
                     }
                 }
             }
