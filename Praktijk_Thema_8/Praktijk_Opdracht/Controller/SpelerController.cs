@@ -87,7 +87,7 @@ namespace Praktijk_Opdracht.Controller
         }
 
         /// <summary>
-        /// This methode deletes the speler from database at all tables
+        /// This method deletes the speler from database at all tables
         /// </summary>
         /// <param name="speler"> this variable has the speler that needs to be deleted</param>
         /// <returns> The rows affected </returns>
@@ -99,7 +99,7 @@ namespace Praktijk_Opdracht.Controller
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 // Opstarten van SqlCommand
-                string query = "DELETE FROM Speler WHERE SpelerId = @SpelerIdValue"; // Query nog aanpassen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                string query = "DELETE FROM Speler WHERE SpelerId = @SpelerIdValue"; // Query nog aanpassen vanwegen constraint
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {

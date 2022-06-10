@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -95,6 +96,37 @@ namespace Praktijk_Opdracht.View
             frm.Show();
 
             //frm.ShowDialog();
+
+            FillListVieuw();
+        }
+
+        private void btnVerwijderen_Click(object sender, EventArgs e)
+        {
+            // Welk item willen we verwijderen?
+            ScheidsrechterModel scheidsrechterDel = (ScheidsrechterModel)lvScheidsrechter.SelectedItems[0].Tag;
+
+            // Verwijderen! 
+            try
+            {
+                int doctor = scheidsrechterController.Delete(scheidsrechterDel);
+                MessageBox.Show("Het is geluk om de episode te verwijderen aantal rows affected: " + doctor);
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547)
+                {
+                    MessageBox.Show("Deze Speler (" + scheidsrechterDel.Voornaam + scheidsrechterDel.Tussenvoegsel + scheidsrechterDel.Achternaam + ") heeft nog een relatie met een andere tabel");
+                }
+                else
+                {
+                    MessageBox.Show("Onbekende database error");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Alle andere onbekende error (geen database error i.i.g)");
+                MessageBox.Show(ex.Message);
+            }
 
             FillListVieuw();
         }

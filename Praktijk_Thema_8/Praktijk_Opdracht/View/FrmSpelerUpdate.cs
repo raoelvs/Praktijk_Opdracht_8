@@ -71,12 +71,18 @@ namespace Praktijk_Opdracht.View
                 MessageBox.Show("Het is niet gelukt");
             }
 
-            this.Close();
+            this.Hide();
+
+            FrmSpelersOverview frm = new FrmSpelersOverview();
+            frm.Show();
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+
+            FrmSpelersOverview frm = new FrmSpelersOverview();
+            frm.Show();
         }
     }
 }

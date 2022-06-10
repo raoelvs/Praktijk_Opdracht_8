@@ -44,6 +44,8 @@ namespace Praktijk_Opdracht.View
 
             //speler gebruiken van de geslecteerde speler uit listview
             updatedScheidsrechter.ScheidsrechterCode = permScheidsrechter.ScheidsrechterCode;
+            updatedScheidsrechter.Wachtwoord = permScheidsrechter.Wachtwoord;
+
 
             try
             {
@@ -55,13 +57,19 @@ namespace Praktijk_Opdracht.View
                 MessageBox.Show("Het is niet gelukt");
             }
 
-            this.Close();
+            this.Hide();
+
+            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
+            frm.Show();
 
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+
+            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
+            frm.Show();
         }
     }
 }
