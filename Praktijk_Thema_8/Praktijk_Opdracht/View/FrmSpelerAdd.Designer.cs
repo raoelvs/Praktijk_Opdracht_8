@@ -162,6 +162,7 @@ namespace Praktijk_Opdracht.View
             this.btnOpslaan.TabIndex = 3;
             this.btnOpslaan.Text = "Opslaan";
             this.btnOpslaan.UseVisualStyleBackColor = true;
+            this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
             // 
             // btnAnnuleren
             // 
@@ -171,6 +172,7 @@ namespace Praktijk_Opdracht.View
             this.btnAnnuleren.TabIndex = 1;
             this.btnAnnuleren.Text = "Annuleren";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // label2
             // 
@@ -265,9 +267,9 @@ namespace Praktijk_Opdracht.View
             this.groupBox2.Controls.Add(this.btnOpslaan);
             this.groupBox2.Controls.Add(this.btnAnnuleren);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(200, -4);
+            this.groupBox2.Location = new System.Drawing.Point(200, -12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(600, 459);
+            this.groupBox2.Size = new System.Drawing.Size(600, 467);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             // 
@@ -282,9 +284,9 @@ namespace Praktijk_Opdracht.View
             this.groupBox1.Controls.Add(this.btnResultaten);
             this.groupBox1.Controls.Add(this.btnHome);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(0, -4);
+            this.groupBox1.Location = new System.Drawing.Point(0, -12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 459);
+            this.groupBox1.Size = new System.Drawing.Size(200, 467);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
@@ -297,6 +299,7 @@ namespace Praktijk_Opdracht.View
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSpelerAdd";
             this.Text = "FrmSpelerAdd";
+            this.Load += new System.EventHandler(this.FrmSpelerAdd_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

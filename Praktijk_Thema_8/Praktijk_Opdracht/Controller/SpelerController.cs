@@ -13,6 +13,11 @@ namespace Praktijk_Opdracht.Controller
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["connectionStringDeVluggehandjes"].ConnectionString;
 
+
+        /// <summary>
+        /// Real all methode to get information from the database
+        /// </summary>
+        /// <returns> This returns information from the tables Speler and School </returns>
         public List<SpelerModel> ReadAll()
         {
             List<SpelerModel> resultList = new List<SpelerModel>();
@@ -81,6 +86,11 @@ namespace Praktijk_Opdracht.Controller
             return resultList;
         }
 
+        /// <summary>
+        /// This methode deletes the speler from database at all tables
+        /// </summary>
+        /// <param name="speler"> this variable has the speler that needs to be deleted</param>
+        /// <returns> The rows affected </returns>
         public int Delete(SpelerModel speler)
         {
             int rowsAffected = 0;
@@ -106,6 +116,11 @@ namespace Praktijk_Opdracht.Controller
             return rowsAffected;
         }
 
+        /// <summary>
+        /// This methode is for updating the speler
+        /// </summary>
+        /// <param name="update"> This variable has the new information to change the speler</param>
+        /// <returns> The rows affected </returns>
         public int Update(SpelerModel update)
         {
             int rowsAffected = 0;
@@ -133,5 +148,37 @@ namespace Praktijk_Opdracht.Controller
             }
             return rowsAffected;
         }
+        
+        /// <summary>
+        /// This methode is to make a new speler in the database
+        /// </summary>
+        /// <param name="item"> In this variable item is the information to create a new speler</param>
+        /// <returns> The rows affected</returns>
+        public int Create(SpelerModel item)
+        {
+            int rowsAffected = 0;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string sqlQuery = "INSERT INTO Speler VALUES (@VoornaamValue, @TussenvoegselValue, @AchternaamValue, @GeboortedatumValue, @GroepValue, SchoolIdValue)";
+
+                using (SqlCommand command = new SqlCommand(sqlQuery, con))
+                {
+                    command.Parameters.AddWithValue("VoornaamValue", item.Voornaam);
+                    command.Parameters.AddWithValue("TussenvoegselValue", item.Tussenvoegsel);
+                    command.Parameters.AddWithValue("AchternaamValue", item.Achternaam);
+                    command.Parameters.AddWithValue("GeboortedatumValue", item.Geboortedatum);
+                    command.Parameters.AddWithValue("GroepValue", item.Groep);
+                    command.Parameters.AddWithValue("SchoolIdValue", item.SchoolId);
+
+                    con.Open();
+
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+
+            return rowsAffected;
+        }
+
     }
 }

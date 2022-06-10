@@ -39,7 +39,7 @@ namespace Praktijk_Opdracht.View
             foreach (SpelerModel item in schoolList)
             {
                 // Combobox Item vullen
-                cbSchool.Items.Add(item);
+                cbSchool.Items.Add(item.SchoolId);
             }
 
             cbSchool.Text = permSpeler.SchoolId.Naam;
@@ -55,23 +55,13 @@ namespace Praktijk_Opdracht.View
             updatedspeler.Achternaam = txtAchternaam.Text;
             updatedspeler.Geboortedatum = dtpGeboortedatum.Value;
             updatedspeler.Groep = Convert.ToInt32(txtGroep.Text);
-            updatedspeler.SchoolId.Naam = cbSchool.Text; 
+            updatedspeler.SchoolId.Naam = cbSchool.Text;  //////////////////// aanpassen naar een model nog geen idee hoe >:) 
 
 
             //doctor nummer gebruiken van de geslecteerde doctor uit listview
             updatedspeler.SpelerId = permSpeler.SpelerId;
 
             this.Close();
-
-            //try
-            //{
-            //    spelerController.Update(updatedspeler);
-            //    MessageBox.Show("Klant is geupdate");
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Het is niet gelukt");
-            //}
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)

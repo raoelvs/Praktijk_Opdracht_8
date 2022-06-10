@@ -91,6 +91,7 @@ namespace Praktijk_Opdracht.View
             this.btnSluiten.TabIndex = 5;
             this.btnSluiten.Text = "Sluiten";
             this.btnSluiten.UseVisualStyleBackColor = true;
+            this.btnSluiten.Click += new System.EventHandler(this.btnSluiten_Click);
             // 
             // btnScholen
             // 
@@ -151,9 +152,11 @@ namespace Praktijk_Opdracht.View
             this.lvSpeler.Size = new System.Drawing.Size(572, 342);
             this.lvSpeler.TabIndex = 4;
             this.lvSpeler.UseCompatibleStateImageBehavior = false;
+            this.lvSpeler.SelectedIndexChanged += new System.EventHandler(this.lvSpeler_SelectedIndexChanged);
             // 
             // btnVerwijderen
             // 
+            this.btnVerwijderen.Enabled = false;
             this.btnVerwijderen.Location = new System.Drawing.Point(415, 404);
             this.btnVerwijderen.Name = "btnVerwijderen";
             this.btnVerwijderen.Size = new System.Drawing.Size(173, 42);
@@ -164,6 +167,7 @@ namespace Praktijk_Opdracht.View
             // 
             // btnWijzigen
             // 
+            this.btnWijzigen.Enabled = false;
             this.btnWijzigen.Location = new System.Drawing.Point(216, 404);
             this.btnWijzigen.Name = "btnWijzigen";
             this.btnWijzigen.Size = new System.Drawing.Size(173, 42);
@@ -180,6 +184,7 @@ namespace Praktijk_Opdracht.View
             this.btnToevoegen.TabIndex = 1;
             this.btnToevoegen.Text = "Toevoegen";
             this.btnToevoegen.UseVisualStyleBackColor = true;
+            this.btnToevoegen.Click += new System.EventHandler(this.btnToevoegen_Click);
             // 
             // label2
             // 
@@ -191,14 +196,14 @@ namespace Praktijk_Opdracht.View
             this.label2.TabIndex = 0;
             this.label2.Text = "Spelers:";
             // 
-            // FrmSpelers
+            // FrmSpelersOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmSpelers";
+            this.Name = "FrmSpelersOverview";
             this.Text = "Kickbokstoernooi de vlugge handjes";
             this.Load += new System.EventHandler(this.Spelers_Load);
             this.groupBox1.ResumeLayout(false);

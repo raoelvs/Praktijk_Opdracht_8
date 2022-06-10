@@ -112,5 +112,44 @@ namespace Praktijk_Opdracht.View
 
             FillListVieuw();
         }
+
+        private void btnToevoegen_Click(object sender, EventArgs e)
+        {
+            FrmSpelerAdd frm = new FrmSpelerAdd();
+
+            DialogResult result = frm.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show("Speler is toegevoegd");
+            }
+            else
+            {
+                MessageBox.Show("Het is niet gelukt om de speler toe te voegen");
+            }
+
+            FillListVieuw();
+        }
+
+        private void lvSpeler_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int amountSelected = lvSpeler.SelectedItems.Count;
+
+            if (amountSelected > 0)
+            {
+                btnVerwijderen.Enabled = true;
+                btnWijzigen.Enabled = true;
+            }
+            else
+            {
+                btnVerwijderen.Enabled = false;
+                btnWijzigen.Enabled = false;
+            }
+        }
+
+        private void btnSluiten_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
