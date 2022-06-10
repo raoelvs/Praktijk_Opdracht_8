@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Praktijk_Opdracht.View
 {
-    public partial class FrmResultaten : Form
+    public partial class FrmResultatenOverview : Form
     {
-        public FrmResultaten()
+        public FrmResultatenOverview()
         {
             InitializeComponent();
         }

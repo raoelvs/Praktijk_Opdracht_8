@@ -35,9 +35,12 @@ namespace Praktijk_Opdracht.Controller
                         WedstrijdModel WedstrijdItem = new WedstrijdModel();
                         SpelerModel SpelerItem = new SpelerModel();
 
+                        ResultaatItem.ResultaatId = (int)reader["ResultaatId"];
+                        ResultaatItem.Punt = (int)reader["SeriesNumber"];
                     }
                 }
             }
+            return resultList;
         }
     }
 }
