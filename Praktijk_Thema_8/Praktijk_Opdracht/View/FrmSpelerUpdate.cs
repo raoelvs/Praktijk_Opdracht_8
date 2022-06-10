@@ -14,8 +14,8 @@ namespace Praktijk_Opdracht.View
 {
     public partial class FrmSpelerUpdate : Form
     {
-        SpelerController spelerController = new SpelerController();
-        SpelerModel permSpeler;
+        private SpelerController spelerController = new SpelerController();
+        private SpelerModel permSpeler;
 
         public FrmSpelerUpdate(SpelerModel tmpSpeler)
         {

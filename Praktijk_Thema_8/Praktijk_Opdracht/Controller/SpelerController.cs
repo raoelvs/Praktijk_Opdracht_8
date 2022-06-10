@@ -45,6 +45,10 @@ namespace Praktijk_Opdracht.Controller
                         {
                             spelerItem.Tussenvoegsel = "";
                         }
+                        else
+                        {
+                            spelerItem.Tussenvoegsel = (string)reader["Tussenvoegsel"];
+                        }
 
                         string achternaam = (string)reader["Achternaam"];
                         DateTime geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);

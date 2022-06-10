@@ -37,21 +37,21 @@
             this.btnHome = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpGeboortedatum = new System.Windows.Forms.DateTimePicker();
+            this.cbSchool = new System.Windows.Forms.ComboBox();
+            this.txtGroep = new System.Windows.Forms.TextBox();
+            this.txtAchternaam = new System.Windows.Forms.TextBox();
+            this.txtTussenvoegsel = new System.Windows.Forms.TextBox();
+            this.txtVoornaam = new System.Windows.Forms.TextBox();
             this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleren = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtVoornaam = new System.Windows.Forms.TextBox();
-            this.txtTussenvoegsel = new System.Windows.Forms.TextBox();
-            this.txtAchternaam = new System.Windows.Forms.TextBox();
-            this.txtGroep = new System.Windows.Forms.TextBox();
-            this.cbSchool = new System.Windows.Forms.ComboBox();
-            this.dtpGeboortedatum = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -162,6 +162,103 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(61, 267);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 15);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "School";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(61, 226);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 15);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Groep";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(61, 190);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 15);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Geboortedatum";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(61, 148);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 15);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Achternaam";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(61, 110);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 15);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Tussenvoegsel";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(61, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 15);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Voornaam";
+            // 
+            // dtpGeboortedatum
+            // 
+            this.dtpGeboortedatum.Location = new System.Drawing.Point(200, 184);
+            this.dtpGeboortedatum.Name = "dtpGeboortedatum";
+            this.dtpGeboortedatum.Size = new System.Drawing.Size(200, 23);
+            this.dtpGeboortedatum.TabIndex = 9;
+            // 
+            // cbSchool
+            // 
+            this.cbSchool.FormattingEnabled = true;
+            this.cbSchool.Location = new System.Drawing.Point(200, 264);
+            this.cbSchool.Name = "cbSchool";
+            this.cbSchool.Size = new System.Drawing.Size(200, 23);
+            this.cbSchool.TabIndex = 8;
+            // 
+            // txtGroep
+            // 
+            this.txtGroep.Location = new System.Drawing.Point(200, 223);
+            this.txtGroep.Name = "txtGroep";
+            this.txtGroep.Size = new System.Drawing.Size(200, 23);
+            this.txtGroep.TabIndex = 7;
+            // 
+            // txtAchternaam
+            // 
+            this.txtAchternaam.Location = new System.Drawing.Point(200, 145);
+            this.txtAchternaam.Name = "txtAchternaam";
+            this.txtAchternaam.Size = new System.Drawing.Size(200, 23);
+            this.txtAchternaam.TabIndex = 6;
+            // 
+            // txtTussenvoegsel
+            // 
+            this.txtTussenvoegsel.Location = new System.Drawing.Point(200, 107);
+            this.txtTussenvoegsel.Name = "txtTussenvoegsel";
+            this.txtTussenvoegsel.Size = new System.Drawing.Size(200, 23);
+            this.txtTussenvoegsel.TabIndex = 5;
+            // 
+            // txtVoornaam
+            // 
+            this.txtVoornaam.Location = new System.Drawing.Point(200, 68);
+            this.txtVoornaam.Name = "txtVoornaam";
+            this.txtVoornaam.Size = new System.Drawing.Size(200, 23);
+            this.txtVoornaam.TabIndex = 4;
+            // 
             // btnOpslaan
             // 
             this.btnOpslaan.Location = new System.Drawing.Point(415, 404);
@@ -192,103 +289,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Wijzigen Spelers:";
             // 
-            // txtVoornaam
-            // 
-            this.txtVoornaam.Location = new System.Drawing.Point(200, 68);
-            this.txtVoornaam.Name = "txtVoornaam";
-            this.txtVoornaam.Size = new System.Drawing.Size(200, 23);
-            this.txtVoornaam.TabIndex = 4;
-            // 
-            // txtTussenvoegsel
-            // 
-            this.txtTussenvoegsel.Location = new System.Drawing.Point(200, 107);
-            this.txtTussenvoegsel.Name = "txtTussenvoegsel";
-            this.txtTussenvoegsel.Size = new System.Drawing.Size(200, 23);
-            this.txtTussenvoegsel.TabIndex = 5;
-            // 
-            // txtAchternaam
-            // 
-            this.txtAchternaam.Location = new System.Drawing.Point(200, 145);
-            this.txtAchternaam.Name = "txtAchternaam";
-            this.txtAchternaam.Size = new System.Drawing.Size(200, 23);
-            this.txtAchternaam.TabIndex = 6;
-            // 
-            // txtGroep
-            // 
-            this.txtGroep.Location = new System.Drawing.Point(200, 223);
-            this.txtGroep.Name = "txtGroep";
-            this.txtGroep.Size = new System.Drawing.Size(200, 23);
-            this.txtGroep.TabIndex = 7;
-            // 
-            // cbSchool
-            // 
-            this.cbSchool.FormattingEnabled = true;
-            this.cbSchool.Location = new System.Drawing.Point(200, 264);
-            this.cbSchool.Name = "cbSchool";
-            this.cbSchool.Size = new System.Drawing.Size(200, 23);
-            this.cbSchool.TabIndex = 8;
-            // 
-            // dtpGeboortedatum
-            // 
-            this.dtpGeboortedatum.Location = new System.Drawing.Point(200, 184);
-            this.dtpGeboortedatum.Name = "dtpGeboortedatum";
-            this.dtpGeboortedatum.Size = new System.Drawing.Size(200, 23);
-            this.dtpGeboortedatum.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 15);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Voornaam";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(61, 110);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 15);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Tussenvoegsel";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(61, 148);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 15);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Achternaam";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(61, 190);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 15);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Geboortedatum";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(61, 226);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 15);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Groep";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(61, 267);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 15);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "School";
-            // 
             // FrmSpelerUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -298,6 +298,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSpelerUpdate";
             this.Text = "Kickbokstoernooi de vlugge handjes";
+            this.Load += new System.EventHandler(this.FrmSpelerUpdate_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
