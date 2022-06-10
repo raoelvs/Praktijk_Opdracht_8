@@ -1,7 +1,7 @@
 ﻿
 namespace Praktijk_Opdracht.View
 {
-    partial class FrmSpelers
+    partial class FrmSpelersOverview
     {
         /// <summary>
         /// Required designer variable.
