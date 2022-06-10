@@ -132,5 +132,34 @@ namespace Praktijk_Opdracht.Controller
             }
             return rowsAffected;
         }
+
+        /// <summary>
+        /// This method is to make a new scheidsrechter in the database
+        /// </summary>
+        /// <param name="item"> In this variable item is the information to create a new scheidsrechter </param>
+        /// <returns> The rows affected</returns>
+        public int Create(ScheidsrechterModel item)
+        {
+            int rowsAffected = 0;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string sqlQuery = "INSERT INTO Scheidsrechter VALUES (@VScheidsrechterCodeValue, @VoornaamValue, @TussenvoegselValue, @AchternaamValue, @WachtwoordValue)";
+
+                using (SqlCommand command = new SqlCommand(sqlQuery, con))
+                {
+                    command.Parameters.AddWithValue("VScheidsrechterCodeValue", item.ScheidsrechterCode);
+                    command.Parameters.AddWithValue("VoornaamValue", item.Voornaam);
+                    command.Parameters.AddWithValue("TussenvoegselValue", item.Tussenvoegsel);
+                    command.Parameters.AddWithValue("AchternaamValue", item.Achternaam);
+                    command.Parameters.AddWithValue("WachtwoordValue", item.Wachtwoord);
+
+                    con.Open();
+
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+            return rowsAffected;
+        }
     }
 }

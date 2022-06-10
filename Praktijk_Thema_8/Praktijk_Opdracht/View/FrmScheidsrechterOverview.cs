@@ -108,8 +108,8 @@ namespace Praktijk_Opdracht.View
             // Verwijderen! 
             try
             {
-                int doctor = scheidsrechterController.Delete(scheidsrechterDel);
-                MessageBox.Show("Het is geluk om de episode te verwijderen aantal rows affected: " + doctor);
+                int scheidsrechter = scheidsrechterController.Delete(scheidsrechterDel);
+                MessageBox.Show("Het is geluk om de scheidsrechter te verwijderen: ");
             }
             catch (SqlException ex)
             {
@@ -126,6 +126,27 @@ namespace Praktijk_Opdracht.View
             {
                 MessageBox.Show("Alle andere onbekende error (geen database error i.i.g)");
                 MessageBox.Show(ex.Message);
+            }
+
+            FillListVieuw();
+        }
+
+        private void btnToevoegen_Click(object sender, EventArgs e)
+        {
+            //het sluiten van huidige sherm
+            this.Hide();
+
+            FrmScheidsrechterAdd frm = new FrmScheidsrechterAdd();
+
+            DialogResult result = frm.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show("Speler is toegevoegd");
+            }
+            else
+            {
+                MessageBox.Show("Het is niet gelukt om de speler toe te voegen");
             }
 
             FillListVieuw();

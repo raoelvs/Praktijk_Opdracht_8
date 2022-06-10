@@ -150,7 +150,7 @@ namespace Praktijk_Opdracht.Controller
         }
         
         /// <summary>
-        /// This methode is to make a new speler in the database
+        /// This method is to make a new speler in the database
         /// </summary>
         /// <param name="item"> In this variable item is the information to create a new speler</param>
         /// <returns> The rows affected</returns>

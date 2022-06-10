@@ -34,6 +34,9 @@ namespace Praktijk_Opdracht.View
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
             this.Close();
+
+            FrmSpelersOverview frm = new FrmSpelersOverview();
+            frm.Show();
         }
 
         private void btnOpslaan_Click(object sender, EventArgs e)
@@ -59,6 +62,9 @@ namespace Praktijk_Opdracht.View
             }
 
             this.Close();
+
+            FrmSpelersOverview frm = new FrmSpelersOverview();
+            frm.Show();
         }
 
         private void btnResultaten_Click(object sender, EventArgs e)

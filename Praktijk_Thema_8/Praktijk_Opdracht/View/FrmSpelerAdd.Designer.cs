@@ -180,9 +180,9 @@ namespace Praktijk_Opdracht.View
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(16, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 25);
+            this.label2.Size = new System.Drawing.Size(173, 25);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Wijzigen Spelers:";
+            this.label2.Text = "Toevoegen Spelers:";
             // 
             // btnScheidsrechter
             // 
