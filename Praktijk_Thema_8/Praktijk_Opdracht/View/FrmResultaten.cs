@@ -19,7 +19,7 @@ namespace Praktijk_Opdracht.View
 
         private void FrmResultaten_Load(object sender, EventArgs e)
         {
-
+               
         }
     }
 }
