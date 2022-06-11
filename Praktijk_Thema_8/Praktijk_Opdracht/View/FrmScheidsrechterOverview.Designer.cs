@@ -82,6 +82,7 @@ namespace Praktijk_Opdracht.View
             this.btnScheidsrechter.TabIndex = 6;
             this.btnScheidsrechter.Text = "Scheidsrechters";
             this.btnScheidsrechter.UseVisualStyleBackColor = true;
+            this.btnScheidsrechter.Click += new System.EventHandler(this.btnScheidsrechter_Click);
             // 
             // btnSluiten
             // 
@@ -101,6 +102,7 @@ namespace Praktijk_Opdracht.View
             this.btnScholen.TabIndex = 4;
             this.btnScholen.Text = "Scholen";
             this.btnScholen.UseVisualStyleBackColor = true;
+            this.btnScholen.Click += new System.EventHandler(this.btnScholen_Click);
             // 
             // btnSpelers
             // 
@@ -110,6 +112,7 @@ namespace Praktijk_Opdracht.View
             this.btnSpelers.TabIndex = 3;
             this.btnSpelers.Text = "Spelers";
             this.btnSpelers.UseVisualStyleBackColor = true;
+            this.btnSpelers.Click += new System.EventHandler(this.btnSpelers_Click);
             // 
             // btnResultaten
             // 
@@ -119,6 +122,7 @@ namespace Praktijk_Opdracht.View
             this.btnResultaten.TabIndex = 2;
             this.btnResultaten.Text = "Resultaten";
             this.btnResultaten.UseVisualStyleBackColor = true;
+            this.btnResultaten.Click += new System.EventHandler(this.btnResultaten_Click);
             // 
             // btnHome
             // 
@@ -128,6 +132,7 @@ namespace Praktijk_Opdracht.View
             this.btnHome.TabIndex = 1;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // groupBox2
             // 

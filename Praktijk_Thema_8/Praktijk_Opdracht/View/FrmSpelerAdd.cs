@@ -80,5 +80,34 @@ namespace Praktijk_Opdracht.View
             FrmSpelersOverview frm = new FrmSpelersOverview();
             frm.Show();
         }
+
+        private void btnScholen_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            //FrmScholenOverview frmScholen = new FrmScholenOverview();
+            //frmScholen.Show();
+        }
+
+        private void btnScheidsrechter_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FrmScheidsrechterOverview frmScheidsrechter = new FrmScheidsrechterOverview();
+            frmScheidsrechter.Show();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            StartView frmStartView = new StartView();
+            frmStartView.Show();
+        }
+
+        private void btnSluiten_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

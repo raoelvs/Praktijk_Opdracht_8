@@ -131,5 +131,45 @@ namespace Praktijk_Opdracht.View
 
             FillListVieuw();
         }
+
+        private void btnResultaten_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FrmResultatenOverview frmResultaten = new FrmResultatenOverview();
+            frmResultaten.Show();
+        }
+
+        private void btnSpelers_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FrmSpelersOverview frmSpeler = new FrmSpelersOverview();
+            frmSpeler.Show();
+        }
+
+        private void btnScholen_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            //FrmScholenOverview frmScholen = new FrmScholenOverview();
+            //frmScholen.Show();
+        }
+
+        private void btnScheidsrechter_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            FrmScheidsrechterOverview frmScheidsrechter = new FrmScheidsrechterOverview();
+            frmScheidsrechter.Show();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            StartView frmStartView = new StartView();
+            frmStartView.Show();
+        }
     }
 }

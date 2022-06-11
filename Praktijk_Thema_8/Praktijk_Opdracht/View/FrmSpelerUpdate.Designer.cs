@@ -81,6 +81,7 @@
             this.btnScheidsrechter.TabIndex = 6;
             this.btnScheidsrechter.Text = "Scheidsrechters";
             this.btnScheidsrechter.UseVisualStyleBackColor = true;
+            this.btnScheidsrechter.Click += new System.EventHandler(this.btnScheidsrechter_Click);
             // 
             // btnSluiten
             // 
@@ -90,6 +91,7 @@
             this.btnSluiten.TabIndex = 5;
             this.btnSluiten.Text = "Sluiten";
             this.btnSluiten.UseVisualStyleBackColor = true;
+            this.btnSluiten.Click += new System.EventHandler(this.btnSluiten_Click);
             // 
             // btnScholen
             // 
@@ -99,6 +101,7 @@
             this.btnScholen.TabIndex = 4;
             this.btnScholen.Text = "Scholen";
             this.btnScholen.UseVisualStyleBackColor = true;
+            this.btnScholen.Click += new System.EventHandler(this.btnScholen_Click);
             // 
             // btnSpelers
             // 
@@ -108,6 +111,7 @@
             this.btnSpelers.TabIndex = 3;
             this.btnSpelers.Text = "Spelers";
             this.btnSpelers.UseVisualStyleBackColor = true;
+            this.btnSpelers.Click += new System.EventHandler(this.btnSpelers_Click);
             // 
             // btnResultaten
             // 
@@ -117,6 +121,7 @@
             this.btnResultaten.TabIndex = 2;
             this.btnResultaten.Text = "Resultaten";
             this.btnResultaten.UseVisualStyleBackColor = true;
+            this.btnResultaten.Click += new System.EventHandler(this.btnResultaten_Click);
             // 
             // btnHome
             // 
@@ -126,6 +131,7 @@
             this.btnHome.TabIndex = 1;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // label1
             // 
