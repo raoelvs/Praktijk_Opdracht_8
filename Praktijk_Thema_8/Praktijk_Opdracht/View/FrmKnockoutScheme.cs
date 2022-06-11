@@ -31,7 +31,7 @@ namespace Praktijk_Opdracht.View
                 for(int count = 0; count < roundMatches[i]; count++)
                 {
                     string labelName = "lblRonde" + (i + 1) + "Wedstrijd" + (count + 1);
-                    WedstrijdModel wedstrijd = wedContr.ReadWhereRound(i + 1, count + 1);
+                    WedstrijdModel wedstrijd = wedContr.ReadWhereRoundMatch(i + 1, count + 1);
                     if (wedstrijd.WedstrijdId != 0)
                     {
                         foreach (Label label in labels)
@@ -48,7 +48,13 @@ namespace Praktijk_Opdracht.View
                     }
                 }
                 labels.Clear();                
-            }            
+            }
+
+            WedstrijdModel finale = wedContr.ReadWhereRoundMatch(5, 1);
+            if(finale.WedstrijdId != 0)
+            {
+                lblWinner.Text = finale.Winnaar.FullName;
+            }
         }
     }
 }
