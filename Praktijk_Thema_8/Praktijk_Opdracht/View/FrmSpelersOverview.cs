@@ -74,28 +74,8 @@ namespace Praktijk_Opdracht.View
             // Welk item willen we verwijderen?
             SpelerModel spelerDel = (SpelerModel)lvSpeler.SelectedItems[0].Tag;
 
-            // Verwijderen! 
-            try
-            {
-                int doctor = spelerController.Delete(spelerDel);
-                MessageBox.Show("Het is geluk om de episode te verwijderen aantal rows affected: " + doctor);
-            }
-            catch (SqlException ex)
-            {
-                if (ex.Number == 547)
-                {
-                    MessageBox.Show("Deze Speler (" + spelerDel.SpelerId + ") heeft nog een relatie met een andere tabel");
-                }
-                else
-                {
-                    MessageBox.Show("Onbekende database error");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Alle andere onbekende error (geen database error i.i.g)");
-                MessageBox.Show(ex.Message);
-            }
+            FrmSpelerDelete frm = new FrmSpelerDelete(spelerDel);
+            frm.Show();
 
             FillListVieuw();
         }

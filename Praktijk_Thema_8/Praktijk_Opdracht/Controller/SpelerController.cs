@@ -87,11 +87,41 @@ namespace Praktijk_Opdracht.Controller
         }
 
         /// <summary>
-        /// This method deletes the speler from database at all tables
+        /// This method deletes the speler from database Speler
         /// </summary>
         /// <param name="speler"> this variable has the speler that needs to be deleted</param>
         /// <returns> The rows affected </returns>
         public int Delete(SpelerModel speler)
+        {
+            int rowsAffected = 0;
+
+            // Opstarten connection
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                // Opstarten van SqlCommand
+                string query = "DELETE FROM Speler WHERE SpelerId = @SpelerIdValue"; // Query nog aanpassen vanwegen constraint
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("SpelerIdValue", speler.SpelerId);
+
+                    // Open de connection
+                    conn.Open();
+
+                    // Voer de query uit en vang de doctor op
+                    rowsAffected = command.ExecuteNonQuery();
+
+                }
+            }
+            return rowsAffected;
+        }
+
+        /// <summary>
+        /// This method deletes the speler from database at all tables
+        /// </summary>
+        /// <param name="speler"> this variable has the speler that needs to be deleted</param>
+        /// <returns> The rows affected </returns>
+        public int DeleteConstraint(SpelerModel speler)
         {
             int rowsAffected = 0;
 

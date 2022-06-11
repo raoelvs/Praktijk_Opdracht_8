@@ -73,7 +73,7 @@ namespace Praktijk_Opdracht.Controller
         }
 
         /// <summary>
-        /// This method deletes the scheidsrechter from database at all tables
+        /// This method deletes the scheidsrechter from database table scheidsrechter
         /// </summary>
         /// <param name="scheidsrechter"> this variable has the scheidsrechter that needs to be deleted</param>
         /// <returns> The rows affected </returns>
@@ -85,7 +85,7 @@ namespace Praktijk_Opdracht.Controller
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 // Opstarten van SqlCommand
-                string query = "DELETE FROM Scheidsrechter WHERE ScheidsrechterCode = @ScheidsrechterCodeValue"; // Query nog aanpassen vanwegen constraint
+                string query = "DELETE FROM Scheidsrechter WHERE ScheidsrechterCode = @ScheidsrechterCodeValue";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
@@ -97,6 +97,35 @@ namespace Praktijk_Opdracht.Controller
                     // Voer de query uit en vang de doctor op
                     rowsAffected = command.ExecuteNonQuery();
 
+                }
+            }
+            return rowsAffected;
+        }
+
+        /// <summary>
+        /// This method deletes the scheidsrechter from database at all tables
+        /// </summary>
+        /// <param name="scheidsrechter"> this variable has the scheidsrechter that needs to be deleted</param>
+        /// <returns> The rows affected </returns>
+        public int DeleteConstraint(ScheidsrechterModel scheidsrechter)
+        {
+            int rowsAffected = 0;
+
+            // Opstarten connection
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                // Opstarten van SqlCommand
+                string query = "DELETE FROM Wedstrijd WHERE ScheidsrechterCode = @ScheidsrechterCodeValue"; // Query nog aanpassen vanwegen constraint??????????
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("ScheidsrechterCodeValue", scheidsrechter.ScheidsrechterCode);
+
+                    // Open de connection
+                    conn.Open();
+
+                    // Voer de query uit en vang de doctor op
+                    rowsAffected = command.ExecuteNonQuery();
                 }
             }
             return rowsAffected;
