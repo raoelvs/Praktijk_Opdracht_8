@@ -29,31 +29,31 @@ namespace Praktijk_Opdracht.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnNo = new System.Windows.Forms.Button();
+            this.btnYes = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnNo
             // 
-            this.button1.Location = new System.Drawing.Point(12, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Nee";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnNo.Location = new System.Drawing.Point(12, 107);
+            this.btnNo.Name = "btnNo";
+            this.btnNo.Size = new System.Drawing.Size(75, 23);
+            this.btnNo.TabIndex = 0;
+            this.btnNo.Text = "Nee";
+            this.btnNo.UseVisualStyleBackColor = true;
+            this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
-            // button2
+            // btnYes
             // 
-            this.button2.Location = new System.Drawing.Point(325, 108);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Ja";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnYes.Location = new System.Drawing.Point(325, 108);
+            this.btnYes.Name = "btnYes";
+            this.btnYes.Size = new System.Drawing.Size(75, 23);
+            this.btnYes.TabIndex = 1;
+            this.btnYes.Text = "Ja";
+            this.btnYes.UseVisualStyleBackColor = true;
+            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // label1
             // 
@@ -74,16 +74,16 @@ namespace Praktijk_Opdracht.View
             this.label2.TabIndex = 3;
             this.label2.Text = "Weet u zeker dat u de scheidsrechter wilt verwijderen?";
             // 
-            // FrmScheidsrechterVerwijderen
+            // FrmScheidsrechterDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(412, 142);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "FrmScheidsrechterVerwijderen";
+            this.Controls.Add(this.btnYes);
+            this.Controls.Add(this.btnNo);
+            this.Name = "FrmScheidsrechterDelete";
             this.Text = "FrmScheidsrechterVerwijderen";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -92,8 +92,8 @@ namespace Praktijk_Opdracht.View
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnNo;
+        private System.Windows.Forms.Button btnYes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

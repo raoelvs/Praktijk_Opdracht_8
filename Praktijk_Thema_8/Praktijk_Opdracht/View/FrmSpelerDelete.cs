@@ -44,6 +44,8 @@ namespace Praktijk_Opdracht.View
                 if (ex.Number == 547)
                 {
 
+                    FrmSpelerDeleteConstraint frmDelete = new FrmSpelerDeleteConstraint(delSpeler);
+                    frmDelete.Show();
 
                 }
                 else
