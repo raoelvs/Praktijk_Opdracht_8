@@ -36,18 +36,21 @@ namespace Praktijk_Opdracht.View
             // Verwijderen! 
             try
             {
-                int scheidsrechter = scheidsrechterController.Delete(delScheidsrechter);
+                int rowsAffected = scheidsrechterController.Delete(delScheidsrechter);
                 MessageBox.Show("Het is geluk om de scheidsrechter te verwijderen: ");
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Actie geslaagd.");
+                }
             }
             catch (SqlException ex)
             {
                 if (ex.Number == 547)
                 {
-
                     this.Hide();
-
-                    FrmScheidsrechterDeleteConstraint frm = new FrmScheidsrechterDeleteConstraint(delScheidsrechter);
-                    frm.Show();
+                    MessageBox.Show("Deze scheidsrechter: (" + delScheidsrechter.Voornaam + " " + delScheidsrechter.Tussenvoegsel + " " + delScheidsrechter.Achternaam + ") heeft nog een relatie. " +
+                        "Verwijder deze scheidsrechter eerst bij wedstrijden");
                 }
                 else
                 {

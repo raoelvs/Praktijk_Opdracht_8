@@ -35,9 +35,9 @@ namespace Praktijk_Opdracht.View
             txtGroep.Text = permSpeler.Groep.ToString();
 
             // Uit de SpelerController Readall() uitvoeren
-            List<SpelerModel> schoolList = spelerController.ReadAll();
+            List<SpelerModel> spelerList = spelerController.ReadAll();
 
-            foreach (SpelerModel item in schoolList)
+            foreach (SpelerModel item in spelerList)
             {
                 // Combobox Item vullen
                 cbSchool.Items.Add(item.SchoolId);
@@ -56,7 +56,8 @@ namespace Praktijk_Opdracht.View
             updatedspeler.Achternaam = txtAchternaam.Text;
             updatedspeler.Geboortedatum = dtpGeboortedatum.Value;
             updatedspeler.Groep = Convert.ToInt32(txtGroep.Text);
-            updatedspeler.SchoolId.Naam = cbSchool.Text;  //////////////////// aanpassen naar een model nog geen idee hoe >:) 
+            updatedspeler.SchoolId = (SchoolModel)cbSchool.SelectedItem;
+
 
             //speler gebruiken van de geslecteerde speler uit listview
             updatedspeler.SpelerId = permSpeler.SpelerId;

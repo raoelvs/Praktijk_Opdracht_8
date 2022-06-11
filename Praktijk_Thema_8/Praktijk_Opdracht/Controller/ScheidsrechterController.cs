@@ -103,35 +103,6 @@ namespace Praktijk_Opdracht.Controller
         }
 
         /// <summary>
-        /// This method deletes the scheidsrechter from database at all tables
-        /// </summary>
-        /// <param name="scheidsrechter"> this variable has the scheidsrechter that needs to be deleted</param>
-        /// <returns> The rows affected </returns>
-        public int DeleteConstraint(ScheidsrechterModel scheidsrechter)
-        {
-            int rowsAffected = 0;
-
-            // Opstarten connection
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                // Opstarten van SqlCommand
-                string query = "DELETE FROM Wedstrijd WHERE ScheidsrechterCode = @ScheidsrechterCodeValue"; // Query nog aanpassen vanwegen constraint??????????
-
-                using (SqlCommand command = new SqlCommand(query, conn))
-                {
-                    command.Parameters.AddWithValue("ScheidsrechterCodeValue", scheidsrechter.ScheidsrechterCode);
-
-                    // Open de connection
-                    conn.Open();
-
-                    // Voer de query uit en vang de doctor op
-                    rowsAffected = command.ExecuteNonQuery();
-                }
-            }
-            return rowsAffected;
-        }
-
-        /// <summary>
         /// This methode is for updating the Scheidsrechter
         /// </summary>
         /// <param name="update"> This variable has the new information to change the Scheidsrechter</param>
