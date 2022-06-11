@@ -21,5 +21,20 @@ namespace Praktijk_Opdracht.Model
         public int Groep { get; set; }
 
         public SchoolModel SchoolId { get; set; }
+
+        public string FullName
+        {
+            get
+            {
+                if(Tussenvoegsel == "")
+                {
+                    return this.Voornaam + " " + this.Achternaam;
+                }
+                else
+                {
+                    return this.Voornaam + " " + this.Tussenvoegsel + " " + this.Achternaam;
+                }
+            }
+        }
     }
 }

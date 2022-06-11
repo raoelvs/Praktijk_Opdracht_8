@@ -13,25 +13,28 @@ namespace Praktijk_Opdracht.Controller
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["connectionStringDeVluggehandjes"].ConnectionString;
 
-        public List<WedstrijdModel> ReadAll()
+        public WedstrijdModel ReadWhereRound(int round, int match)
         {
-            List<WedstrijdModel> list = new List<WedstrijdModel>();
-            using(SqlConnection con = new SqlConnection(connectionString))
+            WedstrijdModel item = new WedstrijdModel();
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM vWedstrijden";
+                string query = "SELECT * FROM vWedstrijden WHERE Ronde = @RondeValue AND WedstrijdNummer = @WedstrijdNummerValue";
                 using(SqlCommand command = new SqlCommand(query,con))
                 {
+                    command.Parameters.AddWithValue("RondeValue", round);
+                    command.Parameters.AddWithValue("WedstrijdNummerValue", match);
                     con.Open();
 
                     SqlDataReader reader = command.ExecuteReader();
 
                     while(reader.Read() == true)
                     {
-                        WedstrijdModel item = new WedstrijdModel();
+                        
                         item.WedstrijdId = (int)reader["WedstrijdId"];
                         item.Starttijd = (DateTime)reader["Starttijd"];
                         item.Eindtijd = (DateTime)reader["Eindtijd"];
-                        item.Ronde = (int)reader["Ronde"];
+                        item.Ronde = Convert.ToInt32(reader["Ronde"]);
+                        item.WedstrijdNummer = Convert.ToInt32(reader["WedstrijdNummer"]);
 
                         ScheidsrechterModel scheidsrechter = new ScheidsrechterModel();
                         scheidsrechter.ScheidsrechterCode = (string)reader["ScheidsrechterCode"];
@@ -53,7 +56,7 @@ namespace Praktijk_Opdracht.Controller
                             thuis.Tussenvoegsel = (string)reader["ThuisTussenvoegsel"];
                         }
                         thuis.Achternaam = (string)reader["ThuisAchternaam"];
-                        thuis.Groep = (int)reader["ThuisGroep"];
+                        thuis.Groep = Convert.ToInt32(reader["ThuisGroep"]);
                         thuis.Geboortedatum = (DateTime)reader["ThuisGeboortedatum"];
 
                         SchoolModel thuisSchool = new SchoolModel();
@@ -69,7 +72,7 @@ namespace Praktijk_Opdracht.Controller
                             uit.Tussenvoegsel = (string)reader["UitTussenvoegsel"];
                         }                        
                         uit.Achternaam = (string)reader["UitAchternaam"];
-                        uit.Groep = (int)reader["UitGroep"];
+                        uit.Groep = Convert.ToInt32(reader["UitGroep"]);
                         uit.Geboortedatum = (DateTime)reader["UitGeboortedatum"];
 
                         SchoolModel uitSchool = new SchoolModel();
@@ -111,13 +114,11 @@ namespace Praktijk_Opdracht.Controller
                         item.ScheidsrechterCode = scheidsrechter;
                         item.Thuis = thuis;
                         item.Uit = uit;
-                        item.Winnaar = winnaar;
-
-                        list.Add(item);
+                        item.Winnaar = winnaar;                        
                     }
                 }
             }
-            return list;
+            return item;
         }
     }
 }

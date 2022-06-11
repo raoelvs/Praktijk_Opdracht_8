@@ -10,6 +10,7 @@ namespace Praktijk_Opdracht.Model
     {
         public int WedstrijdId { get; set; }
         public int Ronde { get; set; }
+        public int WedstrijdNummer { get; set; }
         public DateTime Starttijd { get; set; }
         public DateTime Eindtijd { get; set; }
         public SpelerModel Thuis { get; set; }

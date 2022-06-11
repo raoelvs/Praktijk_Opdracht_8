@@ -32,5 +32,17 @@ namespace Praktijk_Opdracht
             //FrmSpelersOverview frm = new FrmSpelersOverview();
             //frm.Show();
         }
+
+        private void StartView_Load(object sender, EventArgs e)
+        {
+            FrmKnockoutScheme frm = new FrmKnockoutScheme();
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
+            pContainer.Controls.Add(frm);
+            frm.Show();
+        }
     }
 }
