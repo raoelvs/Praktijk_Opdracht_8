@@ -12,14 +12,23 @@ namespace Praktijk_Opdracht.View
 {
     public partial class FrmInlogOverview : Form
     {
-        public FrmInlogOverview()
+        private Panel panel;
+        public FrmInlogOverview(Panel Panel)
         {
             InitializeComponent();
+            panel = Panel;
         }
 
         private void btnInloggen_Click(object sender, EventArgs e)
         {
-
+            StartViewEditor frm = new StartViewEditor();
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            this.Close();
+            panel.Controls.Add(frm);
+            frm.Show();
         }
     }
 }

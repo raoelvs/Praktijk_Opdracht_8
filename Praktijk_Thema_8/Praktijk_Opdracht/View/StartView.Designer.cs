@@ -34,7 +34,9 @@ namespace Praktijk_Opdracht
             this.btnInlog = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pContainer = new System.Windows.Forms.Panel();
+            this.pForms = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.pForms.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
@@ -64,7 +66,7 @@ namespace Praktijk_Opdracht
             // 
             this.btnInlog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInlog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInlog.Location = new System.Drawing.Point(1209, 0);
+            this.btnInlog.Location = new System.Drawing.Point(1206, 0);
             this.btnInlog.Name = "btnInlog";
             this.btnInlog.Size = new System.Drawing.Size(173, 40);
             this.btnInlog.TabIndex = 2;
@@ -79,7 +81,7 @@ namespace Praktijk_Opdracht
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnInlog);
             this.panel1.Controls.Add(this.btnExportCSV);
-            this.panel1.Location = new System.Drawing.Point(0, 668);
+            this.panel1.Location = new System.Drawing.Point(3, 667);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1382, 40);
             this.panel1.TabIndex = 3;
@@ -89,22 +91,34 @@ namespace Praktijk_Opdracht
             this.pContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pContainer.Location = new System.Drawing.Point(0, -2);
+            this.pContainer.Location = new System.Drawing.Point(3, 3);
             this.pContainer.Name = "pContainer";
-            this.pContainer.Size = new System.Drawing.Size(1379, 670);
+            this.pContainer.Size = new System.Drawing.Size(1382, 665);
             this.pContainer.TabIndex = 4;
+            // 
+            // pForms
+            // 
+            this.pForms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pForms.Controls.Add(this.panel1);
+            this.pForms.Controls.Add(this.pContainer);
+            this.pForms.Location = new System.Drawing.Point(1, 1);
+            this.pForms.Name = "pForms";
+            this.pForms.Size = new System.Drawing.Size(1382, 707);
+            this.pForms.TabIndex = 0;
             // 
             // StartView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1382, 708);
-            this.Controls.Add(this.pContainer);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1384, 708);
+            this.Controls.Add(this.pForms);
             this.Name = "StartView";
             this.Text = "De Vluggehandjes";
             this.Load += new System.EventHandler(this.StartView_Load);
             this.panel1.ResumeLayout(false);
+            this.pForms.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -116,6 +130,7 @@ namespace Praktijk_Opdracht
         private System.Windows.Forms.Button btnInlog;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pContainer;
+        private System.Windows.Forms.Panel pForms;
     }
 }
 

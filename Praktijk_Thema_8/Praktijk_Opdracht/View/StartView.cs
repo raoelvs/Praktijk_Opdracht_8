@@ -25,12 +25,14 @@ namespace Praktijk_Opdracht
 
         private void btnInlog_Click(object sender, EventArgs e)
         {
-            
-            
-            
-            // code om frm spelers te starten om een test te doen
-            //FrmSpelersOverview frm = new FrmSpelersOverview();
-            //frm.Show();
+            FrmInlogOverview frm = new FrmInlogOverview(this.pForms);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pForms.Controls.Clear();
+            pForms.Controls.Add(frm);
+            frm.Show();
         }
 
         private void StartView_Load(object sender, EventArgs e)
@@ -40,7 +42,6 @@ namespace Praktijk_Opdracht
             frm.TopLevel = false;
             frm.TopMost = true;
             frm.Dock = DockStyle.Fill;
-            frm.Show();
             pContainer.Controls.Add(frm);
             frm.Show();
         }
