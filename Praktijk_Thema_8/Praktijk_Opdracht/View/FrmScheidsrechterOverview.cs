@@ -43,7 +43,7 @@ namespace Praktijk_Opdracht.View
             FillListVieuw();
         }
 
-        private void FillListVieuw()
+        public void FillListVieuw()
         {
 
             List<ScheidsrechterModel> scheidsrechterList = scheidsrechterController.ReadAll();

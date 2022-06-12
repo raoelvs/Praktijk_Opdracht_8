@@ -55,7 +55,7 @@ namespace Praktijk_Opdracht.View
             item.Achternaam = txtAchternaam.Text;
             item.Geboortedatum = dtpGeboortedatum.Value;
             item.Groep = Convert.ToInt32(txtGroep.Text);
-            item.SchoolId = (SchoolModel)cbSchool.SelectedItem;                  //Hier ook nog iets aanpassen zodat hij hem opslaat >;)
+            item.SchoolId = (SchoolModel)cbSchool.SelectedItem;
 
             int rowsAffected = spelerController.Create(item);
 

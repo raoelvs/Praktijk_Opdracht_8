@@ -64,6 +64,7 @@ namespace Praktijk_Opdracht.View
             scheidsrechterOverview.TopMost = true;
             scheidsrechterOverview.Dock = DockStyle.Fill;
             this.Close();
+            scheidsrechterOverview.FillListVieuw();
             scheidsrechterOverview.pnlForms.Controls.Add(scheidsrechterOverview);
             scheidsrechterOverview.Show();
 
