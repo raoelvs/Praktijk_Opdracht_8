@@ -43,6 +43,13 @@ namespace Praktijk_Opdracht.View
             lvSpeler.HeaderStyle = ColumnHeaderStyle.Clickable;
 
             FillListVieuw();
+
+            List<SpelerModel> spelers = spelerController.ReadAll();
+
+            foreach(SpelerModel speler in spelers)
+            {
+                cbFilter.Items.Add(speler.Voornaam);
+            }
         }
 
         private void FillListVieuw()
@@ -53,6 +60,30 @@ namespace Praktijk_Opdracht.View
             lvSpeler.Items.Clear();
 
             foreach (SpelerModel item in spelerList)
+            {
+                //listvieuw item aanmaken
+
+                ListViewItem lvItem = new ListViewItem(item.Voornaam);
+                lvItem.SubItems.Add(item.Tussenvoegsel);
+                lvItem.SubItems.Add(item.Achternaam);
+                lvItem.SubItems.Add(item.Geboortedatum.ToString());
+                lvItem.SubItems.Add(item.Groep.ToString());
+                lvItem.SubItems.Add(item.SchoolId.Naam);
+
+                lvItem.Tag = item;
+
+                lvSpeler.Items.Add(lvItem);
+            }
+        }
+
+        private void FilterListView(string selectedSpeler)
+        {
+
+            List<SpelerModel> filter = spelerController.ReadFilter(selectedSpeler);
+
+            lvSpeler.Items.Clear();
+
+            foreach (SpelerModel item in filter)
             {
                 //listvieuw item aanmaken
 
@@ -133,5 +164,16 @@ namespace Praktijk_Opdracht.View
             }
         }
 
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            string selectedSpeler = cbFilter.SelectedItem.ToString();
+
+            FilterListView(selectedSpeler);
+        }
+
+        private void btnClearfilter_Click(object sender, EventArgs e)
+        {
+            FillListVieuw();
+        }
     }
 }

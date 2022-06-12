@@ -30,12 +30,15 @@ namespace Praktijk_Opdracht.View
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnClearfilter = new System.Windows.Forms.Button();
+            this.cbFilter = new System.Windows.Forms.ComboBox();
+            this.btnFilter = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.lvSpeler = new System.Windows.Forms.ListView();
             this.btnVerwijderen = new System.Windows.Forms.Button();
             this.btnWijzigen = new System.Windows.Forms.Button();
             this.btnToevoegen = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +46,9 @@ namespace Praktijk_Opdracht.View
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnClearfilter);
+            this.groupBox2.Controls.Add(this.cbFilter);
+            this.groupBox2.Controls.Add(this.btnFilter);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.lvSpeler);
             this.groupBox2.Controls.Add(this.btnVerwijderen);
@@ -54,6 +60,43 @@ namespace Praktijk_Opdracht.View
             this.groupBox2.Size = new System.Drawing.Size(807, 426);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // btnClearfilter
+            // 
+            this.btnClearfilter.Location = new System.Drawing.Point(430, 13);
+            this.btnClearfilter.Name = "btnClearfilter";
+            this.btnClearfilter.Size = new System.Drawing.Size(173, 42);
+            this.btnClearfilter.TabIndex = 8;
+            this.btnClearfilter.Text = "Filter verwijderen";
+            this.btnClearfilter.UseVisualStyleBackColor = true;
+            this.btnClearfilter.Click += new System.EventHandler(this.btnClearfilter_Click);
+            // 
+            // cbFilter
+            // 
+            this.cbFilter.FormattingEnabled = true;
+            this.cbFilter.Location = new System.Drawing.Point(232, 24);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(179, 23);
+            this.cbFilter.TabIndex = 7;
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.Location = new System.Drawing.Point(609, 13);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(173, 42);
+            this.btnFilter.TabIndex = 6;
+            this.btnFilter.Text = "Filteren";
+            this.btnFilter.UseVisualStyleBackColor = true;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(142, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 15);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Filter op speler";
             // 
             // lvSpeler
             // 
@@ -68,7 +111,7 @@ namespace Praktijk_Opdracht.View
             // btnVerwijderen
             // 
             this.btnVerwijderen.Enabled = false;
-            this.btnVerwijderen.Location = new System.Drawing.Point(609, 367);
+            this.btnVerwijderen.Location = new System.Drawing.Point(609, 372);
             this.btnVerwijderen.Name = "btnVerwijderen";
             this.btnVerwijderen.Size = new System.Drawing.Size(173, 42);
             this.btnVerwijderen.TabIndex = 3;
@@ -79,7 +122,7 @@ namespace Praktijk_Opdracht.View
             // btnWijzigen
             // 
             this.btnWijzigen.Enabled = false;
-            this.btnWijzigen.Location = new System.Drawing.Point(311, 372);
+            this.btnWijzigen.Location = new System.Drawing.Point(328, 372);
             this.btnWijzigen.Name = "btnWijzigen";
             this.btnWijzigen.Size = new System.Drawing.Size(173, 42);
             this.btnWijzigen.TabIndex = 2;
@@ -107,15 +150,6 @@ namespace Praktijk_Opdracht.View
             this.label2.TabIndex = 0;
             this.label2.Text = "Spelers:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(191, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
-            // 
             // FrmSpelersOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -139,5 +173,8 @@ namespace Praktijk_Opdracht.View
         private System.Windows.Forms.Button btnToevoegen;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbFilter;
+        private System.Windows.Forms.Button btnFilter;
+        private System.Windows.Forms.Button btnClearfilter;
     }
 }

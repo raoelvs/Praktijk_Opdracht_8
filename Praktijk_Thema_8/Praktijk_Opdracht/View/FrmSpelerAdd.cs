@@ -48,7 +48,7 @@ namespace Praktijk_Opdracht.View
             item.Achternaam = txtAchternaam.Text;
             item.Geboortedatum = dtpGeboortedatum.Value;
             item.Groep = Convert.ToInt32(txtGroep.Text);
-            //item.SchoolId. = cbSchool.Text;                  Hier ook nog iets aanpassen zodat hij hem opslaat >;)
+            item.SchoolId.Naam = cbSchool.Text;                  //Hier ook nog iets aanpassen zodat hij hem opslaat >;)
 
             int rowsAffected = spelerController.Create(item);
 
