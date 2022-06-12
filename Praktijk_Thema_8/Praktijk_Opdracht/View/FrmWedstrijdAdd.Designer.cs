@@ -124,7 +124,7 @@ namespace Praktijk_Opdracht.View
             // 
             // btnAnnuleren
             // 
-            this.btnAnnuleren.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAnnuleren.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAnnuleren.Location = new System.Drawing.Point(12, 474);
             this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAnnuleren.Name = "btnAnnuleren";
@@ -132,6 +132,7 @@ namespace Praktijk_Opdracht.View
             this.btnAnnuleren.TabIndex = 17;
             this.btnAnnuleren.Text = "Annuleren";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // label2
             // 
@@ -195,6 +196,7 @@ namespace Praktijk_Opdracht.View
             this.cmbRound.Name = "cmbRound";
             this.cmbRound.Size = new System.Drawing.Size(286, 28);
             this.cmbRound.TabIndex = 35;
+            this.cmbRound.SelectedIndexChanged += new System.EventHandler(this.cmbRound_SelectedIndexChanged);
             // 
             // dtpStarttime
             // 
@@ -228,6 +230,7 @@ namespace Praktijk_Opdracht.View
             this.Controls.Add(this.label2);
             this.Name = "FrmWedstrijdAdd";
             this.Text = "FrmWedstrijdAdd";
+            this.Load += new System.EventHandler(this.FrmWedstrijdAdd_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
