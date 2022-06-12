@@ -37,8 +37,8 @@ namespace Praktijk_Opdracht.View
             this.btnResultaten = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnlForms = new System.Windows.Forms.Panel();
             this.btnWedstrijden = new System.Windows.Forms.Button();
+            this.pnlForms = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +91,7 @@ namespace Praktijk_Opdracht.View
             this.btnScholen.TabIndex = 4;
             this.btnScholen.Text = "Scholen";
             this.btnScholen.UseVisualStyleBackColor = true;
+            this.btnScholen.Click += new System.EventHandler(this.btnScholen_Click);
             // 
             // btnSpelers
             // 
@@ -148,16 +149,6 @@ namespace Praktijk_Opdracht.View
             this.panel1.Size = new System.Drawing.Size(253, 721);
             this.panel1.TabIndex = 7;
             // 
-            // pnlForms
-            // 
-            this.pnlForms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlForms.Location = new System.Drawing.Point(252, 1);
-            this.pnlForms.Name = "pnlForms";
-            this.pnlForms.Size = new System.Drawing.Size(927, 721);
-            this.pnlForms.TabIndex = 8;
-            // 
             // btnWedstrijden
             // 
             this.btnWedstrijden.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -170,6 +161,16 @@ namespace Praktijk_Opdracht.View
             this.btnWedstrijden.Text = "Wedstrijden";
             this.btnWedstrijden.UseVisualStyleBackColor = true;
             this.btnWedstrijden.Click += new System.EventHandler(this.btnWedstrijden_Click);
+            // 
+            // pnlForms
+            // 
+            this.pnlForms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlForms.Location = new System.Drawing.Point(252, 1);
+            this.pnlForms.Name = "pnlForms";
+            this.pnlForms.Size = new System.Drawing.Size(927, 721);
+            this.pnlForms.TabIndex = 8;
             // 
             // StartViewEditor
             // 

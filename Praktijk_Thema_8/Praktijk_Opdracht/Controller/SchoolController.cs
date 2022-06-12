@@ -11,15 +11,39 @@ namespace Praktijk_Opdracht.Controller
 {
     class SchoolController
     {
-
         private string connectionString = ConfigurationManager.ConnectionStrings["connectionStringDeVluggehandjes"].ConnectionString;
 
+        public List<SchoolModel> ReadAll()
+        {
+            List<SchoolModel> schoolList = new List<SchoolModel>();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM School";
+                using(SqlCommand command = new SqlCommand(query, con))
+                {
+                    con.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while(reader.Read() == true)
+                    {
+                        SchoolModel school = new SchoolModel();
+                        school.SchoolId = (int)reader["SchoolId"];
+                        school.Naam = (string)reader["Naam"];
+
+                        schoolList.Add(school);
+                    }
+                }
+            }
+            return schoolList;
+        }
+
         /// <summary>
-        /// This method deletes the school from the database. Gets the information from FrmSpelerDeleteConstraint
+        /// 
         /// </summary>
         /// <param name="school"> this variable has the school that needs to be deleted</param>
         /// <returns> The rows affected </returns>
-        public int DeleteSchoolFromSpeler(SpelerModel school)
+        public int Delete(SchoolModel school)
         {
             int rowsAffected = 0;
 
@@ -27,8 +51,7 @@ namespace Praktijk_Opdracht.Controller
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 // Opstarten van SqlCommand
-                string query = "DELETE School FROM School JOIN Speler ON Speler.SchoolId = School.SchoolId WHERE Speler.SchoolId = @SchoolIdValue; " +
-                    "DELETE FROM Speler WHERE School = @SchoolIdValue; "; /// klopt nog niet (jarno)
+                string query = "DELETE School FROM School WHERE SchoolId = @SchoolIdValue; ";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {

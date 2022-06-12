@@ -92,5 +92,17 @@ namespace Praktijk_Opdracht.View
             pnlForms.Controls.Add(frm);
             frm.Show();
         }
+
+        private void btnScholen_Click(object sender, EventArgs e)
+        {
+            FrmSchoolOverview frm = new FrmSchoolOverview(pnlForms);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
+            frm.Show();
+        }
     }
 }
