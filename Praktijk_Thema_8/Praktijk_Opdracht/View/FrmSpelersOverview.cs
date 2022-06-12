@@ -17,10 +17,12 @@ namespace Praktijk_Opdracht.View
     {
 
         SpelerController spelerController = new SpelerController();
+        public Panel pnlForms;
 
-        public FrmSpelersOverview()
+        public FrmSpelersOverview(Panel PnlForms)
         {
             InitializeComponent();
+            pnlForms = PnlForms;
         }
 
         private void Spelers_Load(object sender, EventArgs e)
@@ -113,26 +115,32 @@ namespace Praktijk_Opdracht.View
 
         private void btnWijzigen_Click(object sender, EventArgs e)
         {
-            //het sluiten van huidige sherm
-            this.Hide();
-
             SpelerModel toBeUpdated = (SpelerModel) lvSpeler.SelectedItems[0].Tag;
 
             // Versturen naar nieuw UI
-            FrmSpelerUpdate frm = new FrmSpelerUpdate(toBeUpdated);
+            FrmSpelerUpdate frm = new FrmSpelerUpdate(this, toBeUpdated);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
             frm.Show();
-
-            //frm.ShowDialog();
 
             FillListVieuw();
         }
 
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
-            //het sluiten van huidige sherm
-            this.Hide();
 
-            FrmSpelerAdd frm = new FrmSpelerAdd();
+            FrmSpelerAdd frm = new FrmSpelerAdd(this);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
+            frm.Show();
 
             DialogResult result = frm.ShowDialog();
 

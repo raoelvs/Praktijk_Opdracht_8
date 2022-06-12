@@ -16,13 +16,15 @@ namespace Praktijk_Opdracht.View
     {
         private SpelerController spelerController = new SpelerController();
         private SpelerModel permSpeler;
+        private FrmSpelersOverview spelerOverview;
 
-        public FrmSpelerUpdate(SpelerModel tmpSpeler)
+        public FrmSpelerUpdate(FrmSpelersOverview SpelerOverview, SpelerModel tmpSpeler)
         {
             InitializeComponent();
 
             //tijdelijk opslaan in een globale variable
             permSpeler = tmpSpeler;
+            spelerOverview = SpelerOverview;
         }
 
         private void FrmSpelerUpdate_Load(object sender, EventArgs e)
@@ -72,18 +74,24 @@ namespace Praktijk_Opdracht.View
                 MessageBox.Show("Het is niet gelukt");
             }
 
-            this.Hide();
-
-            FrmSpelersOverview frm = new FrmSpelersOverview();
-            frm.Show();
+            spelerOverview.FormBorderStyle = FormBorderStyle.None;
+            spelerOverview.TopLevel = false;
+            spelerOverview.TopMost = true;
+            spelerOverview.Dock = DockStyle.Fill;
+            this.Close();
+            spelerOverview.pnlForms.Controls.Add(spelerOverview);
+            spelerOverview.Show();
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            FrmSpelersOverview frm = new FrmSpelersOverview();
-            frm.Show();
+            spelerOverview.FormBorderStyle = FormBorderStyle.None;
+            spelerOverview.TopLevel = false;
+            spelerOverview.TopMost = true;
+            spelerOverview.Dock = DockStyle.Fill;
+            this.Close();
+            spelerOverview.pnlForms.Controls.Add(spelerOverview);
+            spelerOverview.Show();
         }
     }
 }

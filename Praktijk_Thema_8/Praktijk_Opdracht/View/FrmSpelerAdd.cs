@@ -15,10 +15,12 @@ namespace Praktijk_Opdracht.View
     public partial class FrmSpelerAdd : Form
     {
         private SpelerController spelerController = new SpelerController();
+        private FrmSpelersOverview spelersOverview;
 
-        public FrmSpelerAdd()
+        public FrmSpelerAdd(FrmSpelersOverview SpelersOverview)
         {
             InitializeComponent();
+            spelersOverview = SpelersOverview;
         }
 
         private void FrmSpelerAdd_Load(object sender, EventArgs e)
@@ -33,10 +35,13 @@ namespace Praktijk_Opdracht.View
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
+            spelersOverview.FormBorderStyle = FormBorderStyle.None;
+            spelersOverview.TopLevel = false;
+            spelersOverview.TopMost = true;
+            spelersOverview.Dock = DockStyle.Fill;
             this.Close();
-
-            FrmSpelersOverview frm = new FrmSpelersOverview();
-            frm.Show();
+            spelersOverview.pnlForms.Controls.Add(spelersOverview);
+            spelersOverview.Show();
         }
 
         private void btnOpslaan_Click(object sender, EventArgs e)
@@ -61,10 +66,13 @@ namespace Praktijk_Opdracht.View
                 this.DialogResult = DialogResult.No;
             }
 
+            spelersOverview.FormBorderStyle = FormBorderStyle.None;
+            spelersOverview.TopLevel = false;
+            spelersOverview.TopMost = true;
+            spelersOverview.Dock = DockStyle.Fill;
             this.Close();
-
-            FrmSpelersOverview frm = new FrmSpelersOverview();
-            frm.Show();
+            spelersOverview.pnlForms.Controls.Add(spelersOverview);
+            spelersOverview.Show();
         }
     }
 }

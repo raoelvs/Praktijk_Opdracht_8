@@ -16,18 +16,21 @@ namespace Praktijk_Opdracht.View
     {
 
         private ScheidsrechterController scheidrechterController = new ScheidsrechterController();
-        
-        public FrmScheidsrechterAdd()
+        private FrmScheidsrechterOverview scheidsrechterOverview;
+        public FrmScheidsrechterAdd( FrmScheidsrechterOverview ScheidsrechterOverview)
         {
             InitializeComponent();
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
-            frm.Show();
+            scheidsrechterOverview.FormBorderStyle = FormBorderStyle.None;
+            scheidsrechterOverview.TopLevel = false;
+            scheidsrechterOverview.TopMost = true;
+            scheidsrechterOverview.Dock = DockStyle.Fill;
+            this.Close();
+            scheidsrechterOverview.pnlForms.Controls.Add(scheidsrechterOverview);
+            scheidsrechterOverview.Show();
         }
 
         private void btnOpslaan_Click(object sender, EventArgs e)
@@ -51,10 +54,13 @@ namespace Praktijk_Opdracht.View
                 this.DialogResult = DialogResult.No;
             }
 
-            this.Hide();
-
-            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
-            frm.Show();
+            scheidsrechterOverview.FormBorderStyle = FormBorderStyle.None;
+            scheidsrechterOverview.TopLevel = false;
+            scheidsrechterOverview.TopMost = true;
+            scheidsrechterOverview.Dock = DockStyle.Fill;
+            this.Close();
+            scheidsrechterOverview.pnlForms.Controls.Add(scheidsrechterOverview);
+            scheidsrechterOverview.Show();
         }
     }
 }

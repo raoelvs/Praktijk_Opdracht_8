@@ -17,10 +17,11 @@ namespace Praktijk_Opdracht.View
     {
 
         ScheidsrechterController scheidsrechterController = new ScheidsrechterController();
-
-        public FrmScheidsrechterOverview()
+        public Panel pnlForms;
+        public FrmScheidsrechterOverview(Panel PnlForms)
         {
             InitializeComponent();
+            pnlForms = PnlForms;
         }
 
         private void FrmScheidsrechterOverview_Load(object sender, EventArgs e)
@@ -81,16 +82,17 @@ namespace Praktijk_Opdracht.View
 
         private void btnWijzigen_Click(object sender, EventArgs e)
         {
-            //het sluiten van huidige sherm
-            this.Hide();
-
             ScheidsrechterModel toBeUpdated = (ScheidsrechterModel) lvScheidsrechter.SelectedItems[0].Tag;
 
             // Versturen naar nieuw UI
-            FrmScheidsrechterUpdate frm = new FrmScheidsrechterUpdate(toBeUpdated);
+            FrmScheidsrechterUpdate frm = new FrmScheidsrechterUpdate(this, toBeUpdated);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
             frm.Show();
-
-            //frm.ShowDialog();
 
             FillListVieuw();
         }
@@ -108,10 +110,14 @@ namespace Praktijk_Opdracht.View
 
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
-            //het sluiten van huidige sherm
-            this.Hide();
-
-            FrmScheidsrechterAdd frm = new FrmScheidsrechterAdd();
+            FrmScheidsrechterAdd frm = new FrmScheidsrechterAdd(this);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
+            frm.Show();
 
             DialogResult result = frm.ShowDialog();
 

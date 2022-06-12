@@ -35,7 +35,7 @@ namespace Praktijk_Opdracht.View
 
         private void btnScheidsrechter_Click(object sender, EventArgs e)
         {
-            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
+            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview(pnlForms);
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.TopLevel = false;
             frm.TopMost = true;
@@ -47,7 +47,7 @@ namespace Praktijk_Opdracht.View
 
         private void btnSpelers_Click(object sender, EventArgs e)
         {
-            FrmSpelersOverview frm = new FrmSpelersOverview();
+            FrmSpelersOverview frm = new FrmSpelersOverview(pnlForms);
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.TopLevel = false;
             frm.TopMost = true;

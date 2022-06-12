@@ -16,13 +16,15 @@ namespace Praktijk_Opdracht.View
     {
         private ScheidsrechterController scheidsrechterController = new ScheidsrechterController();
         private ScheidsrechterModel permScheidsrechter;
+        private FrmScheidsrechterOverview scheidsrechterOverview;
 
-        public FrmScheidsrechterUpdate(ScheidsrechterModel tmpScheidsrechter)
+        public FrmScheidsrechterUpdate(FrmScheidsrechterOverview ScheidsrechterOverview, ScheidsrechterModel tmpScheidsrechter)
         {
             InitializeComponent();
 
             //tijdelijk opslaan in een globale variable
             permScheidsrechter = tmpScheidsrechter;
+            scheidsrechterOverview = ScheidsrechterOverview;
         }
 
         private void FrmScheidsrechterUpdate_Load(object sender, EventArgs e)
@@ -57,19 +59,25 @@ namespace Praktijk_Opdracht.View
                 MessageBox.Show("Het is niet gelukt");
             }
 
-            this.Hide();
-
-            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
-            frm.Show();
+            scheidsrechterOverview.FormBorderStyle = FormBorderStyle.None;
+            scheidsrechterOverview.TopLevel = false;
+            scheidsrechterOverview.TopMost = true;
+            scheidsrechterOverview.Dock = DockStyle.Fill;
+            this.Close();
+            scheidsrechterOverview.pnlForms.Controls.Add(scheidsrechterOverview);
+            scheidsrechterOverview.Show();
 
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
-            this.Hide();
-
-            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
-            frm.Show();
+            scheidsrechterOverview.FormBorderStyle = FormBorderStyle.None;
+            scheidsrechterOverview.TopLevel = false;
+            scheidsrechterOverview.TopMost = true;
+            scheidsrechterOverview.Dock = DockStyle.Fill;
+            this.Close();
+            scheidsrechterOverview.pnlForms.Controls.Add(scheidsrechterOverview);
+            scheidsrechterOverview.Show();
         }
     }
 }
