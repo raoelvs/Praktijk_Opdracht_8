@@ -18,7 +18,7 @@ namespace Praktijk_Opdracht.Controller
             List<WedstrijdModel> list = new List<WedstrijdModel>();
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM vWedstrijden";
+                string query = "SELECT * FROM vWedstrijden ORDER BY Ronde,WedstrijdNummer";
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
                     con.Open();
@@ -31,7 +31,8 @@ namespace Praktijk_Opdracht.Controller
                         item.WedstrijdId = (int)reader["WedstrijdId"];
                         item.Starttijd = (DateTime)reader["Starttijd"];
                         item.Eindtijd = (DateTime)reader["Eindtijd"];
-                        item.Ronde = (int)reader["Ronde"];
+                        item.Ronde = Convert.ToInt32(reader["Ronde"]);
+                        item.WedstrijdNummer = Convert.ToInt32(reader["WedstrijdNummer"]);
 
                         ScheidsrechterModel scheidsrechter = new ScheidsrechterModel();
                         scheidsrechter.ScheidsrechterCode = (string)reader["ScheidsrechterCode"];
@@ -53,7 +54,7 @@ namespace Praktijk_Opdracht.Controller
                             thuis.Tussenvoegsel = (string)reader["ThuisTussenvoegsel"];
                         }
                         thuis.Achternaam = (string)reader["ThuisAchternaam"];
-                        thuis.Groep = (int)reader["ThuisGroep"];
+                        thuis.Groep = Convert.ToInt32(reader["ThuisGroep"]);
                         thuis.Geboortedatum = (DateTime)reader["ThuisGeboortedatum"];
 
                         SchoolModel thuisSchool = new SchoolModel();
@@ -69,7 +70,7 @@ namespace Praktijk_Opdracht.Controller
                             uit.Tussenvoegsel = (string)reader["UitTussenvoegsel"];
                         }
                         uit.Achternaam = (string)reader["UitAchternaam"];
-                        uit.Groep = (int)reader["UitGroep"];
+                        uit.Groep = Convert.ToInt32(reader["UitGroep"]);
                         uit.Geboortedatum = (DateTime)reader["UitGeboortedatum"];
 
                         SchoolModel uitSchool = new SchoolModel();
@@ -98,7 +99,7 @@ namespace Praktijk_Opdracht.Controller
                                 winnaar.Tussenvoegsel = (string)reader["WinnaarTussenvoegsel"];
                             }
                             winnaar.Achternaam = (string)reader["WinnaarAchternaam"];
-                            winnaar.Groep = (int)reader["WinnaarGroep"];
+                            winnaar.Groep = Convert.ToInt32(reader["WinnaarGroep"]);
                             winnaar.Geboortedatum = (DateTime)reader["WinnaarGeboortedatum"];
 
                             winnaarSchool.SchoolId = (int)reader["WinnaarSchoolId"];
@@ -208,7 +209,7 @@ namespace Praktijk_Opdracht.Controller
                                 winnaar.Tussenvoegsel = (string)reader["WinnaarTussenvoegsel"];
                             }                            
                             winnaar.Achternaam = (string)reader["WinnaarAchternaam"];
-                            winnaar.Groep = (int)reader["WinnaarGroep"];
+                            winnaar.Groep = Convert.ToInt32(reader["WinnaarGroep"]);
                             winnaar.Geboortedatum = (DateTime)reader["WinnaarGeboortedatum"];
 
                             winnaarSchool.SchoolId = (int)reader["WinnaarSchoolId"];

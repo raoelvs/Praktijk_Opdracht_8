@@ -1,0 +1,67 @@
+﻿using Praktijk_Opdracht.Controller;
+using Praktijk_Opdracht.Model;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Praktijk_Opdracht.View
+{
+    public partial class FrmWedstrijdOverview : Form
+    {
+        private WedstrijdController wedContr = new WedstrijdController();
+        public FrmWedstrijdOverview()
+        {
+            InitializeComponent();
+        }
+
+        private void FrmWedstrijdOverview_Load(object sender, EventArgs e)
+        {
+            lvWedstrijden.Columns.Add("Ronde", 100);
+            lvWedstrijden.Columns.Add("Wedstrijd", 100);
+            lvWedstrijden.Columns.Add("Starttijd", 150);
+            lvWedstrijden.Columns.Add("Eindtijd",150);
+            lvWedstrijden.Columns.Add("Thuis speler", 250);
+            lvWedstrijden.Columns.Add("Uit speler", 250);
+            lvWedstrijden.Columns.Add("Scheidsrechter", 250);
+            lvWedstrijden.Columns.Add("Wedstrijd winnaar", 250);
+
+            lvWedstrijden.FullRowSelect = true;
+            lvWedstrijden.View = System.Windows.Forms.View.Details;
+
+            FillListView();
+        }
+
+        private void FillListView()
+        {
+            List<WedstrijdModel> wedstrijdList = wedContr.ReadAll();
+
+            lvWedstrijden.Items.Clear();
+
+            foreach (WedstrijdModel wedstrijd in wedstrijdList)
+            {
+                ListViewItem lvItem = new ListViewItem(wedstrijd.Ronde.ToString());
+                lvItem.SubItems.Add(wedstrijd.WedstrijdNummer.ToString());
+                lvItem.SubItems.Add(wedstrijd.Starttijd.ToShortDateString() + " " + wedstrijd.Starttijd.ToShortTimeString());
+                lvItem.SubItems.Add(wedstrijd.Eindtijd.ToShortDateString() + " " + wedstrijd.Eindtijd.ToShortTimeString());
+                lvItem.SubItems.Add(wedstrijd.Thuis.FullName);
+                lvItem.SubItems.Add(wedstrijd.Uit.FullName);
+                lvItem.SubItems.Add(wedstrijd.ScheidsrechterCode.FullName);
+                lvItem.SubItems.Add("Onbekend");
+                if (wedstrijd.Winnaar.SpelerId != 0)
+                {
+                    lvItem.SubItems.Add(wedstrijd.Winnaar.FullName);
+                }
+
+                lvItem.Tag = wedstrijd;
+
+                lvWedstrijden.Items.Add(lvItem);
+            }
+        }
+    }
+}

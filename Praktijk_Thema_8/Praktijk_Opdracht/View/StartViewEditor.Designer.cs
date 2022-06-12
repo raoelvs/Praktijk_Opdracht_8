@@ -38,6 +38,7 @@ namespace Praktijk_Opdracht.View
             this.btnHome = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlForms = new System.Windows.Forms.Panel();
+            this.btnWedstrijden = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,6 +135,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Controls.Add(this.btnWedstrijden);
             this.panel1.Controls.Add(this.btnScheidsrechter);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnSluiten);
@@ -151,10 +153,23 @@ namespace Praktijk_Opdracht.View
             this.pnlForms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlForms.Location = new System.Drawing.Point(259, 1);
+            this.pnlForms.Location = new System.Drawing.Point(252, 1);
             this.pnlForms.Name = "pnlForms";
-            this.pnlForms.Size = new System.Drawing.Size(920, 721);
+            this.pnlForms.Size = new System.Drawing.Size(927, 721);
             this.pnlForms.TabIndex = 8;
+            // 
+            // btnWedstrijden
+            // 
+            this.btnWedstrijden.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWedstrijden.Location = new System.Drawing.Point(3, 306);
+            this.btnWedstrijden.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnWedstrijden.Name = "btnWedstrijden";
+            this.btnWedstrijden.Size = new System.Drawing.Size(250, 56);
+            this.btnWedstrijden.TabIndex = 7;
+            this.btnWedstrijden.Text = "Wedstrijden";
+            this.btnWedstrijden.UseVisualStyleBackColor = true;
+            this.btnWedstrijden.Click += new System.EventHandler(this.btnWedstrijden_Click);
             // 
             // StartViewEditor
             // 
@@ -183,5 +198,6 @@ namespace Praktijk_Opdracht.View
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnlForms;
+        private System.Windows.Forms.Button btnWedstrijden;
     }
 }
