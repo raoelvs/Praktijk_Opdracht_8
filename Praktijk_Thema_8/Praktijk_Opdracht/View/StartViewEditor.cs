@@ -12,9 +12,11 @@ namespace Praktijk_Opdracht.View
 {
     public partial class StartViewEditor : Form
     {
-        public StartViewEditor()
+        private string role;
+        public StartViewEditor(string Role)
         {
             InitializeComponent();
+            role = Role;
         }
 
         private void btnSluiten_Click(object sender, EventArgs e)
@@ -31,6 +33,26 @@ namespace Praktijk_Opdracht.View
             frm.Dock = DockStyle.Fill;
             pnlForms.Controls.Add(frm);
             frm.Show();
+
+            if(role == "Scheidsrechter")
+            {
+                btnScheidsrechter.Enabled = false;
+                btnScholen.Enabled = false;
+                btnSpelers.Enabled = false;
+                btnWedstrijden.Enabled = false;
+            }
+            else if (role == "Organisator")
+            {
+                btnResultaten.Enabled = false;
+            }
+            else
+            {
+                btnResultaten.Enabled = false;
+                btnScheidsrechter.Enabled = false;
+                btnScholen.Enabled = false;
+                btnSpelers.Enabled = false;
+                btnWedstrijden.Enabled = false;
+            }
         }
 
         private void btnScheidsrechter_Click(object sender, EventArgs e)

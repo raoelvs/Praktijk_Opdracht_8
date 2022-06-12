@@ -24,20 +24,6 @@ namespace Praktijk_Opdracht.View
             panel = Panel;
         }
 
-        private void btnInloggen_Click(object sender, EventArgs e)
-        {
-            StartViewEditor frm = new StartViewEditor();
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.TopLevel = false;
-            frm.TopMost = true;
-            frm.Dock = DockStyle.Fill;
-            this.Close();
-            panel.Controls.Add(frm);
-            frm.Show();
-        }
-
-
-
         private void FrmInlogOverview_Load(object sender, EventArgs e)
         {
 
@@ -54,8 +40,7 @@ namespace Praktijk_Opdracht.View
             {
                 if (scheidsrechter.Wachtwoord == wachtwoord)
                 {
-                    scheidsrechter.role = "scheidsrechter";
-                    StartViewEditor frm = new StartViewEditor();
+                    StartViewEditor frm = new StartViewEditor("Scheidsrechter");
                     frm.FormBorderStyle = FormBorderStyle.None;
                     frm.TopLevel = false;
                     frm.TopMost = true;
@@ -77,7 +62,7 @@ namespace Praktijk_Opdracht.View
                 {
                     if (password == txtWachtwoord.Text)
                     {
-                        StartViewEditor frm = new StartViewEditor();
+                        StartViewEditor frm = new StartViewEditor("Organisator");
                         frm.FormBorderStyle = FormBorderStyle.None;
                         frm.TopLevel = false;
                         frm.TopMost = true;
