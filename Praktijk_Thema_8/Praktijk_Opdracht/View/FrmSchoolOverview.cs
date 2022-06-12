@@ -31,6 +31,9 @@ namespace Praktijk_Opdracht.View
             lvScholen.View = System.Windows.Forms.View.Details;
 
             FillListView();
+
+            btnDelete.Enabled = false;
+            btnUpdate.Enabled = false;
         }
 
         public void FillListView()
@@ -50,6 +53,32 @@ namespace Praktijk_Opdracht.View
         private void btnAdd_Click(object sender, EventArgs e)
         {
             FrmSchoolAdd frm = new FrmSchoolAdd(this);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
+            frm.Show();
+        }
+
+        private void lvScholen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lvScholen.SelectedItems.Count == 1)
+            {
+                btnDelete.Enabled = true;
+                btnUpdate.Enabled = true;
+            }
+            else
+            {
+                btnDelete.Enabled = false;
+                btnUpdate.Enabled = false;
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            FrmSchoolUpdate frm = new FrmSchoolUpdate(this, (SchoolModel) lvScholen.SelectedItems[0].Tag);
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.TopLevel = false;
             frm.TopMost = true;

@@ -12,14 +12,16 @@ using System.Windows.Forms;
 
 namespace Praktijk_Opdracht.View
 {
-    public partial class FrmSchoolAdd : Form
+    public partial class FrmSchoolUpdate : Form
     {
         private FrmSchoolOverview schoolOverview;
+        private SchoolModel schoolToBeUpdated;
         private SchoolController schoolContr = new SchoolController();
-        public FrmSchoolAdd(FrmSchoolOverview SchoolOverview)
+        public FrmSchoolUpdate(FrmSchoolOverview SchoolOverview, SchoolModel School)
         {
             InitializeComponent();
             schoolOverview = SchoolOverview;
+            schoolToBeUpdated = School;
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
@@ -35,14 +37,15 @@ namespace Praktijk_Opdracht.View
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            if(txtNaam.Text != null)
+            if (txtNaam.Text != null)
             {
                 SchoolModel school = new SchoolModel();
                 school.Naam = txtNaam.Text;
+                school.SchoolId = schoolToBeUpdated.SchoolId;
                 try
                 {
-                    schoolContr.Create(school);
-                    MessageBox.Show("School(" + school.Naam + ") is toegevoegd");
+                    schoolContr.Update(school);
+                    MessageBox.Show("School(" + school.Naam + ") is bewerkt");
                     schoolOverview.FormBorderStyle = FormBorderStyle.None;
                     schoolOverview.TopLevel = false;
                     schoolOverview.TopMost = true;
@@ -54,13 +57,18 @@ namespace Praktijk_Opdracht.View
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Er is iets misgegaan. School(" + school.Naam + ") niet kunnen toevoegen");
+                    MessageBox.Show("Er is iets misgegaan. School(" + school.Naam + ") niet kunnen bewerken");
                 }
             }
             else
             {
                 MessageBox.Show("Vul alle velden in!");
-            }    
+            }
+        }
+
+        private void FrmSchoolUpdate_Load(object sender, EventArgs e)
+        {
+            txtNaam.Text = schoolToBeUpdated.Naam;
         }
     }
 }

@@ -208,9 +208,9 @@ namespace Praktijk_Opdracht.View
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(230, 32);
+            this.label2.Size = new System.Drawing.Size(218, 32);
             this.label2.TabIndex = 37;
-            this.label2.Text = "Bewerken Wedstrijd:";
+            this.label2.Text = "Wijzigen Wedstrijd:";
             // 
             // FrmWedstrijdUpdate
             // 

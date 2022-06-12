@@ -48,6 +48,7 @@ namespace Praktijk_Opdracht.View
             this.lvScholen.Size = new System.Drawing.Size(776, 314);
             this.lvScholen.TabIndex = 19;
             this.lvScholen.UseCompatibleStateImageBehavior = false;
+            this.lvScholen.SelectedIndexChanged += new System.EventHandler(this.lvScholen_SelectedIndexChanged);
             // 
             // btnDelete
             // 
@@ -72,6 +73,7 @@ namespace Praktijk_Opdracht.View
             this.btnUpdate.TabIndex = 17;
             this.btnUpdate.Text = "Wijzigen";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 

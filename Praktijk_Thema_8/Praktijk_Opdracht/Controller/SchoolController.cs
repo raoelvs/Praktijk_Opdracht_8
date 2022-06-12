@@ -18,7 +18,7 @@ namespace Praktijk_Opdracht.Controller
             List<SchoolModel> schoolList = new List<SchoolModel>();
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM School";
+                string query = "SELECT * FROM School ORDER BY Naam";
                 using(SqlCommand command = new SqlCommand(query, con))
                 {
                     con.Open();
@@ -47,6 +47,23 @@ namespace Praktijk_Opdracht.Controller
                 using(SqlCommand command = new SqlCommand(query, con))
                 {
                     command.Parameters.AddWithValue("NaamValue", school.Naam);
+                    con.Open();
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+            return rowsAffected;
+        }
+
+        public int Update(SchoolModel school)
+        {
+            int rowsAffected = 0;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE School SET Naam = @NaamValue WHERE SchoolId = @SchoolIdValue";
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("NaamValue", school.Naam);
+                    command.Parameters.AddWithValue("SchoolIdValue", school.SchoolId);
                     con.Open();
                     rowsAffected = command.ExecuteNonQuery();
                 }
