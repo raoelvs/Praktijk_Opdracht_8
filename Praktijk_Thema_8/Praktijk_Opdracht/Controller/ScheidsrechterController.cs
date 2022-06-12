@@ -161,5 +161,55 @@ namespace Praktijk_Opdracht.Controller
             }
             return rowsAffected;
         }
+        public ScheidsrechterModel ReadWhere(string password)
+        {
+            ScheidsrechterModel scheidsrechterItem = new ScheidsrechterModel();
+            // stap 1 Connection
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                //stap 2 sqlcommand aanmaken
+                string sqlQuery = "SELECT * FROM Scheidsrechter WHERE ScheidsrechterCode = @ScheidsrechterCodeValue ";
+
+                using (SqlCommand command = new SqlCommand(sqlQuery, con))
+                {
+                    command.Parameters.AddWithValue("ScheidsrechterCodeValue", password);
+                    con.Open();
+
+                    // stap 3 commando uitvoeren
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    //stap 4 door de sql reader heen loopen en objecten aanmaken
+
+
+                    while(reader.Read() == true)
+                    {
+                        // ophalen table scheidsrechter gegevens
+                        string scheidsrechterCode = (string)reader["ScheidsrechterCode"];
+                        string voornaam = (string)reader["Voornaam"];
+              
+                    
+                        if (reader["Tussenvoegsel"] == DBNull.Value)
+                        {
+                            scheidsrechterItem.Tussenvoegsel = "";
+                        }
+                        else
+                        {
+                            scheidsrechterItem.Tussenvoegsel = (string)reader["Tussenvoegsel"];
+                        }
+
+                        string achternaam = (string)reader["Achternaam"];
+                        string wachtwoord = (string)reader["Wachtwoord"];
+
+
+                        // object properties een waarde geven
+                        scheidsrechterItem.ScheidsrechterCode = scheidsrechterCode;
+                        scheidsrechterItem.Voornaam = voornaam;
+                        scheidsrechterItem.Achternaam = achternaam;
+                        scheidsrechterItem.Wachtwoord = wachtwoord;
+                    }
+                }
+            }
+            return scheidsrechterItem;
+        }
     }
 }
