@@ -227,7 +227,7 @@ namespace Praktijk_Opdracht.Controller
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string sqlQuery = "INSERT INTO Speler VALUES (@VoornaamValue, @TussenvoegselValue, @AchternaamValue, @GeboortedatumValue, @GroepValue, SchoolIdValue)";
+                string sqlQuery = "INSERT INTO Speler VALUES (@VoornaamValue, @TussenvoegselValue, @AchternaamValue, @GeboortedatumValue, @GroepValue, @SchoolIdValue)";
 
                 using (SqlCommand command = new SqlCommand(sqlQuery, con))
                 {
@@ -236,7 +236,7 @@ namespace Praktijk_Opdracht.Controller
                     command.Parameters.AddWithValue("AchternaamValue", item.Achternaam);
                     command.Parameters.AddWithValue("GeboortedatumValue", item.Geboortedatum);
                     command.Parameters.AddWithValue("GroepValue", item.Groep);
-                    command.Parameters.AddWithValue("SchoolIdValue", item.SchoolId);
+                    command.Parameters.AddWithValue("SchoolIdValue", item.SchoolId.SchoolId);
 
                     con.Open();
 

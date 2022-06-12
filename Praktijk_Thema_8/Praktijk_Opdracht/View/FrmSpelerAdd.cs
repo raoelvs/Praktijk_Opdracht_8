@@ -29,8 +29,10 @@ namespace Praktijk_Opdracht.View
 
             foreach(SpelerModel speler in spelers)
             {
-                cbSchool.Items.Add(speler.SchoolId.Naam);
+                cbSchool.Items.Add(speler.SchoolId);
             }
+
+            cbSchool.DisplayMember = "Naam";
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
@@ -53,26 +55,27 @@ namespace Praktijk_Opdracht.View
             item.Achternaam = txtAchternaam.Text;
             item.Geboortedatum = dtpGeboortedatum.Value;
             item.Groep = Convert.ToInt32(txtGroep.Text);
-            item.SchoolId.Naam = cbSchool.Text;                  //Hier ook nog iets aanpassen zodat hij hem opslaat >;)
+            item.SchoolId = (SchoolModel)cbSchool.SelectedItem;                  //Hier ook nog iets aanpassen zodat hij hem opslaat >;)
 
             int rowsAffected = spelerController.Create(item);
 
             if (rowsAffected > 0)
             {
-                this.DialogResult = DialogResult.Yes;
+                spelersOverview.FormBorderStyle = FormBorderStyle.None;
+                spelersOverview.TopLevel = false;
+                spelersOverview.TopMost = true;
+                spelersOverview.Dock = DockStyle.Fill;
+                this.Close();
+                spelersOverview.FillListVieuw();
+                spelersOverview.pnlForms.Controls.Add(spelersOverview);
+                spelersOverview.Show();
             }
             else
             {
-                this.DialogResult = DialogResult.No;
+                MessageBox.Show("Speler " + item.FullName + " is niet toegevoegd");
             }
 
-            spelersOverview.FormBorderStyle = FormBorderStyle.None;
-            spelersOverview.TopLevel = false;
-            spelersOverview.TopMost = true;
-            spelersOverview.Dock = DockStyle.Fill;
-            this.Close();
-            spelersOverview.pnlForms.Controls.Add(spelersOverview);
-            spelersOverview.Show();
+            
         }
     }
 }
