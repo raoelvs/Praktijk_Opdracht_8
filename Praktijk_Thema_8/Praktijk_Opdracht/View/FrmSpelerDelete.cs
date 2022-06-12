@@ -43,9 +43,10 @@ namespace Praktijk_Opdracht.View
             {
                 if (ex.Number == 547)
                 {
+                    this.Hide();
 
-                    FrmSpelerDeleteConstraint frmDelete = new FrmSpelerDeleteConstraint(delSpeler);
-                    frmDelete.Show();
+                    MessageBox.Show("Deze speler: (" + delSpeler.FullName + ") heeft nog een relatie. " +
+                        "Verwijder deze Speler eerst bij wedstrijden en resultaten");
 
                 }
                 else
