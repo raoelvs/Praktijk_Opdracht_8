@@ -15,9 +15,11 @@ namespace Praktijk_Opdracht.View
     public partial class FrmWedstrijdOverview : Form
     {
         private WedstrijdController wedContr = new WedstrijdController();
-        public FrmWedstrijdOverview()
+        public Panel pnlForms;
+        public FrmWedstrijdOverview(Panel PnlForms)
         {
             InitializeComponent();
+            pnlForms = PnlForms;
         }
 
         private void FrmWedstrijdOverview_Load(object sender, EventArgs e)
@@ -80,6 +82,18 @@ namespace Praktijk_Opdracht.View
                 btnDelete.Enabled = false;
                 btnUpdate.Enabled = false;
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmWedstrijdAdd frm = new FrmWedstrijdAdd(this);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
+            frm.Show();
         }
     }
 }

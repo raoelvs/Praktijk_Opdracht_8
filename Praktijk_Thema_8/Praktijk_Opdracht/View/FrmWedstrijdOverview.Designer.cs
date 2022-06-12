@@ -84,6 +84,7 @@ namespace Praktijk_Opdracht.View
             this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Toevoegen";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label2
             // 

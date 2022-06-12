@@ -83,7 +83,7 @@ namespace Praktijk_Opdracht.View
 
         private void btnWedstrijden_Click(object sender, EventArgs e)
         {
-            FrmWedstrijdOverview frm = new FrmWedstrijdOverview();
+            FrmWedstrijdOverview frm = new FrmWedstrijdOverview(pnlForms);
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.TopLevel = false;
             frm.TopMost = true;

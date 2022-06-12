@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Praktijk_Opdracht.Model
 {
-    class WedstrijdModel
+    public class WedstrijdModel
     {
         public int WedstrijdId { get; set; }
         public int Ronde { get; set; }
