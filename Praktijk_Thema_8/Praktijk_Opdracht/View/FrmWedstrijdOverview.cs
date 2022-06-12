@@ -107,5 +107,15 @@ namespace Praktijk_Opdracht.View
             pnlForms.Controls.Add(frm);
             frm.Show();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            FrmWedstrijdDelete frm = new FrmWedstrijdDelete((WedstrijdModel)lvWedstrijden.SelectedItems[0].Tag);
+            frm.ShowDialog();
+            FillListView();
+
+            btnDelete.Enabled = false;
+            btnUpdate.Enabled = false;
+        }
     }
 }
