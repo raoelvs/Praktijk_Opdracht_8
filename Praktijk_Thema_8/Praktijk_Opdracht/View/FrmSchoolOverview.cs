@@ -15,7 +15,7 @@ namespace Praktijk_Opdracht.View
     public partial class FrmSchoolOverview : Form
     {
         private SchoolController schoolContr = new SchoolController();
-        private Panel pnlForms;
+        public Panel pnlForms;
         public FrmSchoolOverview(Panel PnlForms)
         {
             InitializeComponent();
@@ -36,6 +36,7 @@ namespace Praktijk_Opdracht.View
         public void FillListView()
         {
             List<SchoolModel> schoolList = schoolContr.ReadAll();
+            lvScholen.Items.Clear();
             foreach(SchoolModel school in schoolList)
             {
                 ListViewItem lvItem = new ListViewItem(school.Naam);
@@ -44,6 +45,18 @@ namespace Praktijk_Opdracht.View
 
                 lvScholen.Items.Add(lvItem);
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmSchoolAdd frm = new FrmSchoolAdd(this);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
+            frm.Show();
         }
     }
 }

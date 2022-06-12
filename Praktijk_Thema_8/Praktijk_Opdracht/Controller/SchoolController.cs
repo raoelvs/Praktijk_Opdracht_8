@@ -38,6 +38,22 @@ namespace Praktijk_Opdracht.Controller
             return schoolList;
         }
 
+        public int Create(SchoolModel school)
+        {
+            int rowsAffected = 0;
+            using(SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO School(Naam) VALUES(@NaamValue)";
+                using(SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("NaamValue", school.Naam);
+                    con.Open();
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+            return rowsAffected;
+        }
+
         /// <summary>
         /// 
         /// </summary>
