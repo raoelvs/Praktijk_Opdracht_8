@@ -38,10 +38,8 @@ namespace Praktijk_Opdracht.View
                 int rowsAffected = scheidsrechterController.Delete(delScheidsrechter);
                 MessageBox.Show("Het is geluk om de scheidsrechter te verwijderen: ");
 
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Actie geslaagd.");
-                }
+
+                this.Hide();
             }
             catch (SqlException ex)
             {
