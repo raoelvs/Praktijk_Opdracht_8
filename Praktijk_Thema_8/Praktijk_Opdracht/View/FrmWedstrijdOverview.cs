@@ -43,7 +43,7 @@ namespace Praktijk_Opdracht.View
             btnUpdate.Enabled = false;
         }
 
-        private void FillListView()
+        public void FillListView()
         {
             List<WedstrijdModel> wedstrijdList = wedContr.ReadAll();
 

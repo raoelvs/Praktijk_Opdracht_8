@@ -228,5 +228,31 @@ namespace Praktijk_Opdracht.Controller
             }
             return item;
         }
+
+        public int Create(WedstrijdModel wedstrijd)
+        {
+            int rowsAffected = 0;
+
+            using(SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Wedstrijd(Ronde, WedstrijdNummer, Starttijd, Eindtijd, Thuis, Uit, ScheidsrechterCode) " +
+                    "VALUES(@RondeValue, @WedstrijdNummerValue, @StartijdValue, @EindtijdValue, @ThuisValue, @UitValue, @ScheidsrechterCodeValue);";
+                using(SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("RondeValue", wedstrijd.Ronde);
+                    command.Parameters.AddWithValue("WedstrijdNummerValue", wedstrijd.WedstrijdNummer);
+                    command.Parameters.AddWithValue("StartijdValue", wedstrijd.Starttijd);
+                    command.Parameters.AddWithValue("EindtijdValue", wedstrijd.Eindtijd);
+                    command.Parameters.AddWithValue("ThuisValue", wedstrijd.Thuis.SpelerId);
+                    command.Parameters.AddWithValue("UitValue", wedstrijd.Uit.SpelerId);
+                    command.Parameters.AddWithValue("ScheidsrechterCodeValue", wedstrijd.ScheidsrechterCode.ScheidsrechterCode);
+                    con.Open();
+
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+
+            return rowsAffected;
+        }
     }
 }

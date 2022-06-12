@@ -121,6 +121,7 @@ namespace Praktijk_Opdracht.View
             this.btnOpslaan.TabIndex = 18;
             this.btnOpslaan.Text = "Opslaan";
             this.btnOpslaan.UseVisualStyleBackColor = true;
+            this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
             // 
             // btnAnnuleren
             // 
@@ -164,6 +165,8 @@ namespace Praktijk_Opdracht.View
             // 
             // dtpEndtime
             // 
+            this.dtpEndtime.CustomFormat = "dd-MM-yyyy HH:mm";
+            this.dtpEndtime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpEndtime.Location = new System.Drawing.Point(165, 231);
             this.dtpEndtime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpEndtime.Name = "dtpEndtime";
@@ -178,6 +181,7 @@ namespace Praktijk_Opdracht.View
             this.cmbPlayer1.Name = "cmbPlayer1";
             this.cmbPlayer1.Size = new System.Drawing.Size(286, 28);
             this.cmbPlayer1.TabIndex = 33;
+            this.cmbPlayer1.SelectedIndexChanged += new System.EventHandler(this.cmbPlayer1_SelectedIndexChanged);
             // 
             // cmbWedstrijd
             // 
@@ -200,6 +204,8 @@ namespace Praktijk_Opdracht.View
             // 
             // dtpStarttime
             // 
+            this.dtpStarttime.CustomFormat = "dd-MM-yyyy HH:mm";
+            this.dtpStarttime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStarttime.Location = new System.Drawing.Point(165, 177);
             this.dtpStarttime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtpStarttime.Name = "dtpStarttime";
