@@ -87,5 +87,12 @@ namespace Praktijk_Opdracht.View
             pnlForms.Controls.Add(frm);
             frm.Show();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            FrmSchoolDelete frm = new FrmSchoolDelete((SchoolModel)lvScholen.SelectedItems[0].Tag);
+            frm.ShowDialog();
+            FillListView();
+        }
     }
 }

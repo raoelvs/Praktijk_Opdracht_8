@@ -61,6 +61,7 @@ namespace Praktijk_Opdracht.View
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "Verwijderen";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
