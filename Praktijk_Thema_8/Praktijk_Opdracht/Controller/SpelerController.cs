@@ -85,6 +85,74 @@ namespace Praktijk_Opdracht.Controller
             return resultList;
         }
 
+        public List<SpelerModel> ReadFilter(string selectedSpeler)
+        {
+            // Lijst aanmaken om alle Taken in op te slaan
+            List<SpelerModel> result = new List<SpelerModel>();
+
+            // SQL query als string
+            string query = "SELECT * FROM Speler WHERE Voornaam =" + "'" + selectedSpeler + "'";
+
+            // SQL Connectie maken
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                // Commando object maken
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    // Openen van de connectie
+                    con.Open();
+
+                    // Uivoeren van het SQL commando en opslaan in een reader
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    // Datareader uitlezen Taakvoor Taak en omzetten naar een object
+                    while (reader.Read() == true)
+                    {
+                        SpelerModel filterSpeler = new SpelerModel();
+                        SchoolModel filterSchool = new SchoolModel();
+
+                        // ophalen table speler gegevens
+                        int spelerId = (int)reader["SpelerId"];
+                        string voornaam = (string)reader["Voornaam"];
+
+                        if (reader["Tussenvoegsel"] == DBNull.Value)
+                        {
+                            filterSpeler.Tussenvoegsel = "";
+                        }
+                        else
+                        {
+                            filterSpeler.Tussenvoegsel = (string)reader["Tussenvoegsel"];
+                        }
+
+                        string achternaam = (string)reader["Achternaam"];
+                        DateTime geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
+                        int groep = (byte)reader["Groep"];
+
+                        // ophalen table school gegevens
+                        int schoolId = (int)reader["SchoolId"];
+
+                        // object properties een waarde geven
+                        // table Speler
+                        filterSpeler.SpelerId = spelerId;
+                        filterSpeler.Voornaam = voornaam;
+                        filterSpeler.Achternaam = achternaam;
+                        filterSpeler.Geboortedatum = geboortedatum;
+                        filterSpeler.Groep = groep;
+
+                        // table school
+                        filterSchool.SchoolId = schoolId;
+
+                        // schoolitem toevoegen aan speleritem
+                        filterSpeler.SchoolId = filterSchool;
+
+                        // object toevoegen aan de List<>
+                        result.Add(filterSpeler);
+                    }
+                }
+            }
+            return result;
+        }
+
         /// <summary>
         /// This method deletes the speler from database Speler
         /// </summary>

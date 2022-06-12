@@ -48,7 +48,7 @@ namespace Praktijk_Opdracht.View
             item.Achternaam = txtAchternaam.Text;
             item.Geboortedatum = dtpGeboortedatum.Value;
             item.Groep = Convert.ToInt32(txtGroep.Text);
-            //item.SchoolId. = cbSchool.Text;                  Hier ook nog iets aanpassen zodat hij hem opslaat >;)
+            item.SchoolId.Naam = cbSchool.Text;                  //Hier ook nog iets aanpassen zodat hij hem opslaat >;)
 
             int rowsAffected = spelerController.Create(item);
 
@@ -65,49 +65,6 @@ namespace Praktijk_Opdracht.View
 
             FrmSpelersOverview frm = new FrmSpelersOverview();
             frm.Show();
-        }
-
-        private void btnResultaten_Click(object sender, EventArgs e)
-        {
-            //opent frm resultaten overview
-            FrmResultatenOverview frm = new FrmResultatenOverview();
-            frm.Show();
-        }
-
-        private void btnSpelers_Click(object sender, EventArgs e)
-        {
-            // opent frm spelers overview
-            FrmSpelersOverview frm = new FrmSpelersOverview();
-            frm.Show();
-        }
-
-        private void btnScholen_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            //FrmScholenOverview frmScholen = new FrmScholenOverview();
-            //frmScholen.Show();
-        }
-
-        private void btnScheidsrechter_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            FrmScheidsrechterOverview frmScheidsrechter = new FrmScheidsrechterOverview();
-            frmScheidsrechter.Show();
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            StartView frmStartView = new StartView();
-            frmStartView.Show();
-        }
-
-        private void btnSluiten_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

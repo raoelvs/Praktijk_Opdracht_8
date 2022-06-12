@@ -43,6 +43,13 @@ namespace Praktijk_Opdracht.View
             lvSpeler.HeaderStyle = ColumnHeaderStyle.Clickable;
 
             FillListVieuw();
+
+            List<SpelerModel> spelers = spelerController.ReadAll();
+
+            foreach(SpelerModel speler in spelers)
+            {
+                cbFilter.Items.Add(speler.Voornaam);
+            }
         }
 
         private void FillListVieuw()
@@ -53,6 +60,30 @@ namespace Praktijk_Opdracht.View
             lvSpeler.Items.Clear();
 
             foreach (SpelerModel item in spelerList)
+            {
+                //listvieuw item aanmaken
+
+                ListViewItem lvItem = new ListViewItem(item.Voornaam);
+                lvItem.SubItems.Add(item.Tussenvoegsel);
+                lvItem.SubItems.Add(item.Achternaam);
+                lvItem.SubItems.Add(item.Geboortedatum.ToString());
+                lvItem.SubItems.Add(item.Groep.ToString());
+                lvItem.SubItems.Add(item.SchoolId.Naam);
+
+                lvItem.Tag = item;
+
+                lvSpeler.Items.Add(lvItem);
+            }
+        }
+
+        private void FilterListView(string selectedSpeler)
+        {
+
+            List<SpelerModel> filter = spelerController.ReadFilter(selectedSpeler);
+
+            lvSpeler.Items.Clear();
+
+            foreach (SpelerModel item in filter)
             {
                 //listvieuw item aanmaken
 
@@ -133,53 +164,16 @@ namespace Praktijk_Opdracht.View
             }
         }
 
-        private void btnSluiten_Click(object sender, EventArgs e)
+        private void btnFilter_Click(object sender, EventArgs e)
         {
-            this.Close();
+            string selectedSpeler = cbFilter.SelectedItem.ToString();
+
+            FilterListView(selectedSpeler);
         }
 
-        private void btnResultaten_Click(object sender, EventArgs e)
+        private void btnClearfilter_Click(object sender, EventArgs e)
         {
-            //het sluiten van huidige sherm
-            this.Hide();
-
-            //opent frm resultaten overview
-            FrmResultatenOverview frm = new FrmResultatenOverview();
-            frm.Show();
-        }
-
-        private void btnScheidsrechter_Click(object sender, EventArgs e)
-        {
-            //het sluiten van huidige sherm
-            this.Hide();
-
-            // opent frm scheidsrechter overview
-            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
-            frm.Show();
-        }
-
-        private void btnSpelers_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            FrmSpelersOverview frmSpeler = new FrmSpelersOverview();
-            frmSpeler.Show();
-        }
-
-        private void btnScholen_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            //FrmScholenOverview frmScholen = new FrmScholenOverview();
-            //frmScholen.Show();
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            StartView frmStartView = new StartView();
-            frmStartView.Show();
+            FillListVieuw();
         }
     }
 }
