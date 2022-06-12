@@ -33,8 +33,12 @@ namespace Praktijk_Opdracht.View
 
             lvWedstrijden.FullRowSelect = true;
             lvWedstrijden.View = System.Windows.Forms.View.Details;
+            lvWedstrijden.MultiSelect = false;
 
             FillListView();
+
+            btnDelete.Enabled = false;
+            btnUpdate.Enabled = false;
         }
 
         private void FillListView()
@@ -61,6 +65,20 @@ namespace Praktijk_Opdracht.View
                 lvItem.Tag = wedstrijd;
 
                 lvWedstrijden.Items.Add(lvItem);
+            }
+        }
+
+        private void lvWedstrijden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lvWedstrijden.SelectedItems.Count == 1)
+            {
+                btnDelete.Enabled = true;
+                btnUpdate.Enabled = true;
+            }
+            else
+            {
+                btnDelete.Enabled = false;
+                btnUpdate.Enabled = false;
             }
         }
     }

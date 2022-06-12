@@ -48,6 +48,7 @@ namespace Praktijk_Opdracht.View
             this.lvWedstrijden.Size = new System.Drawing.Size(776, 314);
             this.lvWedstrijden.TabIndex = 14;
             this.lvWedstrijden.UseCompatibleStateImageBehavior = false;
+            this.lvWedstrijden.SelectedIndexChanged += new System.EventHandler(this.lvWedstrijden_SelectedIndexChanged);
             // 
             // btnDelete
             // 
