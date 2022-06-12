@@ -133,53 +133,5 @@ namespace Praktijk_Opdracht.View
             }
         }
 
-        private void btnSluiten_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnResultaten_Click(object sender, EventArgs e)
-        {
-            //het sluiten van huidige sherm
-            this.Hide();
-
-            //opent frm resultaten overview
-            FrmResultatenOverview frm = new FrmResultatenOverview();
-            frm.Show();
-        }
-
-        private void btnScheidsrechter_Click(object sender, EventArgs e)
-        {
-            //het sluiten van huidige sherm
-            this.Hide();
-
-            // opent frm scheidsrechter overview
-            FrmScheidsrechterOverview frm = new FrmScheidsrechterOverview();
-            frm.Show();
-        }
-
-        private void btnSpelers_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            FrmSpelersOverview frmSpeler = new FrmSpelersOverview();
-            frmSpeler.Show();
-        }
-
-        private void btnScholen_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            //FrmScholenOverview frmScholen = new FrmScholenOverview();
-            //frmScholen.Show();
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-            StartView frmStartView = new StartView();
-            frmStartView.Show();
-        }
     }
 }
