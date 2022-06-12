@@ -95,5 +95,17 @@ namespace Praktijk_Opdracht.View
             pnlForms.Controls.Add(frm);
             frm.Show();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            FrmWedstrijdUpdate frm = new FrmWedstrijdUpdate(this, (WedstrijdModel)lvWedstrijden.SelectedItems[0].Tag);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
+            frm.Show();
+        }
     }
 }

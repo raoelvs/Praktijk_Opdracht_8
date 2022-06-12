@@ -73,6 +73,7 @@ namespace Praktijk_Opdracht.View
             this.btnUpdate.TabIndex = 12;
             this.btnUpdate.Text = "Wijzigen";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 

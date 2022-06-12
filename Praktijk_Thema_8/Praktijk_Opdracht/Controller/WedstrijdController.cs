@@ -254,5 +254,39 @@ namespace Praktijk_Opdracht.Controller
 
             return rowsAffected;
         }
+
+        public int Update(WedstrijdModel wedstrijd)
+        {
+            int rowsAffected = 0;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE Wedstrijd " +
+                    "SET Ronde = @RondeValue, " +
+                        "WedstrijdNummer = @WedstrijdNummerValue, " +
+                        "Starttijd = @StartijdValue, " +
+                        "Eindtijd = @EindtijdValue, " +
+                        "Thuis = @ThuisValue, " +
+                        "Uit = @UitValue, " +
+                        "ScheidsrechterCode = @ScheidsrechterCodeValue " +
+                    "WHERE WedstrijdId = @WedstrijdIdValue;";
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("WedstrijdIdValue", wedstrijd.WedstrijdId);
+                    command.Parameters.AddWithValue("RondeValue", wedstrijd.Ronde);
+                    command.Parameters.AddWithValue("WedstrijdNummerValue", wedstrijd.WedstrijdNummer);
+                    command.Parameters.AddWithValue("StartijdValue", wedstrijd.Starttijd);
+                    command.Parameters.AddWithValue("EindtijdValue", wedstrijd.Eindtijd);
+                    command.Parameters.AddWithValue("ThuisValue", wedstrijd.Thuis.SpelerId);
+                    command.Parameters.AddWithValue("UitValue", wedstrijd.Uit.SpelerId);
+                    command.Parameters.AddWithValue("ScheidsrechterCodeValue", wedstrijd.ScheidsrechterCode.ScheidsrechterCode);
+                    con.Open();
+
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+
+            return rowsAffected;
+        }
     }
 }
