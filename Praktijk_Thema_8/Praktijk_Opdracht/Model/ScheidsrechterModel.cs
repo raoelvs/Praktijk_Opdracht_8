@@ -32,5 +32,6 @@ namespace Praktijk_Opdracht.Model
                 }
             }
         }
+        public string role { get; set; }
     }
 }

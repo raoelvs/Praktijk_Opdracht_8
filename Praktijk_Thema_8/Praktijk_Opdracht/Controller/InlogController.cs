@@ -8,6 +8,6 @@ namespace Praktijk_Opdracht.Controller
 {
     class InlogController
     {
-
+       
     }
 }
