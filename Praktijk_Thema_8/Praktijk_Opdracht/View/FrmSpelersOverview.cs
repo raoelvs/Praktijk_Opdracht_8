@@ -29,11 +29,11 @@ namespace Praktijk_Opdracht.View
         {
             //listvieuw tonen 
             lvSpeler.Columns.Add("Voornaam", 100);
-            lvSpeler.Columns.Add("Tussenvoegsel", 100);
-            lvSpeler.Columns.Add("Achternaam", 100);
+            lvSpeler.Columns.Add("Tussenvoegsel", 125);
+            lvSpeler.Columns.Add("Achternaam", 200);
             lvSpeler.Columns.Add("Geboortedatum", 150);
-            lvSpeler.Columns.Add("Groep", 50);
-            lvSpeler.Columns.Add("SchoolNaam", 100);
+            lvSpeler.Columns.Add("Groep", 100);
+            lvSpeler.Columns.Add("SchoolNaam", 250);
 
             //geeft itema weer als in een row
             lvSpeler.View = System.Windows.Forms.View.Details;

@@ -61,12 +61,22 @@ namespace Praktijk_Opdracht.View
                             // if label name equal is to labelname where player Home or player Out
                             if (label.Name == labelName + "Thuis")
                             {
+                                if (wedstrijd.Winnaar.SpelerId != 0 && wedstrijd.Winnaar.SpelerId == wedstrijd.Thuis.SpelerId)
+                                {
+                                    label.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+                                }
                                 label.Text = wedstrijd.Thuis.FullName;
                             }
                             else if (label.Name == labelName + "Uit")
                             {
+                                if (wedstrijd.Winnaar.SpelerId != 0 && wedstrijd.Winnaar.SpelerId == wedstrijd.Uit.SpelerId)
+                                {
+                                    label.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+                                }
                                 label.Text = wedstrijd.Uit.FullName;
                             }
+
+                            
                         }
                     }
                 }
