@@ -1,4 +1,9 @@
-﻿using Praktijk_Opdracht.Model;
+﻿/*
+ * Author: Quinten Kornalijnslijper
+ * Date: 10-6-2022
+ * Description: wedstrijd controller with methods fot CRUD
+ */
+using Praktijk_Opdracht.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,20 +16,29 @@ namespace Praktijk_Opdracht.Controller
 {
     class WedstrijdController
     {
+        // connection string
         private string connectionString = ConfigurationManager.ConnectionStrings["connectionStringDeVluggehandjes"].ConnectionString;
 
+        /// <summary>
+        /// read all matches from database
+        /// </summary>
+        /// <returns>List with WedstrijModel</returns>
         public List<WedstrijdModel> ReadAll()
         {
             List<WedstrijdModel> list = new List<WedstrijdModel>();
+            // create connection
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM vWedstrijden ORDER BY Ronde,WedstrijdNummer";
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
+                    // open connection
                     con.Open();
 
+                    // execute command
                     SqlDataReader reader = command.ExecuteReader();
 
+                    // fill wWedstrijdModel and add to list
                     while (reader.Read() == true)
                     {
                         WedstrijdModel item = new WedstrijdModel();
@@ -121,21 +135,33 @@ namespace Praktijk_Opdracht.Controller
             return list;
         }
 
+        /// <summary>
+        /// read match where match in round
+        /// </summary>
+        /// <param name="round">ronde</param>
+        /// <param name="match">wedstrijd</param>
+        /// <returns>WedstrijdModel</returns>
         public WedstrijdModel ReadWhereRoundMatch(int round, int match)
         {
             WedstrijdModel item = new WedstrijdModel();
+            // creatre connection
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM vWedstrijden WHERE Ronde = @RondeValue AND WedstrijdNummer = @WedstrijdNummerValue";
                 using(SqlCommand command = new SqlCommand(query,con))
                 {
+                    // sql parameters
                     command.Parameters.AddWithValue("RondeValue", round);
                     command.Parameters.AddWithValue("WedstrijdNummerValue", match);
+
+                    // open connection
                     con.Open();
 
+                    // execute command
                     SqlDataReader reader = command.ExecuteReader();
 
-                    while(reader.Read() == true)
+                    // fill wWedstrijdModel and add to list
+                    while (reader.Read() == true)
                     {
                         
                         item.WedstrijdId = (int)reader["WedstrijdId"];
@@ -229,16 +255,23 @@ namespace Praktijk_Opdracht.Controller
             return item;
         }
 
+        /// <summary>
+        /// add match to database
+        /// </summary>
+        /// <param name="wedstrijd">WedstrijdModel</param>
+        /// <returns>rows affected</returns>
         public int Create(WedstrijdModel wedstrijd)
         {
             int rowsAffected = 0;
 
+            // create connection
             using(SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "INSERT INTO Wedstrijd(Ronde, WedstrijdNummer, Starttijd, Eindtijd, Thuis, Uit, ScheidsrechterCode) " +
                     "VALUES(@RondeValue, @WedstrijdNummerValue, @StartijdValue, @EindtijdValue, @ThuisValue, @UitValue, @ScheidsrechterCodeValue);";
                 using(SqlCommand command = new SqlCommand(query, con))
                 {
+                    // sql parameters
                     command.Parameters.AddWithValue("RondeValue", wedstrijd.Ronde);
                     command.Parameters.AddWithValue("WedstrijdNummerValue", wedstrijd.WedstrijdNummer);
                     command.Parameters.AddWithValue("StartijdValue", wedstrijd.Starttijd);
@@ -246,8 +279,11 @@ namespace Praktijk_Opdracht.Controller
                     command.Parameters.AddWithValue("ThuisValue", wedstrijd.Thuis.SpelerId);
                     command.Parameters.AddWithValue("UitValue", wedstrijd.Uit.SpelerId);
                     command.Parameters.AddWithValue("ScheidsrechterCodeValue", wedstrijd.ScheidsrechterCode.ScheidsrechterCode);
+                   
+                    // open connection
                     con.Open();
 
+                    // execute command
                     rowsAffected = command.ExecuteNonQuery();
                 }
             }
@@ -255,10 +291,16 @@ namespace Praktijk_Opdracht.Controller
             return rowsAffected;
         }
 
+        /// <summary>
+        /// Update match in the database
+        /// </summary>
+        /// <param name="wedstrijd">WedstrijdModel</param>
+        /// <returns>rows affected</returns>
         public int Update(WedstrijdModel wedstrijd)
         {
             int rowsAffected = 0;
 
+            // create connection
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "UPDATE Wedstrijd " +
@@ -272,6 +314,7 @@ namespace Praktijk_Opdracht.Controller
                     "WHERE WedstrijdId = @WedstrijdIdValue;";
                 using (SqlCommand command = new SqlCommand(query, con))
                 {
+                    // sql parameters
                     command.Parameters.AddWithValue("WedstrijdIdValue", wedstrijd.WedstrijdId);
                     command.Parameters.AddWithValue("RondeValue", wedstrijd.Ronde);
                     command.Parameters.AddWithValue("WedstrijdNummerValue", wedstrijd.WedstrijdNummer);
@@ -280,8 +323,11 @@ namespace Praktijk_Opdracht.Controller
                     command.Parameters.AddWithValue("ThuisValue", wedstrijd.Thuis.SpelerId);
                     command.Parameters.AddWithValue("UitValue", wedstrijd.Uit.SpelerId);
                     command.Parameters.AddWithValue("ScheidsrechterCodeValue", wedstrijd.ScheidsrechterCode.ScheidsrechterCode);
+                    
+                    // open connection
                     con.Open();
 
+                    // execute commands
                     rowsAffected = command.ExecuteNonQuery();
                 }
             }
@@ -289,6 +335,12 @@ namespace Praktijk_Opdracht.Controller
             return rowsAffected;
         }
 
+
+        /// <summary>
+        /// delete match in the database
+        /// </summary>
+        /// <param name="wedstrijd">WedstrijdModel</param>
+        /// <returns>rows affected</returns>
         public int Delete(WedstrijdModel wedstrijd)
         {
             int rowsAffected = 0;
@@ -301,6 +353,7 @@ namespace Praktijk_Opdracht.Controller
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
+                    //sql parameters
                     command.Parameters.AddWithValue("WedstrijdIdValue", wedstrijd.WedstrijdId);
 
                     // Open de connection

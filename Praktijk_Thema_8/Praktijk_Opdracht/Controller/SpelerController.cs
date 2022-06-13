@@ -91,7 +91,7 @@ namespace Praktijk_Opdracht.Controller
             List<SpelerModel> result = new List<SpelerModel>();
 
             // SQL query als string
-            string query = "SELECT * FROM Speler WHERE Voornaam =" + "'" + selectedSpeler + "'";
+            string query = "SELECT DISTINCT * FROM Speler WHERE Voornaam = @selectedSpelerValue";
 
             // SQL Connectie maken
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -99,6 +99,7 @@ namespace Praktijk_Opdracht.Controller
                 // Commando object maken
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
+                    cmd.Parameters.AddWithValue("@selectedSpelerValue", selectedSpeler);
                     // Openen van de connectie
                     con.Open();
 
@@ -166,7 +167,7 @@ namespace Praktijk_Opdracht.Controller
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 // Opstarten van SqlCommand
-                string query = "DELETE FROM Speler WHERE SpelerId = @SpelerIdValue"; // Query nog aanpassen vanwegen constraint
+                string query = "DELETE FROM Speler WHERE SpelerId = @SpelerIdValue";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {

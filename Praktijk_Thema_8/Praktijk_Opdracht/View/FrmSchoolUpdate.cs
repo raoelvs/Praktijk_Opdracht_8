@@ -1,4 +1,9 @@
-﻿using Praktijk_Opdracht.Controller;
+﻿/*
+ * Author: Quinten Kornalijnslijper
+ * Date: 12-6-2022
+ * Description: form to update a school
+ */
+using Praktijk_Opdracht.Controller;
 using Praktijk_Opdracht.Model;
 using System;
 using System.Collections.Generic;
@@ -14,9 +19,11 @@ namespace Praktijk_Opdracht.View
 {
     public partial class FrmSchoolUpdate : Form
     {
+        // fields
         private FrmSchoolOverview schoolOverview;
         private SchoolModel schoolToBeUpdated;
         private SchoolController schoolContr = new SchoolController();
+
         public FrmSchoolUpdate(FrmSchoolOverview SchoolOverview, SchoolModel School)
         {
             InitializeComponent();
@@ -24,6 +31,11 @@ namespace Praktijk_Opdracht.View
             schoolToBeUpdated = School;
         }
 
+        /// <summary>
+        /// close this form and opens the previous
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
             schoolOverview.FormBorderStyle = FormBorderStyle.None;
@@ -35,13 +47,21 @@ namespace Praktijk_Opdracht.View
             schoolOverview.Show();
         }
 
+        /// <summary>
+        /// try to update the school
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            // checks if schoolnaam is not empty
             if (txtNaam.Text != null)
             {
                 SchoolModel school = new SchoolModel();
                 school.Naam = txtNaam.Text;
                 school.SchoolId = schoolToBeUpdated.SchoolId;
+
+                // try to update the school
                 try
                 {
                     schoolContr.Update(school);
@@ -66,6 +86,11 @@ namespace Praktijk_Opdracht.View
             }
         }
 
+        /// <summary>
+        /// set the naam value that we already know
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmSchoolUpdate_Load(object sender, EventArgs e)
         {
             txtNaam.Text = schoolToBeUpdated.Naam;
