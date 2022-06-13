@@ -69,7 +69,8 @@ namespace Praktijk_Opdracht.View
             // 
             // btnOpslaan
             // 
-            this.btnOpslaan.Location = new System.Drawing.Point(380, 440);
+            this.btnOpslaan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpslaan.Location = new System.Drawing.Point(393, 479);
             this.btnOpslaan.Name = "btnOpslaan";
             this.btnOpslaan.Size = new System.Drawing.Size(139, 45);
             this.btnOpslaan.TabIndex = 35;
@@ -79,12 +80,14 @@ namespace Praktijk_Opdracht.View
             // 
             // btnAnnuleren
             // 
-            this.btnAnnuleren.Location = new System.Drawing.Point(11, 440);
+            this.btnAnnuleren.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAnnuleren.Location = new System.Drawing.Point(12, 479);
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(139, 45);
             this.btnAnnuleren.TabIndex = 34;
             this.btnAnnuleren.Text = "Annuleren";
             this.btnAnnuleren.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // cmbWinnaar
             // 
@@ -152,7 +155,7 @@ namespace Praktijk_Opdracht.View
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1, 127);
+            this.label3.Location = new System.Drawing.Point(4, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 26;

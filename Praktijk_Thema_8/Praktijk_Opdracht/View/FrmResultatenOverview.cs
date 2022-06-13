@@ -25,12 +25,12 @@ namespace Praktijk_Opdracht.View
 
         private void FrmResultaten_Load(object sender, EventArgs e)
         {
-            lvResultaat.Columns.Add("Thuis speler", 100);
-            lvResultaat.Columns.Add("Uit speler", 100);
+            lvResultaat.Columns.Add("Thuis speler", 250);
+            lvResultaat.Columns.Add("Uit speler", 250);
             lvResultaat.Columns.Add("Starttijd", 150);
             lvResultaat.Columns.Add("Eindtijd", 150);
-            lvResultaat.Columns.Add("Wedstrijd Ronde", 100);
-            lvResultaat.Columns.Add("Wedstrijd Nummer", 100);
+            lvResultaat.Columns.Add("Wedstrijd Ronde", 200);
+            lvResultaat.Columns.Add("Wedstrijd Nummer", 200);
 /*            lvResultaat.Columns.Add("Spelernaam", 100);
             lvResultaat.Columns.Add("Geboortedatum", 150);
             lvResultaat.Columns.Add("Groep", 100);*/
@@ -60,9 +60,6 @@ namespace Praktijk_Opdracht.View
                 lvItem.SubItems.Add(item.Eindtijd.ToShortDateString() + " " + item.Eindtijd.ToShortTimeString());
                 lvItem.SubItems.Add(item.Ronde.ToString());
                 lvItem.SubItems.Add(item.WedstrijdNummer.ToString());
-/*                lvItem.SubItems.Add(item.SpelerId.FullName);
-                lvItem.SubItems.Add(item.SpelerId.Geboortedatum.ToString());
-                lvItem.SubItems.Add(item.SpelerId.Groep.ToString());*/
 
                 lvItem.Tag = item;
 
@@ -73,25 +70,6 @@ namespace Praktijk_Opdracht.View
 
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
-            /*rmResultaatAdd frm = new FrmResultaatAdd(this, ());
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.TopLevel = false;
-            frm.TopMost = true;
-            frm.Dock = DockStyle.Fill;
-            pnlForms.Controls.Clear();
-            pnlForms.Controls.Add(frm);
-            frm.Show();
-
-            DialogResult result = frm.ShowDialog();
-
-            if (result == DialogResult.Yes)
-            {
-                MessageBox.Show("Speler is toegevoegd");
-            }
-            else
-            {
-                MessageBox.Show("Het is niet gelukt om de speler toe te voegen");
-            }*/
         }
 
         private void btnWijzigen_Click(object sender, EventArgs e)

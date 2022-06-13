@@ -134,5 +134,17 @@ namespace Praktijk_Opdracht.View
                 resultaatOverview.Show();
             }
         }
+
+        private void btnAnnuleren_Click(object sender, EventArgs e)
+        {
+            resultaatOverview.FormBorderStyle = FormBorderStyle.None;
+            resultaatOverview.TopLevel = false;
+            resultaatOverview.TopMost = true;
+            resultaatOverview.Dock = DockStyle.Fill;
+            this.Close();
+            resultaatOverview.FillListView();
+            resultaatOverview.pnlForms.Controls.Add(resultaatOverview);
+            resultaatOverview.Show();
+        }
     }
 }
