@@ -97,8 +97,7 @@ namespace Praktijk_Opdracht.Controller
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 //stap 2 sqlcommand aanmaken
-                string sqlQuery = "SELECT DISTINCT * FROM Speler " +
-                    "JOIN School ON Speler.SchoolId = School.SchoolId";
+                string sqlQuery = "SELECT DISTINCT Voornaam FROM Speler";
 
                 using (SqlCommand command = new SqlCommand(sqlQuery, con))
                 {
@@ -111,43 +110,11 @@ namespace Praktijk_Opdracht.Controller
                     while (reader.Read() == true)
                     {
                         SpelerModel spelerItem = new SpelerModel();
-                        SchoolModel schoolItem = new SchoolModel();
 
                         // ophalen table speler gegevens
-                        int spelerId = (int)reader["SpelerId"];
                         string voornaam = (string)reader["Voornaam"];
 
-                        if (reader["Tussenvoegsel"] == DBNull.Value)
-                        {
-                            spelerItem.Tussenvoegsel = "";
-                        }
-                        else
-                        {
-                            spelerItem.Tussenvoegsel = (string)reader["Tussenvoegsel"];
-                        }
-
-                        string achternaam = (string)reader["Achternaam"];
-                        DateTime geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
-                        int groep = (byte)reader["Groep"];
-
-                        // ophalen table school gegevens
-                        int schoolId = (int)reader["SchoolId"];
-                        string naam = (string)reader["Naam"];
-
-                        // object properties een waarde geven
-                        // table Speler
-                        spelerItem.SpelerId = spelerId;
                         spelerItem.Voornaam = voornaam;
-                        spelerItem.Achternaam = achternaam;
-                        spelerItem.Geboortedatum = geboortedatum;
-                        spelerItem.Groep = groep;
-
-                        // table school
-                        schoolItem.SchoolId = schoolId;
-                        schoolItem.Naam = naam;
-
-                        // schoolitem toevoegen aan speleritem
-                        spelerItem.SchoolId = schoolItem;
 
                         // object toevoegen aan de List<>
                         resultList.Add(spelerItem);
@@ -168,7 +135,10 @@ namespace Praktijk_Opdracht.Controller
             List<SpelerModel> result = new List<SpelerModel>();
 
             // SQL query als string
-            string query = "SELECT * FROM Speler WHERE Voornaam = @selectedSpelerValue";
+            string query = "SELECT * FROM Speler " +
+                "JOIN School " +
+                "ON Speler.SchoolId = School.SchoolId " +
+                "WHERE Voornaam = @selectedSpelerValue";
 
             // SQL Connectie maken
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -208,6 +178,7 @@ namespace Praktijk_Opdracht.Controller
 
                         // ophalen table school gegevens
                         int schoolId = (int)reader["SchoolId"];
+                        string schoolNaam = (string)reader["Naam"];
 
                         // object properties een waarde geven
                         // table Speler
@@ -219,6 +190,7 @@ namespace Praktijk_Opdracht.Controller
 
                         // table school
                         filterSchool.SchoolId = schoolId;
+                        filterSchool.Naam = schoolNaam;
 
                         // schoolitem toevoegen aan speleritem
                         filterSpeler.SchoolId = filterSchool;
