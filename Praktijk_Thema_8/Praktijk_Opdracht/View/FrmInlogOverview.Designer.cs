@@ -63,6 +63,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.txtWachtwoord.Location = new System.Drawing.Point(226, 234);
             this.txtWachtwoord.Name = "txtWachtwoord";
+            this.txtWachtwoord.PasswordChar = '*';
             this.txtWachtwoord.Size = new System.Drawing.Size(182, 27);
             this.txtWachtwoord.TabIndex = 11;
             // 

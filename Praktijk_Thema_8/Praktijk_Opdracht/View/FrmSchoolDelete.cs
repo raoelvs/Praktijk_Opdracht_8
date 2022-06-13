@@ -13,41 +13,40 @@ using System.Windows.Forms;
 
 namespace Praktijk_Opdracht.View
 {
-    public partial class FrmScheidsrechterDelete : Form
+    public partial class FrmSchoolDelete : Form
     {
-
-        ScheidsrechterController scheidsrechterController = new ScheidsrechterController();
-        private ScheidsrechterModel delScheidsrechter;
-
-        public FrmScheidsrechterDelete(ScheidsrechterModel scheidsrechterDel)
+        private SchoolModel school;
+        private SchoolController schoolContr = new SchoolController();
+        public FrmSchoolDelete(SchoolModel School)
         {
             InitializeComponent();
-            delScheidsrechter = scheidsrechterDel;
+            school = School;
         }
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void btnYes_Click(object sender, EventArgs e)
         {
-            // Verwijderen! 
+            // Verwijderen!
             try
             {
-                int rowsAffected = scheidsrechterController.Delete(delScheidsrechter);
-                MessageBox.Show("Het is geluk om de scheidsrechter te verwijderen: ");
+                int speler = schoolContr.Delete(school);
+                MessageBox.Show("Het is geluk om de school te verwijderen)");
 
-
-                this.Hide();
+                this.Close();
             }
             catch (SqlException ex)
             {
                 if (ex.Number == 547)
                 {
-                    this.Hide();
-                    MessageBox.Show("Deze scheidsrechter: (" + delScheidsrechter.Voornaam + " " + delScheidsrechter.Tussenvoegsel + " " + delScheidsrechter.Achternaam + ") heeft nog een relatie. " +
-                        "Verwijder deze scheidsrechter eerst bij wedstrijden");
+                    this.Close();
+
+                    MessageBox.Show("Deze school: (" + school.Naam + ") heeft nog een relatie. " +
+                        "Verwijder deze school eerst bij de spelers");
+
                 }
                 else
                 {
@@ -59,6 +58,11 @@ namespace Praktijk_Opdracht.View
                 MessageBox.Show("Alle andere onbekende error (geen database error i.i.g)");
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void FrmSchoolDelete_Load(object sender, EventArgs e)
+        {
+            txtDescription.Text = "Weet u zeker dat u de school(" + school.Naam + ") wilt verwijderen?";
         }
     }
 }

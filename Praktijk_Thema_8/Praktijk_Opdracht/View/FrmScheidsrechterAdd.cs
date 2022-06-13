@@ -20,6 +20,8 @@ namespace Praktijk_Opdracht.View
         public FrmScheidsrechterAdd( FrmScheidsrechterOverview ScheidsrechterOverview)
         {
             InitializeComponent();
+
+            scheidsrechterOverview = ScheidsrechterOverview;
         }
 
         private void btnAnnuleren_Click(object sender, EventArgs e)
@@ -59,6 +61,7 @@ namespace Praktijk_Opdracht.View
             scheidsrechterOverview.TopMost = true;
             scheidsrechterOverview.Dock = DockStyle.Fill;
             this.Close();
+            scheidsrechterOverview.FillListVieuw();
             scheidsrechterOverview.pnlForms.Controls.Add(scheidsrechterOverview);
             scheidsrechterOverview.Show();
         }

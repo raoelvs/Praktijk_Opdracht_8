@@ -79,6 +79,7 @@ namespace Praktijk_Opdracht.View
             spelerOverview.TopMost = true;
             spelerOverview.Dock = DockStyle.Fill;
             this.Close();
+            spelerOverview.FillListVieuw();
             spelerOverview.pnlForms.Controls.Add(spelerOverview);
             spelerOverview.Show();
         }

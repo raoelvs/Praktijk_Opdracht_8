@@ -38,6 +38,8 @@ namespace Praktijk_Opdracht.View
             {
                 int speler = spelerController.Delete(delSpeler);
                 MessageBox.Show("Het is geluk om de speler te verwijderen)");
+
+                this.Hide();
             }
             catch (SqlException ex)
             {

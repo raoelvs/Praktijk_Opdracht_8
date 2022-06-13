@@ -228,5 +228,89 @@ namespace Praktijk_Opdracht.Controller
             }
             return item;
         }
+
+        public int Create(WedstrijdModel wedstrijd)
+        {
+            int rowsAffected = 0;
+
+            using(SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Wedstrijd(Ronde, WedstrijdNummer, Starttijd, Eindtijd, Thuis, Uit, ScheidsrechterCode) " +
+                    "VALUES(@RondeValue, @WedstrijdNummerValue, @StartijdValue, @EindtijdValue, @ThuisValue, @UitValue, @ScheidsrechterCodeValue);";
+                using(SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("RondeValue", wedstrijd.Ronde);
+                    command.Parameters.AddWithValue("WedstrijdNummerValue", wedstrijd.WedstrijdNummer);
+                    command.Parameters.AddWithValue("StartijdValue", wedstrijd.Starttijd);
+                    command.Parameters.AddWithValue("EindtijdValue", wedstrijd.Eindtijd);
+                    command.Parameters.AddWithValue("ThuisValue", wedstrijd.Thuis.SpelerId);
+                    command.Parameters.AddWithValue("UitValue", wedstrijd.Uit.SpelerId);
+                    command.Parameters.AddWithValue("ScheidsrechterCodeValue", wedstrijd.ScheidsrechterCode.ScheidsrechterCode);
+                    con.Open();
+
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+
+            return rowsAffected;
+        }
+
+        public int Update(WedstrijdModel wedstrijd)
+        {
+            int rowsAffected = 0;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE Wedstrijd " +
+                    "SET Ronde = @RondeValue, " +
+                        "WedstrijdNummer = @WedstrijdNummerValue, " +
+                        "Starttijd = @StartijdValue, " +
+                        "Eindtijd = @EindtijdValue, " +
+                        "Thuis = @ThuisValue, " +
+                        "Uit = @UitValue, " +
+                        "ScheidsrechterCode = @ScheidsrechterCodeValue " +
+                    "WHERE WedstrijdId = @WedstrijdIdValue;";
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("WedstrijdIdValue", wedstrijd.WedstrijdId);
+                    command.Parameters.AddWithValue("RondeValue", wedstrijd.Ronde);
+                    command.Parameters.AddWithValue("WedstrijdNummerValue", wedstrijd.WedstrijdNummer);
+                    command.Parameters.AddWithValue("StartijdValue", wedstrijd.Starttijd);
+                    command.Parameters.AddWithValue("EindtijdValue", wedstrijd.Eindtijd);
+                    command.Parameters.AddWithValue("ThuisValue", wedstrijd.Thuis.SpelerId);
+                    command.Parameters.AddWithValue("UitValue", wedstrijd.Uit.SpelerId);
+                    command.Parameters.AddWithValue("ScheidsrechterCodeValue", wedstrijd.ScheidsrechterCode.ScheidsrechterCode);
+                    con.Open();
+
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+
+            return rowsAffected;
+        }
+
+        public int Delete(WedstrijdModel wedstrijd)
+        {
+            int rowsAffected = 0;
+
+            // Opstarten connection
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                // Opstarten van SqlCommand
+                string query = "DELETE FROM Wedstrijd WHERE WedstrijdId = @WedstrijdIdValue";
+
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("WedstrijdIdValue", wedstrijd.WedstrijdId);
+
+                    // Open de connection
+                    conn.Open();
+
+                    // Voer de query uit en vang de doctor op
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+            return rowsAffected;
+        }
     }
 }
