@@ -1,9 +1,12 @@
-﻿using Praktijk_Opdracht.View;
+﻿using Praktijk_Opdracht.Controller;
+using Praktijk_Opdracht.Model;
+using Praktijk_Opdracht.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +16,7 @@ namespace Praktijk_Opdracht
 {
     public partial class StartView : Form
     {
+        ResultaatController ResultaatContr = new ResultaatController();
         public StartView()
         {
             InitializeComponent();
@@ -45,5 +49,43 @@ namespace Praktijk_Opdracht
             pContainer.Controls.Add(frm);
             frm.Show();
         }
+
+        private void btnExportCSV_Click(object sender, EventArgs e)
+        {
+/*            // Maakt csv bestand aan
+            StreamWriter writer = File.CreateText(@"c:\Praktijk\CSV.csv");
+            // Maakt de tabellen
+            writer.WriteLine("ResultaatId;Punt;Overgave;WedstrijdId;WedstrijdId;SpelerId;");
+            // Krijg alle items.
+            List<ResultaatModel> listToCSV = new List<ResultaatModel>();
+            listToCSV = ResultaatContr.ReadAll();
+            foreach (ResultaatModel item in listToCSV)
+            {
+                // Schrijft alle taken uit
+                
+                string Punt = item.Punt.ToString();
+                string Overgave = item.Overgave.ToString();
+                string WedstrijdId = item.WedstrijdId.ToString();
+                string SpelerId = item.SpelerId.ToString();
+                writer.WriteLine(Punt + ";" + Overgave + ";" + WedstrijdId + ";" + SpelerId );
+            }
+            // kijkt of het geschreven kan worden
+            bool writable = writer.BaseStream.CanWrite;
+
+            writer.Close();
+
+            // Bepaal of het is gelukt
+            if (writable == true)
+            {
+                MessageBox.Show("CSV is gemaakt");
+            }
+            else
+            {
+                MessageBox.Show("CSV is mislukt");
+            }*/
+
+
+        }
     }
+    
 }

@@ -29,22 +29,22 @@ namespace Praktijk_Opdracht.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.lvResultaten = new System.Windows.Forms.ListView();
+            this.lvResultaat = new System.Windows.Forms.ListView();
             this.btnVerwijderen = new System.Windows.Forms.Button();
             this.btnWijzigen = new System.Windows.Forms.Button();
             this.btnToevoegen = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lvResultaten
+            // lvResultaat
             // 
-            this.lvResultaten.HideSelection = false;
-            this.lvResultaten.Location = new System.Drawing.Point(139, 31);
-            this.lvResultaten.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.lvResultaten.Name = "lvResultaten";
-            this.lvResultaten.Size = new System.Drawing.Size(653, 455);
-            this.lvResultaten.TabIndex = 9;
-            this.lvResultaten.UseCompatibleStateImageBehavior = false;
+            this.lvResultaat.HideSelection = false;
+            this.lvResultaat.Location = new System.Drawing.Point(139, 31);
+            this.lvResultaat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lvResultaat.Name = "lvResultaat";
+            this.lvResultaat.Size = new System.Drawing.Size(653, 455);
+            this.lvResultaat.TabIndex = 9;
+            this.lvResultaat.UseCompatibleStateImageBehavior = false;
             // 
             // btnVerwijderen
             // 
@@ -91,7 +91,7 @@ namespace Praktijk_Opdracht.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(951, 600);
-            this.Controls.Add(this.lvResultaten);
+            this.Controls.Add(this.lvResultaat);
             this.Controls.Add(this.btnVerwijderen);
             this.Controls.Add(this.btnWijzigen);
             this.Controls.Add(this.btnToevoegen);
@@ -106,7 +106,7 @@ namespace Praktijk_Opdracht.View
 
         #endregion
 
-        private System.Windows.Forms.ListView lvResultaten;
+        private System.Windows.Forms.ListView lvResultaat;
         private System.Windows.Forms.Button btnVerwijderen;
         private System.Windows.Forms.Button btnWijzigen;
         private System.Windows.Forms.Button btnToevoegen;

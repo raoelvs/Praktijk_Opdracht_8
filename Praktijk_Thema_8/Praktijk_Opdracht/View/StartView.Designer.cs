@@ -61,6 +61,7 @@ namespace Praktijk_Opdracht
             this.btnExportCSV.TabIndex = 1;
             this.btnExportCSV.Text = "CSV exporteren";
             this.btnExportCSV.UseVisualStyleBackColor = true;
+            this.btnExportCSV.Click += new System.EventHandler(this.btnExportCSV_Click);
             // 
             // btnInlog
             // 
