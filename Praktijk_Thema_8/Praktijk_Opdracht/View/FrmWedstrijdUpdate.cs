@@ -153,6 +153,7 @@ namespace Praktijk_Opdracht.View
                 wedstrijd.Uit = (SpelerModel)cmbPlayer2.SelectedItem;
                 wedstrijd.ScheidsrechterCode = (ScheidsrechterModel)cmbReferee.SelectedItem;
                 wedstrijd.WedstrijdId = toBeUpdated.WedstrijdId;
+                // try to update the match
                 try
                 {
                     wedsContr.Update(wedstrijd);
@@ -168,6 +169,7 @@ namespace Praktijk_Opdracht.View
                 }
                 catch (SqlException ex)
                 {
+                    // unique exception
                     if (ex.Number == 2627)
                     {
                         MessageBox.Show("Wedstrijd niet kunnen bewerken door database error. Hieronder vind je waar het probleem onstaan kan zijn. \n \n" +

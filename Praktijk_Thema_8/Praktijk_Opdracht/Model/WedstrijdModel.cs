@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Quinten Kornalijnslijper
+ * Date: 10-6-2022
+ * Description: wedstrijd model
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

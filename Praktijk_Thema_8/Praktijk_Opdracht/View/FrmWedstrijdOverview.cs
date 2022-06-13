@@ -22,11 +22,13 @@ namespace Praktijk_Opdracht.View
         //fields
         private WedstrijdController wedContr = new WedstrijdController();
         public Panel pnlForms;
+        private string role;
 
-        public FrmWedstrijdOverview(Panel PnlForms)
+        public FrmWedstrijdOverview(Panel PnlForms, string Role)
         {
             InitializeComponent();
             pnlForms = PnlForms;
+            role = Role;
         }
 
         /// <summary>
@@ -56,6 +58,11 @@ namespace Praktijk_Opdracht.View
             // disable the delete and update button
             btnDelete.Enabled = false;
             btnUpdate.Enabled = false;
+
+            if(role == "Scheidsrechter")
+            {
+                btnAdd.Enabled = false;
+            }
         }
 
         /// <summary>
@@ -98,7 +105,7 @@ namespace Praktijk_Opdracht.View
         private void lvWedstrijden_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Is an item selected?
-            if(lvWedstrijden.SelectedItems.Count == 1)
+            if(lvWedstrijden.SelectedItems.Count == 1 && role == "Organisator")
             {
                 btnDelete.Enabled = true;
                 btnUpdate.Enabled = true;
