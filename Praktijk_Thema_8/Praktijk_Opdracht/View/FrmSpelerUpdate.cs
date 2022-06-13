@@ -15,6 +15,7 @@ namespace Praktijk_Opdracht.View
     public partial class FrmSpelerUpdate : Form
     {
         private SpelerController spelerController = new SpelerController();
+        private SchoolController schoolController = new SchoolController();
         private SpelerModel permSpeler;
         private FrmSpelersOverview spelerOverview;
 
@@ -37,15 +38,16 @@ namespace Praktijk_Opdracht.View
             txtGroep.Text = permSpeler.Groep.ToString();
 
             // Uit de SpelerController Readall() uitvoeren
-            List<SpelerModel> spelerList = spelerController.ReadAll();
+            List<SchoolModel> schoolList = schoolController.ReadAll();
 
-            foreach (SpelerModel item in spelerList)
+            foreach (SchoolModel item in schoolList)
             {
                 // Combobox Item vullen
-                cbSchool.Items.Add(item.SchoolId);
+                cbSchool.Items.Add(item);
             }
 
-            cbSchool.Text = permSpeler.SchoolId.Naam;
+            //cbSchool.Text = permSpeler.SchoolId.Naam;
+            cbSchool.DisplayMember = "Naam"; 
         }
 
         private void btnOpslaan_Click(object sender, EventArgs e)

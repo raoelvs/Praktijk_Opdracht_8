@@ -15,6 +15,7 @@ namespace Praktijk_Opdracht.View
     public partial class FrmSpelerAdd : Form
     {
         private SpelerController spelerController = new SpelerController();
+        private SchoolController schoolController = new SchoolController();
         private FrmSpelersOverview spelersOverview;
 
         public FrmSpelerAdd(FrmSpelersOverview SpelersOverview)
@@ -25,11 +26,11 @@ namespace Praktijk_Opdracht.View
 
         private void FrmSpelerAdd_Load(object sender, EventArgs e)
         {
-            List<SpelerModel> spelers = spelerController.ReadAll();
+            List<SchoolModel> schoolList = schoolController.ReadAll();
 
-            foreach(SpelerModel speler in spelers)
+            foreach(SchoolModel school in schoolList)
             {
-                cbSchool.Items.Add(speler.SchoolId);
+                cbSchool.Items.Add(school);
             }
 
             cbSchool.DisplayMember = "Naam";
