@@ -15,22 +15,25 @@ namespace Praktijk_Opdracht.View
     public partial class FrmResultatenOverview : Form
     {
         ResultaatController ResultaatContr = new ResultaatController();
-        public FrmResultatenOverview()
+        WedstrijdController wedsContr = new WedstrijdController();
+        public Panel pnlForms;
+        public FrmResultatenOverview(Panel PnlForms)
         {
             InitializeComponent();
+            pnlForms = PnlForms;
         }
 
         private void FrmResultaten_Load(object sender, EventArgs e)
         {
-            lvResultaat.Columns.Add("Punt", 100);
-            lvResultaat.Columns.Add("Overgave", 100);
+            lvResultaat.Columns.Add("Thuis speler", 100);
+            lvResultaat.Columns.Add("Uit speler", 100);
             lvResultaat.Columns.Add("Starttijd", 150);
             lvResultaat.Columns.Add("Eindtijd", 150);
-            lvResultaat.Columns.Add("Ronde", 100);
-            lvResultaat.Columns.Add("WedstrijdNummer", 100);
-            lvResultaat.Columns.Add("Spelernaam", 100);
+            lvResultaat.Columns.Add("Wedstrijd Ronde", 100);
+            lvResultaat.Columns.Add("Wedstrijd Nummer", 100);
+/*            lvResultaat.Columns.Add("Spelernaam", 100);
             lvResultaat.Columns.Add("Geboortedatum", 150);
-            lvResultaat.Columns.Add("Groep", 100);
+            lvResultaat.Columns.Add("Groep", 100);*/
 
             lvResultaat.View = System.Windows.Forms.View.Details;
 
@@ -43,29 +46,64 @@ namespace Praktijk_Opdracht.View
 
         private void FillList()
         {
-            List<ResultaatModel> resultaatList = ResultaatContr.ReadAll();
+            List<WedstrijdModel> wedstrijdList = wedsContr.ReadAll();
 
             lvResultaat.Items.Clear();
 
-            foreach (ResultaatModel item in resultaatList)
+            foreach (WedstrijdModel item in wedstrijdList)
             {
                 //listvieuw item aanmaken
 
-                ListViewItem lvItem = new ListViewItem(item.Punt.ToString());
-                lvItem.SubItems.Add(item.Overgave.ToString());
-                lvItem.SubItems.Add(item.WedstrijdId.Starttijd.ToShortDateString() + " " + item.WedstrijdId.Starttijd.ToShortTimeString());
-                lvItem.SubItems.Add(item.WedstrijdId.Eindtijd.ToShortDateString() + " " + item.WedstrijdId.Eindtijd.ToShortTimeString());
-                lvItem.SubItems.Add(item.WedstrijdId.Ronde.ToString());
-                lvItem.SubItems.Add(item.WedstrijdId.WedstrijdNummer.ToString());
-                lvItem.SubItems.Add(item.SpelerId.FullName);
+                ListViewItem lvItem = new ListViewItem(item.Thuis.FullName);
+                lvItem.SubItems.Add(item.Uit.FullName);
+                lvItem.SubItems.Add(item.Starttijd.ToShortDateString() + " " + item.Starttijd.ToShortTimeString());
+                lvItem.SubItems.Add(item.Eindtijd.ToShortDateString() + " " + item.Eindtijd.ToShortTimeString());
+                lvItem.SubItems.Add(item.Ronde.ToString());
+                lvItem.SubItems.Add(item.WedstrijdNummer.ToString());
+/*                lvItem.SubItems.Add(item.SpelerId.FullName);
                 lvItem.SubItems.Add(item.SpelerId.Geboortedatum.ToString());
-                lvItem.SubItems.Add(item.SpelerId.Groep.ToString());
+                lvItem.SubItems.Add(item.SpelerId.Groep.ToString());*/
 
                 lvItem.Tag = item;
 
                 lvResultaat.Items.Add(lvItem);
             }
 
+        }
+
+        private void btnToevoegen_Click(object sender, EventArgs e)
+        {
+            /*rmResultaatAdd frm = new FrmResultaatAdd(this, ());
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
+            frm.Show();
+
+            DialogResult result = frm.ShowDialog();
+
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show("Speler is toegevoegd");
+            }
+            else
+            {
+                MessageBox.Show("Het is niet gelukt om de speler toe te voegen");
+            }*/
+        }
+
+        private void btnWijzigen_Click(object sender, EventArgs e)
+        {
+            FrmResultaatUpdate frm = new FrmResultaatUpdate(this, (WedstrijdModel)lvResultaat.SelectedItems[0].Tag);
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            pnlForms.Controls.Clear();
+            pnlForms.Controls.Add(frm);
+            frm.Show();
         }
     }
 }

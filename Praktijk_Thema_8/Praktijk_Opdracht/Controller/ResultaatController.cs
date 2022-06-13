@@ -143,5 +143,61 @@ namespace Praktijk_Opdracht.Controller
             }
             return rowsAffected;
         }
+        public ResultaatModel ReadWhereMatchPlayer(int match, int playerId)
+        {
+            ResultaatModel ResultaatItem = new ResultaatModel();
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string sqlQuery = "SELECT * " +
+                    "FROM Resultaat " +
+                    "JOIN Wedstrijd ON Resultaat.WedstrijdId = Wedstrijd.WedstrijdId " +
+                    "JOIN Speler ON Resultaat.SpelerId = Speler.SpelerId " +
+                    "WHERE Resultaat.WedstrijdId = @WedstrijdIdValue " +
+                    "AND Resultaat.SpelerId = @SpelerIdValue";
+
+                using (SqlCommand command = new SqlCommand(sqlQuery, con))
+                {
+                    command.Parameters.AddWithValue("WedstrijdIdValue", match);
+                    command.Parameters.AddWithValue("SpelerIdValue", playerId);
+                    con.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read() == true)
+                    {
+                        WedstrijdModel WedstrijdItem = new WedstrijdModel();
+                        SpelerModel SpelerItem = new SpelerModel();
+
+                        ResultaatItem.ResultaatId = (int)reader["ResultaatId"];
+                        ResultaatItem.Punt = Convert.ToInt32(reader["Punt"]);
+                        ResultaatItem.Overgave = (bool)reader["Overgave"];
+
+                        WedstrijdItem.WedstrijdId = (int)reader["WedstrijdId"];
+                        WedstrijdItem.Starttijd = (DateTime)reader["Starttijd"];
+                        WedstrijdItem.Eindtijd = (DateTime)reader["Eindtijd"];
+                        WedstrijdItem.Ronde = Convert.ToInt32(reader["Ronde"]);
+                        WedstrijdItem.WedstrijdNummer = Convert.ToInt32(reader["WedstrijdNummer"]);
+
+                        SpelerItem.SpelerId = (int)reader["SpelerId"];
+                        SpelerItem.Voornaam = (string)reader["Voornaam"];
+                        if (reader["Tussenvoegsel"] == DBNull.Value)
+                        {
+                            SpelerItem.Tussenvoegsel = "";
+                        }
+                        else
+                        {
+                            SpelerItem.Tussenvoegsel = (string)reader["Tussenvoegsel"];
+                        }
+                        SpelerItem.Achternaam = (string)reader["Achternaam"];
+                        SpelerItem.Geboortedatum = (DateTime)reader["Geboortedatum"];
+                        SpelerItem.Groep = Convert.ToInt32(reader["Groep"]);
+
+                        ResultaatItem.WedstrijdId = WedstrijdItem;
+                        ResultaatItem.SpelerId = SpelerItem;
+
+                    }
+                }
+            }
+            return ResultaatItem;
+        }
     }
 }

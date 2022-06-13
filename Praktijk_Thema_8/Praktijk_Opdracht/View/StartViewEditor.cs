@@ -113,7 +113,7 @@ namespace Praktijk_Opdracht.View
         /// <param name="e"></param>
         private void btnResultaten_Click(object sender, EventArgs e)
         {
-            FrmResultatenOverview frm = new FrmResultatenOverview();
+            FrmResultatenOverview frm = new FrmResultatenOverview(pnlForms);
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.TopLevel = false;
             frm.TopMost = true;

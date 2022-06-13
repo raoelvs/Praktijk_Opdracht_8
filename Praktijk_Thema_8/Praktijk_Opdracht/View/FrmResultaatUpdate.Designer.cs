@@ -31,7 +31,7 @@ namespace Praktijk_Opdracht.View
         {
             this.lblUit = new System.Windows.Forms.Label();
             this.lblThuis = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnOpslaan = new System.Windows.Forms.Button();
             this.btnAnnuleren = new System.Windows.Forms.Button();
             this.cmbWinnaar = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,8 +45,8 @@ namespace Praktijk_Opdracht.View
             this.btnUitMin = new System.Windows.Forms.Button();
             this.btnThuisPlus = new System.Windows.Forms.Button();
             this.btnThuisMin = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblUitNaam = new System.Windows.Forms.Label();
+            this.lblThuisNaam = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblUit
@@ -61,20 +61,21 @@ namespace Praktijk_Opdracht.View
             // lblThuis
             // 
             this.lblThuis.AutoSize = true;
-            this.lblThuis.Location = new System.Drawing.Point(133, 127);
+            this.lblThuis.Location = new System.Drawing.Point(117, 127);
             this.lblThuis.Name = "lblThuis";
             this.lblThuis.Size = new System.Drawing.Size(17, 20);
             this.lblThuis.TabIndex = 36;
             this.lblThuis.Text = "0";
             // 
-            // button1
+            // btnOpslaan
             // 
-            this.button1.Location = new System.Drawing.Point(380, 440);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 45);
-            this.button1.TabIndex = 35;
-            this.button1.Text = "Opslaan";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnOpslaan.Location = new System.Drawing.Point(380, 440);
+            this.btnOpslaan.Name = "btnOpslaan";
+            this.btnOpslaan.Size = new System.Drawing.Size(139, 45);
+            this.btnOpslaan.TabIndex = 35;
+            this.btnOpslaan.Text = "Opslaan";
+            this.btnOpslaan.UseVisualStyleBackColor = true;
+            this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
             // 
             // btnAnnuleren
             // 
@@ -165,6 +166,7 @@ namespace Praktijk_Opdracht.View
             this.btnuitPlus.TabIndex = 25;
             this.btnuitPlus.Text = "+";
             this.btnuitPlus.UseVisualStyleBackColor = true;
+            this.btnuitPlus.Click += new System.EventHandler(this.btnuitPlus_Click);
             // 
             // btnUitMin
             // 
@@ -174,15 +176,17 @@ namespace Praktijk_Opdracht.View
             this.btnUitMin.TabIndex = 24;
             this.btnUitMin.Text = "-";
             this.btnUitMin.UseVisualStyleBackColor = true;
+            this.btnUitMin.Click += new System.EventHandler(this.btnUitMin_Click);
             // 
             // btnThuisPlus
             // 
-            this.btnThuisPlus.Location = new System.Drawing.Point(176, 123);
+            this.btnThuisPlus.Location = new System.Drawing.Point(169, 123);
             this.btnThuisPlus.Name = "btnThuisPlus";
             this.btnThuisPlus.Size = new System.Drawing.Size(34, 29);
             this.btnThuisPlus.TabIndex = 23;
             this.btnThuisPlus.Text = "+";
             this.btnThuisPlus.UseVisualStyleBackColor = true;
+            this.btnThuisPlus.Click += new System.EventHandler(this.btnThuisPlus_Click);
             // 
             // btnThuisMin
             // 
@@ -192,26 +196,27 @@ namespace Praktijk_Opdracht.View
             this.btnThuisMin.TabIndex = 22;
             this.btnThuisMin.Text = "-";
             this.btnThuisMin.UseVisualStyleBackColor = true;
+            this.btnThuisMin.Click += new System.EventHandler(this.btnThuisMin_Click);
             // 
-            // label2
+            // lblUitNaam
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(414, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 23);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Speler uit:";
+            this.lblUitNaam.AutoSize = true;
+            this.lblUitNaam.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUitNaam.Location = new System.Drawing.Point(414, 47);
+            this.lblUitNaam.Name = "lblUitNaam";
+            this.lblUitNaam.Size = new System.Drawing.Size(86, 23);
+            this.lblUitNaam.TabIndex = 21;
+            this.lblUitNaam.Text = "Speler uit:";
             // 
-            // label1
+            // lblThuisNaam
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(86, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 23);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Speler thuis:";
+            this.lblThuisNaam.AutoSize = true;
+            this.lblThuisNaam.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblThuisNaam.Location = new System.Drawing.Point(86, 47);
+            this.lblThuisNaam.Name = "lblThuisNaam";
+            this.lblThuisNaam.Size = new System.Drawing.Size(103, 23);
+            this.lblThuisNaam.TabIndex = 20;
+            this.lblThuisNaam.Text = "Speler thuis:";
             // 
             // FrmResultaatUpdate
             // 
@@ -220,7 +225,7 @@ namespace Praktijk_Opdracht.View
             this.ClientSize = new System.Drawing.Size(544, 536);
             this.Controls.Add(this.lblUit);
             this.Controls.Add(this.lblThuis);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnAnnuleren);
             this.Controls.Add(this.cmbWinnaar);
             this.Controls.Add(this.label7);
@@ -234,10 +239,11 @@ namespace Praktijk_Opdracht.View
             this.Controls.Add(this.btnUitMin);
             this.Controls.Add(this.btnThuisPlus);
             this.Controls.Add(this.btnThuisMin);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblUitNaam);
+            this.Controls.Add(this.lblThuisNaam);
             this.Name = "FrmResultaatUpdate";
             this.Text = "FrmResultaatUpdate";
+            this.Load += new System.EventHandler(this.FrmResultaatUpdate_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,7 +253,7 @@ namespace Praktijk_Opdracht.View
 
         private System.Windows.Forms.Label lblUit;
         private System.Windows.Forms.Label lblThuis;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnOpslaan;
         private System.Windows.Forms.Button btnAnnuleren;
         private System.Windows.Forms.ComboBox cmbWinnaar;
         private System.Windows.Forms.Label label7;
@@ -261,7 +267,7 @@ namespace Praktijk_Opdracht.View
         private System.Windows.Forms.Button btnUitMin;
         private System.Windows.Forms.Button btnThuisPlus;
         private System.Windows.Forms.Button btnThuisMin;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUitNaam;
+        private System.Windows.Forms.Label lblThuisNaam;
     }
 }
