@@ -24,6 +24,13 @@ namespace Praktijk_Opdracht.View
         {
             lvResultaat.Columns.Add("Punt", 100);
             lvResultaat.Columns.Add("Overgave", 100);
+            lvResultaat.Columns.Add("Starttijd", 150);
+            lvResultaat.Columns.Add("Eindtijd", 150);
+            lvResultaat.Columns.Add("Ronde", 100);
+            lvResultaat.Columns.Add("WedstrijdNummer", 100);
+            lvResultaat.Columns.Add("Spelernaam", 100);
+            lvResultaat.Columns.Add("Geboortedatum", 150);
+            lvResultaat.Columns.Add("Groep", 100);
 
             lvResultaat.View = System.Windows.Forms.View.Details;
 
@@ -46,7 +53,13 @@ namespace Praktijk_Opdracht.View
 
                 ListViewItem lvItem = new ListViewItem(item.Punt.ToString());
                 lvItem.SubItems.Add(item.Overgave.ToString());
-
+                lvItem.SubItems.Add(item.WedstrijdId.Starttijd.ToShortDateString() + " " + item.WedstrijdId.Starttijd.ToShortTimeString());
+                lvItem.SubItems.Add(item.WedstrijdId.Eindtijd.ToShortDateString() + " " + item.WedstrijdId.Eindtijd.ToShortTimeString());
+                lvItem.SubItems.Add(item.WedstrijdId.Ronde.ToString());
+                lvItem.SubItems.Add(item.WedstrijdId.WedstrijdNummer.ToString());
+                lvItem.SubItems.Add(item.SpelerId.FullName);
+                lvItem.SubItems.Add(item.SpelerId.Geboortedatum.ToString());
+                lvItem.SubItems.Add(item.SpelerId.Groep.ToString());
 
                 lvItem.Tag = item;
 
