@@ -46,7 +46,7 @@ namespace Praktijk_Opdracht.View
 
             FillListVieuw();
 
-            List<SpelerModel> spelers = spelerController.ReadAll();
+            List<SpelerModel> spelers = spelerController.ReadAllDistinct();
 
             foreach(SpelerModel speler in spelers)
             {

@@ -43,6 +43,7 @@ namespace Praktijk_Opdracht.View
             FillListVieuw();
         }
 
+        // method die de read in de listview zet.
         public void FillListVieuw()
         {
 
@@ -64,6 +65,7 @@ namespace Praktijk_Opdracht.View
             }
         }
 
+        // de selectedindexchange ziet waneer er een speler geselecteerd is. Wanneer dit is laat hij de buttons zien.
         private void lvScheidsrechter_SelectedIndexChanged(object sender, EventArgs e)
         {
             int amountSelected = lvScheidsrechter.SelectedItems.Count;
@@ -80,6 +82,7 @@ namespace Praktijk_Opdracht.View
             }
         }
 
+        // Deze 
         private void btnWijzigen_Click(object sender, EventArgs e)
         {
             ScheidsrechterModel toBeUpdated = (ScheidsrechterModel) lvScheidsrechter.SelectedItems[0].Tag;

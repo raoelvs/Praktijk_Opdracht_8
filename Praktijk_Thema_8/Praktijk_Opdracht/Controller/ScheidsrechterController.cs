@@ -161,6 +161,12 @@ namespace Praktijk_Opdracht.Controller
             }
             return rowsAffected;
         }
+
+        /// <summary>
+        /// Read methode that shows the password from scheidsrechter
+        /// </summary>
+        /// <param name="password"> this variable contains the id from scheidsrechter</param>
+        /// <returns> Rows affected </returns>
         public ScheidsrechterModel ReadWhere(string password)
         {
             ScheidsrechterModel scheidsrechterItem = new ScheidsrechterModel();

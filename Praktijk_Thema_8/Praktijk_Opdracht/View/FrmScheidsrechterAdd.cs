@@ -23,7 +23,8 @@ namespace Praktijk_Opdracht.View
 
             scheidsrechterOverview = ScheidsrechterOverview;
         }
-
+        
+        // Speler toevoegen anuleren en terug naar scheidsrechter overview
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
             scheidsrechterOverview.FormBorderStyle = FormBorderStyle.None;
@@ -35,6 +36,7 @@ namespace Praktijk_Opdracht.View
             scheidsrechterOverview.Show();
         }
 
+        // Speler toevoegen  daarna terug naar scheidsrechter overview
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             ScheidsrechterModel item = new ScheidsrechterModel();
@@ -45,6 +47,7 @@ namespace Praktijk_Opdracht.View
             item.Achternaam = txtAchternaam.Text;
             item.Wachtwoord = txtWachtwoord.Text;
 
+            // als er een sql fout optreed vangt hij hem op in de catch
             try
             {
                 scheidrechterController.Create(item);

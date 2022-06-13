@@ -85,13 +85,90 @@ namespace Praktijk_Opdracht.Controller
             return resultList;
         }
 
+        /// <summary>
+        /// This method ask for the data from the database 
+        /// </summary>
+        /// <returns> List with information from the database without doubles</returns>
+        public List<SpelerModel> ReadAllDistinct()
+        {
+            List<SpelerModel> resultList = new List<SpelerModel>();
+
+            // stap 1 Connection
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                //stap 2 sqlcommand aanmaken
+                string sqlQuery = "SELECT DISTINCT * FROM Speler " +
+                    "JOIN School ON Speler.SchoolId = School.SchoolId";
+
+                using (SqlCommand command = new SqlCommand(sqlQuery, con))
+                {
+                    con.Open();
+
+                    // stap 3 commando uitvoeren
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    //stap 4 door de sql reader heen loopen en objecten aanmaken
+                    while (reader.Read() == true)
+                    {
+                        SpelerModel spelerItem = new SpelerModel();
+                        SchoolModel schoolItem = new SchoolModel();
+
+                        // ophalen table speler gegevens
+                        int spelerId = (int)reader["SpelerId"];
+                        string voornaam = (string)reader["Voornaam"];
+
+                        if (reader["Tussenvoegsel"] == DBNull.Value)
+                        {
+                            spelerItem.Tussenvoegsel = "";
+                        }
+                        else
+                        {
+                            spelerItem.Tussenvoegsel = (string)reader["Tussenvoegsel"];
+                        }
+
+                        string achternaam = (string)reader["Achternaam"];
+                        DateTime geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
+                        int groep = (byte)reader["Groep"];
+
+                        // ophalen table school gegevens
+                        int schoolId = (int)reader["SchoolId"];
+                        string naam = (string)reader["Naam"];
+
+                        // object properties een waarde geven
+                        // table Speler
+                        spelerItem.SpelerId = spelerId;
+                        spelerItem.Voornaam = voornaam;
+                        spelerItem.Achternaam = achternaam;
+                        spelerItem.Geboortedatum = geboortedatum;
+                        spelerItem.Groep = groep;
+
+                        // table school
+                        schoolItem.SchoolId = schoolId;
+                        schoolItem.Naam = naam;
+
+                        // schoolitem toevoegen aan speleritem
+                        spelerItem.SchoolId = schoolItem;
+
+                        // object toevoegen aan de List<>
+                        resultList.Add(spelerItem);
+                    }
+                }
+            }
+            return resultList;
+        }
+
+        /// <summary>
+        /// This method filters the information on firstname of the speler
+        /// </summary>
+        /// <param name="selectedSpeler"></param>
+        /// <returns> List with information from the database </returns>
         public List<SpelerModel> ReadFilter(string selectedSpeler)
         {
             // Lijst aanmaken om alle Taken in op te slaan
             List<SpelerModel> result = new List<SpelerModel>();
 
             // SQL query als string
-            string query = "SELECT DISTINCT * FROM Speler WHERE Voornaam = @selectedSpelerValue";
+            string query = "SELECT * FROM Speler WHERE Voornaam = @selectedSpelerValue";
 
             // SQL Connectie maken
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -246,7 +323,11 @@ namespace Praktijk_Opdracht.Controller
             }
             return rowsAffected;
         }
-
+        /// <summary>
+        /// Read waar niet de speler niet in zit
+        /// </summary>
+        /// <param name="speler"> SpelerModel </param>
+        /// <returns> List with information from the database</returns>
         public List<SpelerModel> ReadWhereIsNot(SpelerModel speler)
         {
             List<SpelerModel> resultList = new List<SpelerModel>();
