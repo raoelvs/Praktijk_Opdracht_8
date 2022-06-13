@@ -45,15 +45,14 @@ namespace Praktijk_Opdracht.View
             item.Achternaam = txtAchternaam.Text;
             item.Wachtwoord = txtWachtwoord.Text;
 
-            int rowsAffected = scheidrechterController.Create(item);
-
-            if (rowsAffected > 0)
+            try
             {
-                this.DialogResult = DialogResult.Yes;
+                scheidrechterController.Create(item);
+                MessageBox.Show("Scheidsrechter is toegevoegd");
             }
-            else
+            catch(Exception ex)
             {
-                this.DialogResult = DialogResult.No;
+                MessageBox.Show("Er is iets misgegaan");
             }
 
             scheidsrechterOverview.FormBorderStyle = FormBorderStyle.None;

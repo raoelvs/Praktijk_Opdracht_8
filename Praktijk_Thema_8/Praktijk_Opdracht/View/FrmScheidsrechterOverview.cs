@@ -93,8 +93,6 @@ namespace Praktijk_Opdracht.View
             pnlForms.Controls.Clear();
             pnlForms.Controls.Add(frm);
             frm.Show();
-
-            FillListVieuw();
         }
 
         private void btnVerwijderen_Click(object sender, EventArgs e)
@@ -118,19 +116,6 @@ namespace Praktijk_Opdracht.View
             pnlForms.Controls.Clear();
             pnlForms.Controls.Add(frm);
             frm.Show();
-
-            DialogResult result = frm.ShowDialog();
-
-            if (result == DialogResult.Yes)
-            {
-                MessageBox.Show("Speler is toegevoegd");
-            }
-            else
-            {
-                MessageBox.Show("Het is niet gelukt om de speler toe te voegen");
-            }
-
-            FillListVieuw();
         }
     }
 }
