@@ -14,8 +14,8 @@ namespace Praktijk_Opdracht.View
 {
     public partial class FrmResultatenOverview : Form
     {
-        ResultaatController ResultaatContr = new ResultaatController();
-        WedstrijdController wedsContr = new WedstrijdController();
+        private ResultaatController ResultaatContr = new ResultaatController();
+        private WedstrijdController wedsContr = new WedstrijdController();
         public Panel pnlForms;
         public FrmResultatenOverview(Panel PnlForms)
         {
@@ -41,10 +41,10 @@ namespace Praktijk_Opdracht.View
 
             lvResultaat.HeaderStyle = ColumnHeaderStyle.Clickable;
 
-            FillList();
+            FillListView();
         }
 
-        private void FillList()
+        public void FillListView()
         {
             List<WedstrijdModel> wedstrijdList = wedsContr.ReadAll();
 

@@ -121,8 +121,17 @@ namespace Praktijk_Opdracht.View
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Bericht: " + ex.Message);
+                    MessageBox.Show("Er is iets misgegaan");
                 }
+
+                resultaatOverview.FormBorderStyle = FormBorderStyle.None;
+                resultaatOverview.TopLevel = false;
+                resultaatOverview.TopMost = true;
+                resultaatOverview.Dock = DockStyle.Fill;
+                this.Close();
+                resultaatOverview.FillListView();
+                resultaatOverview.pnlForms.Controls.Add(resultaatOverview);
+                resultaatOverview.Show();
             }
         }
     }
