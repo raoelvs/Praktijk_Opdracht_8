@@ -21,6 +21,9 @@ namespace Praktijk_Opdracht.View
         private int thuisScore;
         private int uitScore;
 
+        private ResultaatModel thuisSpeler;
+        private ResultaatModel uitSpeler;
+
         private WedstrijdModel wedstrijd;
         private FrmResultatenOverview resultaatOverview;
 
@@ -34,8 +37,8 @@ namespace Praktijk_Opdracht.View
 
         private void FrmResultaatUpdate_Load(object sender, EventArgs e)
         {
-            ResultaatModel thuisSpeler = ResultaatController.ReadWhereMatchPlayer(wedstrijd.WedstrijdId, wedstrijd.Thuis.SpelerId);
-            ResultaatModel uitSpeler = ResultaatController.ReadWhereMatchPlayer(wedstrijd.WedstrijdId, wedstrijd.Uit.SpelerId);
+            thuisSpeler = ResultaatController.ReadWhereMatchPlayer(wedstrijd.WedstrijdId, wedstrijd.Thuis.SpelerId);
+            uitSpeler = ResultaatController.ReadWhereMatchPlayer(wedstrijd.WedstrijdId, wedstrijd.Uit.SpelerId);
 
             lblThuisNaam.Text = wedstrijd.Thuis.FullName;
             lblUitNaam.Text = wedstrijd.Uit.FullName;
@@ -46,10 +49,18 @@ namespace Praktijk_Opdracht.View
             ckbThuis.Checked= thuisSpeler.Overgave;
             ckbUit.Checked = uitSpeler.Overgave;
 
-            cmbWinnaar.Items.Add(wedstrijd.Thuis);
-            cmbWinnaar.Items.Add(wedstrijd.Uit);
+            SpelerModel thuis = wedstrijd.Thuis;
+            SpelerModel uit = wedstrijd.Uit;
+
+            cmbWinnaar.Items.Add(thuis);
+            cmbWinnaar.Items.Add(uit);
 
             cmbWinnaar.DisplayMember = "FullName";
+
+            if(wedstrijd.Winnaar.SpelerId != 0)
+            {
+                cmbWinnaar.Text = wedstrijd.Winnaar.FullName;
+            }
 
             thuisScore = Convert.ToInt32(lblThuis.Text);
             uitScore = Convert.ToInt32(lblUit.Text);
@@ -93,7 +104,26 @@ namespace Praktijk_Opdracht.View
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            if (cmbWinnaar.SelectedItem != null)
+            {
+                wedstrijd.Winnaar = (SpelerModel)cmbWinnaar.SelectedItem;
+                thuisSpeler.Punt = thuisScore;
+                thuisSpeler.Overgave = ckbThuis.Checked;
 
+                uitSpeler.Punt = uitScore;
+                uitSpeler.Overgave = ckbUit.Checked;
+
+                try 
+                {
+                    ResultaatController.Update(thuisSpeler);
+                    ResultaatController.Update(uitSpeler);
+                    wedsContr.UpdateWinner(wedstrijd);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Bericht: " + ex.Message);
+                }
+            }
         }
     }
 }

@@ -121,8 +121,10 @@ namespace Praktijk_Opdracht.Controller
         public int Update(ResultaatModel update)
         {
             int rowsAffected = 0;
-            string sqlQuery = "UPDATE Resultaat SET Punt = @PuntValue, Overgave = @OvergaveValue " +
-                "Wedstrijd = @WedstrijdIdValue, SpelerId = @SpelerIdValue WHERE ResultaatId = @ResultaatIdValue ";
+            string sqlQuery = "UPDATE Resultaat " +
+                                "SET Punt = @PuntValue, " +
+                                    "Overgave = @OvergaveValue " +
+                                "WHERE ResultaatId = @ResultaatIdValue ";
 
             // Opstarten connection
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -133,8 +135,6 @@ namespace Praktijk_Opdracht.Controller
                     command.Parameters.AddWithValue("ResultaatIdValue", update.ResultaatId);
                     command.Parameters.AddWithValue("PuntValue", update.Punt);
                     command.Parameters.AddWithValue("OvergaveValue", update.Overgave);
-                    command.Parameters.AddWithValue("WedstrijdIdValue", update.WedstrijdId);
-                    command.Parameters.AddWithValue("SpelerIdValue", update.SpelerId);
 
                     con.Open();
 

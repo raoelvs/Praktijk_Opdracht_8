@@ -335,6 +335,37 @@ namespace Praktijk_Opdracht.Controller
             return rowsAffected;
         }
 
+        /// <summary>
+        /// Update winner of the match in the database
+        /// </summary>
+        /// <param name="wedstrijd">WedstrijdModel</param>
+        /// <returns>rows affected</returns>
+        public int UpdateWinner(WedstrijdModel wedstrijd)
+        {
+            int rowsAffected = 0;
+
+            // create connection
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE Wedstrijd " +
+                    "SET Winnaar = @WinnaarValue " +
+                    "WHERE WedstrijdId = @WedstrijdIdValue;";
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    // sql parameters
+                    command.Parameters.AddWithValue("WedstrijdIdValue", wedstrijd.WedstrijdId);
+                    command.Parameters.AddWithValue("WinnaarValue", wedstrijd.Winnaar.SpelerId);
+
+                    // open connection
+                    con.Open();
+
+                    // execute commands
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+
+            return rowsAffected;
+        }
 
         /// <summary>
         /// delete match in the database
