@@ -1,4 +1,9 @@
-﻿using Praktijk_Opdracht.Controller;
+﻿/*
+ * Author: Quinten Kornalijnslijper
+ * Date: 12-6-2022
+ * Description: update the match
+ */
+using Praktijk_Opdracht.Controller;
 using Praktijk_Opdracht.Model;
 using System;
 using System.Collections.Generic;
@@ -15,6 +20,7 @@ namespace Praktijk_Opdracht.View
 {
     public partial class FrmWedstrijdUpdate : Form
     {
+        // fields
         private SpelerController spelContr = new SpelerController();
         private ScheidsrechterController scheidsContr = new ScheidsrechterController();
         private WedstrijdController wedsContr = new WedstrijdController();
@@ -28,6 +34,7 @@ namespace Praktijk_Opdracht.View
             };
         private FrmWedstrijdOverview wedstrijdOverview;
         private WedstrijdModel toBeUpdated;
+
         public FrmWedstrijdUpdate(FrmWedstrijdOverview WedstrijdOverview, WedstrijdModel ToBeUpdated)
         {
             InitializeComponent();
@@ -35,6 +42,11 @@ namespace Praktijk_Opdracht.View
             toBeUpdated = ToBeUpdated;
         }
 
+        /// <summary>
+        /// fills the comboboxes and the datetimepickers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmWedstrijdUpdate_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < RoundWithMatches.Length; i++)
@@ -67,6 +79,11 @@ namespace Praktijk_Opdracht.View
             cmbReferee.Text = toBeUpdated.ScheidsrechterCode.FullName;
         }
 
+        /// <summary>
+        /// if item is selected in cmbRound enabled the cmbWedstrijd
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbRound_SelectedIndexChanged(object sender, EventArgs e)
         {
             int totalMatches = RoundWithMatches[cmbRound.SelectedIndex, 0];
@@ -77,6 +94,11 @@ namespace Praktijk_Opdracht.View
             }
         }
 
+        /// <summary>
+        /// if item is selected in cmbPlayer1 enabled the cmbPlayer2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbPlayer1_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<SpelerModel> playerList = spelContr.ReadWhereIsNot((SpelerModel)cmbPlayer1.SelectedItem);
@@ -87,6 +109,11 @@ namespace Praktijk_Opdracht.View
             }
         }
 
+        /// <summary>
+        /// close this form and go to the previous
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
             wedstrijdOverview.FormBorderStyle = FormBorderStyle.None;
@@ -99,8 +126,14 @@ namespace Praktijk_Opdracht.View
             wedstrijdOverview.Show();
         }
 
+        /// <summary>
+        /// change the wedstrijd
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            // checks if comboboxes is empty
             if (cmbPlayer1.SelectedItem == null ||
                 cmbPlayer2.SelectedItem == null ||
                 cmbReferee.SelectedItem == null ||

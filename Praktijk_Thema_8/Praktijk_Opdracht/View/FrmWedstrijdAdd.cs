@@ -1,4 +1,9 @@
-﻿using Praktijk_Opdracht.Controller;
+﻿/*
+ * Author: Quinten Kornalijnslijper
+ * Date: 12-6-2022
+ * Description: form for adding a match to database
+ */
+using Praktijk_Opdracht.Controller;
 using Praktijk_Opdracht.Model;
 using System;
 using System.Collections.Generic;
@@ -15,10 +20,11 @@ namespace Praktijk_Opdracht.View
 {
     public partial class FrmWedstrijdAdd : Form
     {
+        // fields
         private SpelerController spelContr = new SpelerController();
         private ScheidsrechterController scheidsContr = new ScheidsrechterController();
         private WedstrijdController wedsContr = new WedstrijdController();
-        private int[,] RoundWithMatches = new int[5, 1]
+        private int[,] roundWithMatches = new int[5, 1]
             {
                 { 16 },
                 { 8 },
@@ -27,21 +33,30 @@ namespace Praktijk_Opdracht.View
                 { 1 }
             };
         private FrmWedstrijdOverview wedstrijdOverview;
+
+        
         public FrmWedstrijdAdd(FrmWedstrijdOverview WedstrijdOverview)
         {
             InitializeComponent();
             wedstrijdOverview = WedstrijdOverview;
         }
 
+        /// <summary>
+        /// filling the comboboxes by the form load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmWedstrijdAdd_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < RoundWithMatches.Length; i++)
+            // loop through roundWithMatches and fils combobox
+            for (int i = 0; i < roundWithMatches.Length; i++)
             {
                 cmbRound.Items.Add(i + 1);
             }
             cmbWedstrijd.Enabled = false;
 
             List<SpelerModel> spelerList = spelContr.ReadAll();
+            // loop through spelerList and fills combobox
             foreach (SpelerModel speler in spelerList)
             {
                 cmbPlayer1.Items.Add(speler);
@@ -50,6 +65,7 @@ namespace Praktijk_Opdracht.View
             cmbPlayer2.Enabled = false;
 
             List<ScheidsrechterModel> scheidsrechterList = scheidsContr.ReadAll();
+            //loop through scheidsrechterList and fills combobox
             foreach (ScheidsrechterModel scheidsrechter in scheidsrechterList)
             {
                 cmbReferee.Items.Add(scheidsrechter);
@@ -57,13 +73,20 @@ namespace Praktijk_Opdracht.View
             cmbReferee.DisplayMember = "FullName";
         }
 
+        /// <summary>
+        /// if item selected in combox for round enabled the combobox for matches
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbRound_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cmbRound.SelectedItem != null)
             {
-                int totalMatches = RoundWithMatches[cmbRound.SelectedIndex, 0];
+                // get the total matches in a round
+                int totalMatches = roundWithMatches[cmbRound.SelectedIndex, 0];
                 cmbWedstrijd.Enabled = true;
                 cmbWedstrijd.Items.Clear();
+                // loop through totalMatches and fills combobox
                 for (int i = 1; i <= totalMatches; i++)
                 {
                     cmbWedstrijd.Items.Add(i);
@@ -76,6 +99,11 @@ namespace Praktijk_Opdracht.View
 
         }
 
+        /// <summary>
+        /// cloose this form and go to the previous
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
             wedstrijdOverview.FormBorderStyle = FormBorderStyle.None;
@@ -87,6 +115,11 @@ namespace Praktijk_Opdracht.View
             wedstrijdOverview.Show();
         }
 
+        /// <summary>
+        /// if item selected in combox for player1 enabled the combobox for player2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbPlayer1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbPlayer1.SelectedItem != null)
@@ -106,8 +139,14 @@ namespace Praktijk_Opdracht.View
             }
         }
 
+        /// <summary>
+        /// checks if all fields have an input then add it to the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            // checks if fields are empty
             if(cmbPlayer1.SelectedItem == null ||
                 cmbPlayer2.SelectedItem == null ||
                 cmbReferee.SelectedItem == null ||
@@ -118,6 +157,7 @@ namespace Praktijk_Opdracht.View
             }
             else
             {
+                // fills a WedstrijdModel for to be updated
                 WedstrijdModel wedstrijd = new WedstrijdModel();
                 wedstrijd.Ronde = (int)cmbRound.SelectedItem;
                 wedstrijd.WedstrijdNummer = (int)cmbWedstrijd.SelectedItem;
@@ -126,6 +166,8 @@ namespace Praktijk_Opdracht.View
                 wedstrijd.Thuis = (SpelerModel)cmbPlayer1.SelectedItem;
                 wedstrijd.Uit = (SpelerModel)cmbPlayer2.SelectedItem;
                 wedstrijd.ScheidsrechterCode = (ScheidsrechterModel)cmbReferee.SelectedItem;
+
+                // try to add the match
                 try
                 {
                     wedsContr.Create(wedstrijd);
@@ -139,10 +181,12 @@ namespace Praktijk_Opdracht.View
                     wedstrijdOverview.pnlForms.Controls.Add(wedstrijdOverview);
                     wedstrijdOverview.Show();
                 }
+                // catch sql exception
                 catch(SqlException ex)
                 {
                     if(ex.Number == 2627)
                     {
+                        // unique error
                         MessageBox.Show("Wedstrijd niet toe kunnen voegen door database error. Hieronder vind je waar het probleem onstaan kan zijn. \n \n" +
                             "Er is al een wedstrijd op in de ronde met dit wedstrijdnummer. \n" +
                             "Deze spelers hebben al tegen elkaar gevochten. \n" +
