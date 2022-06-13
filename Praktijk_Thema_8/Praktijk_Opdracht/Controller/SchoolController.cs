@@ -1,4 +1,9 @@
-﻿using Praktijk_Opdracht.Model;
+﻿/*
+ * Author: Quinten Kornalijnslijper
+ * Date: 10-6-2022
+ * Description: school controller with methods for CRUD
+ */
+using Praktijk_Opdracht.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,20 +16,30 @@ namespace Praktijk_Opdracht.Controller
 {
     class SchoolController
     {
+        // connection string
         private string connectionString = ConfigurationManager.ConnectionStrings["connectionStringDeVluggehandjes"].ConnectionString;
 
+        /// <summary>
+        /// read all schools in database
+        /// </summary>
+        /// <returns>list with SchoolModelreturns>
         public List<SchoolModel> ReadAll()
         {
             List<SchoolModel> schoolList = new List<SchoolModel>();
+            // create connection
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM School ORDER BY Naam";
+                // create command
                 using(SqlCommand command = new SqlCommand(query, con))
                 {
+                    // open connection
                     con.Open();
 
+                    // execute command
                     SqlDataReader reader = command.ExecuteReader();
 
+                    // fill list with SschoolModel
                     while(reader.Read() == true)
                     {
                         SchoolModel school = new SchoolModel();
@@ -38,33 +53,26 @@ namespace Praktijk_Opdracht.Controller
             return schoolList;
         }
 
+        /// <summary>
+        /// add a school to the database
+        /// </summary>
+        /// <param name="school">SchoolModel</param>
+        /// <returns>rows affected</returns>
         public int Create(SchoolModel school)
         {
             int rowsAffected = 0;
+
+            // create connection
             using(SqlConnection con = new SqlConnection(connectionString))
             {
                 string query = "INSERT INTO School(Naam) VALUES(@NaamValue)";
                 using(SqlCommand command = new SqlCommand(query, con))
                 {
                     command.Parameters.AddWithValue("NaamValue", school.Naam);
+                    // connection start
                     con.Open();
-                    rowsAffected = command.ExecuteNonQuery();
-                }
-            }
-            return rowsAffected;
-        }
 
-        public int Update(SchoolModel school)
-        {
-            int rowsAffected = 0;
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                string query = "UPDATE School SET Naam = @NaamValue WHERE SchoolId = @SchoolIdValue";
-                using (SqlCommand command = new SqlCommand(query, con))
-                {
-                    command.Parameters.AddWithValue("NaamValue", school.Naam);
-                    command.Parameters.AddWithValue("SchoolIdValue", school.SchoolId);
-                    con.Open();
+                    //execute query
                     rowsAffected = command.ExecuteNonQuery();
                 }
             }
@@ -72,10 +80,39 @@ namespace Praktijk_Opdracht.Controller
         }
 
         /// <summary>
-        /// 
+        /// update a school in the database
         /// </summary>
-        /// <param name="school"> this variable has the school that needs to be deleted</param>
-        /// <returns> The rows affected </returns>
+        /// <param name="school">SchoolModel</param>
+        /// <returns>rowsaffected</returns>
+        public int Update(SchoolModel school)
+        {
+            int rowsAffected = 0;
+
+            // create a connection
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE School SET Naam = @NaamValue WHERE SchoolId = @SchoolIdValue";
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    // sql paramaters
+                    command.Parameters.AddWithValue("NaamValue", school.Naam);
+                    command.Parameters.AddWithValue("SchoolIdValue", school.SchoolId);
+
+                    // open connection
+                    con.Open();
+
+                    // execute command
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+            return rowsAffected;
+        }
+
+        /// <summary>
+        /// delete a school in the database
+        /// </summary>
+        /// <param name="school">SchoolModel</param>
+        /// <returns>rows affected</returns>
         public int Delete(SchoolModel school)
         {
             int rowsAffected = 0;

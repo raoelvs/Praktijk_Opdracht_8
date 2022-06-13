@@ -1,4 +1,9 @@
-﻿using Praktijk_Opdracht.Controller;
+﻿/*
+ * Author: Quinten Kornalijnslijper
+ * Date: 12-6-2022
+ * Description: form to show all schools
+ */
+using Praktijk_Opdracht.Controller;
 using Praktijk_Opdracht.Model;
 using System;
 using System.Collections.Generic;
@@ -14,6 +19,7 @@ namespace Praktijk_Opdracht.View
 {
     public partial class FrmSchoolAdd : Form
     {
+        // fields
         private FrmSchoolOverview schoolOverview;
         private SchoolController schoolContr = new SchoolController();
         public FrmSchoolAdd(FrmSchoolOverview SchoolOverview)
@@ -22,6 +28,11 @@ namespace Praktijk_Opdracht.View
             schoolOverview = SchoolOverview;
         }
 
+        /// <summary>
+        /// close this form and go to the previous
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnuleren_Click(object sender, EventArgs e)
         {
             schoolOverview.FormBorderStyle = FormBorderStyle.None;
@@ -33,12 +44,19 @@ namespace Praktijk_Opdracht.View
             schoolOverview.Show();
         }
 
+        /// <summary>
+        /// try to add school
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
+            // checks if naam is empty
             if(txtNaam.Text != null)
             {
                 SchoolModel school = new SchoolModel();
                 school.Naam = txtNaam.Text;
+                // try to add school
                 try
                 {
                     schoolContr.Create(school);

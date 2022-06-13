@@ -56,7 +56,6 @@ namespace Praktijk_Opdracht.View
                 btnScheidsrechter.Enabled = false;
                 btnScholen.Enabled = false;
                 btnSpelers.Enabled = false;
-                btnWedstrijden.Enabled = false;
             }
             else if (role == "Organisator")
             {
@@ -147,7 +146,7 @@ namespace Praktijk_Opdracht.View
         /// <param name="e"></param>
         private void btnWedstrijden_Click(object sender, EventArgs e)
         {
-            FrmWedstrijdOverview frm = new FrmWedstrijdOverview(pnlForms);
+            FrmWedstrijdOverview frm = new FrmWedstrijdOverview(pnlForms, role);
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.TopLevel = false;
             frm.TopMost = true;
