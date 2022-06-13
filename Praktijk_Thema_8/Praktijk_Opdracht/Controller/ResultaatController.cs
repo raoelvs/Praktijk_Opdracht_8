@@ -199,5 +199,37 @@ namespace Praktijk_Opdracht.Controller
             }
             return ResultaatItem;
         }
+
+        /// <summary>
+        /// create a new result in the database
+        /// </summary>
+        /// <param name="resultaat">ResultaatModel</param>
+        /// <returns>rows affected</returns>
+        public int Create(ResultaatModel resultaat)
+        {
+            int rowsAffected = 0;
+
+            // create connection
+            using(SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Resultaat(Punt, Overgave, SpelerId, WedstrijdId) " +
+                                "VALUES(@PuntValue, @OvergaveValue, @SpelerIdValue, @WedstrijdIdValue)";
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    // sql parameters
+                    command.Parameters.AddWithValue("PuntValue", resultaat.Punt);
+                    command.Parameters.AddWithValue("OvergaveValue", resultaat.Overgave);
+                    command.Parameters.AddWithValue("SpelerIdValue", resultaat.SpelerId.SpelerId);
+                    command.Parameters.AddWithValue("WedstrijdIdValue", resultaat.WedstrijdId.WedstrijdId);
+
+                    // open connection
+                    con.Open();
+
+                    // execute command
+                    rowsAffected = command.ExecuteNonQuery();
+                }
+            }
+            return rowsAffected;
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace Praktijk_Opdracht.View
         private SpelerController spelContr = new SpelerController();
         private ScheidsrechterController scheidsContr = new ScheidsrechterController();
         private WedstrijdController wedsContr = new WedstrijdController();
+        private ResultaatController resuContr = new ResultaatController();
         private int[,] roundWithMatches = new int[5, 1]
             {
                 { 16 },
@@ -169,17 +170,44 @@ namespace Praktijk_Opdracht.View
 
                 // try to add the match
                 try
-                {
-                    wedsContr.Create(wedstrijd);
-                    MessageBox.Show("Wedstrijd is toegevoegd");
-                    wedstrijdOverview.FormBorderStyle = FormBorderStyle.None;
-                    wedstrijdOverview.TopLevel = false;
-                    wedstrijdOverview.TopMost = true;
-                    wedstrijdOverview.Dock = DockStyle.Fill;
-                    this.Close();
-                    wedstrijdOverview.FillListView();
-                    wedstrijdOverview.pnlForms.Controls.Add(wedstrijdOverview);
-                    wedstrijdOverview.Show();
+                {     
+                    // get rows affected
+                    int rowsAffected = wedsContr.Create(wedstrijd);
+                    if (rowsAffected > 0)
+                    {
+                        // search the match that's created
+                        WedstrijdModel wedstrijdResultaat = wedsContr.ReadWhereRoundMatch(wedstrijd.Ronde, wedstrijd.WedstrijdNummer);
+                        
+                        ResultaatModel thuisSpeler = new ResultaatModel();
+                        thuisSpeler.Punt = 0;
+                        thuisSpeler.Overgave = false;
+                        thuisSpeler.SpelerId = wedstrijdResultaat.Thuis;
+                        thuisSpeler.WedstrijdId = wedstrijdResultaat;
+
+                        ResultaatModel uitSpeler = new ResultaatModel();
+                        uitSpeler.Punt = 0;
+                        uitSpeler.Overgave = false;
+                        uitSpeler.SpelerId = wedstrijdResultaat.Uit;
+                        uitSpeler.WedstrijdId = wedstrijdResultaat;
+
+                        // creates also the results for the match that's created
+                        resuContr.Create(thuisSpeler);
+                        resuContr.Create(uitSpeler);
+
+                        MessageBox.Show("Wedstrijd is toegevoegd");
+                        wedstrijdOverview.FormBorderStyle = FormBorderStyle.None;
+                        wedstrijdOverview.TopLevel = false;
+                        wedstrijdOverview.TopMost = true;
+                        wedstrijdOverview.Dock = DockStyle.Fill;
+                        this.Close();
+                        wedstrijdOverview.FillListView();
+                        wedstrijdOverview.pnlForms.Controls.Add(wedstrijdOverview);
+                        wedstrijdOverview.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wedstrijd is niet toegevoegd");
+                    }
                 }
                 // catch sql exception
                 catch(SqlException ex)
@@ -200,8 +228,7 @@ namespace Praktijk_Opdracht.View
                 catch(Exception ex)
                 {
                     MessageBox.Show("Wedstrijd niet toe kunnen voegen door algemene error");
-                }
-                
+                }                
             }
         }
     }
