@@ -36,33 +36,13 @@ namespace Praktijk_Opdracht.View
 
             ScheidsrechterModel scheidsrechter = scheidsrechterController.ReadWhere(gebruikersnaam);
 
-            if (scheidsrechter.ScheidsrechterCode != null)
+            if (gebruikersnaam != "" && wachtwoord != "")
             {
-                if (scheidsrechter.Wachtwoord == wachtwoord)
+                if (scheidsrechter.ScheidsrechterCode != null)
                 {
-                    StartViewEditor frm = new StartViewEditor("Scheidsrechter");
-                    frm.FormBorderStyle = FormBorderStyle.None;
-                    frm.TopLevel = false;
-                    frm.TopMost = true;
-                    frm.Dock = DockStyle.Fill;
-                    this.Close();
-                    panel.Controls.Add(frm);
-                    frm.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Wachtwoord is incorrect!");
-
-                }
-
-            }
-            else
-            {
-                if (username == txtGebruikersnaam.Text)
-                {
-                    if (password == txtWachtwoord.Text)
+                    if (scheidsrechter.Wachtwoord == wachtwoord)
                     {
-                        StartViewEditor frm = new StartViewEditor("Organisator");
+                        StartViewEditor frm = new StartViewEditor("Scheidsrechter");
                         frm.FormBorderStyle = FormBorderStyle.None;
                         frm.TopLevel = false;
                         frm.TopMost = true;
@@ -74,13 +54,39 @@ namespace Praktijk_Opdracht.View
                     else
                     {
                         MessageBox.Show("Wachtwoord is incorrect!");
+
                     }
                 }
-
                 else
                 {
-                    MessageBox.Show("Gebruikersnaam is incorrect!");
+                    if (username == txtGebruikersnaam.Text)
+                    {
+                        if (password == txtWachtwoord.Text)
+                        {
+                            StartViewEditor frm = new StartViewEditor("Organisator");
+                            frm.FormBorderStyle = FormBorderStyle.None;
+                            frm.TopLevel = false;
+                            frm.TopMost = true;
+                            frm.Dock = DockStyle.Fill;
+                            this.Close();
+                            panel.Controls.Add(frm);
+                            frm.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wachtwoord is incorrect!");
+                        }
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Gebruikersnaam is incorrect!");
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Niet alle velden zijn gevuld!");
             }
            
         }

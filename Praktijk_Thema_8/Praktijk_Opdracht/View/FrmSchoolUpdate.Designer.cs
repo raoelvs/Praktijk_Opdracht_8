@@ -63,6 +63,7 @@ namespace Praktijk_Opdracht.View
             // txtNaam
             // 
             this.txtNaam.Location = new System.Drawing.Point(135, 62);
+            this.txtNaam.MaxLength = 40;
             this.txtNaam.Name = "txtNaam";
             this.txtNaam.Size = new System.Drawing.Size(405, 27);
             this.txtNaam.TabIndex = 24;
