@@ -52,7 +52,7 @@ namespace Praktijk_Opdracht.View
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             // checks if naam is empty
-            if(txtNaam.Text != null)
+            if(txtNaam.Text != "")
             {
                 SchoolModel school = new SchoolModel();
                 school.Naam = txtNaam.Text;
