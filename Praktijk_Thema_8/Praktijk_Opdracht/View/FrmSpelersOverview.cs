@@ -108,7 +108,7 @@ namespace Praktijk_Opdracht.View
             SpelerModel spelerDel = (SpelerModel)lvSpeler.SelectedItems[0].Tag;
 
             FrmSpelerDelete frm = new FrmSpelerDelete(spelerDel);
-            frm.Show();
+            frm.ShowDialog();
 
             FillListVieuw();
         }

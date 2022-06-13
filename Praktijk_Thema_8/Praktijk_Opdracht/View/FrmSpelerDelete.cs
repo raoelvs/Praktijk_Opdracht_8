@@ -27,7 +27,7 @@ namespace Praktijk_Opdracht.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -39,13 +39,13 @@ namespace Praktijk_Opdracht.View
                 int speler = spelerController.Delete(delSpeler);
                 MessageBox.Show("Het is geluk om de speler te verwijderen)");
 
-                this.Hide();
+                this.Close();
             }
             catch (SqlException ex)
             {
                 if (ex.Number == 547)
                 {
-                    this.Hide();
+                    this.Close();
 
                     MessageBox.Show("Deze speler: (" + delSpeler.FullName + ") heeft nog een relatie. " +
                         "Verwijder deze Speler eerst bij wedstrijden en resultaten");
