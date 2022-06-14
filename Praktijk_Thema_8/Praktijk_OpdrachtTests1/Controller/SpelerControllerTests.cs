@@ -14,7 +14,7 @@ namespace Praktijk_Opdracht.Controller.Tests
         [TestMethod()]
         public void UpdateTest()
         {
-            
+            Assert.Fail();
         }
     }
 }

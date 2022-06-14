@@ -14,36 +14,7 @@ namespace Praktijk_Opdracht.Controller.Tests
         [TestMethod()]
         public void UpdateTest()
         {
-            try
-            {
-                // Arrange
-                SpelerModel testModel = SpelerModel();
-                SpelerController contr = new SpelerController();
-
-                testModel.SpelerId = 51;
-                testModel.Voornaam = "Jarno";
-                testModel.Tussenvoegsel = "van";
-                testModel.Achternaam = "Overdijk";
-                testModel.Geboortedatum = "7-2-1999 00:00:00";
-                testModel.Groep = "2";
-                testModel.SchoolId = 2;
-
-                contr.Update(testModel);
-            }
-            catch(Exception ex)
-            {
-                //MessageBox.Show("er is iets mis gegeaan"+ ex);
-
-                string exeption = "er is iets mis gegeaan" + ex;
-            }
-
-            // Act
-
-            int rows = contr.Update(testModel);
-            int expected = 1;
-
-            // Assert
-            Assert.AreEqual(expected,rows);
+            Assert.Fail();
         }
     }
 }
