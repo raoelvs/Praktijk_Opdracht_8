@@ -51,6 +51,7 @@ namespace Praktijk_Opdracht.View
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Orange;
             this.label8.Location = new System.Drawing.Point(29, 341);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 20);
@@ -60,6 +61,7 @@ namespace Praktijk_Opdracht.View
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Orange;
             this.label7.Location = new System.Drawing.Point(29, 286);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 20);
@@ -69,6 +71,7 @@ namespace Praktijk_Opdracht.View
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Orange;
             this.label6.Location = new System.Drawing.Point(29, 236);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 20);
@@ -78,6 +81,7 @@ namespace Praktijk_Opdracht.View
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Orange;
             this.label5.Location = new System.Drawing.Point(29, 182);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 20);
@@ -87,6 +91,7 @@ namespace Praktijk_Opdracht.View
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Orange;
             this.label4.Location = new System.Drawing.Point(29, 132);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 20);
@@ -96,6 +101,7 @@ namespace Praktijk_Opdracht.View
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Orange;
             this.label3.Location = new System.Drawing.Point(29, 80);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 20);
@@ -104,6 +110,9 @@ namespace Praktijk_Opdracht.View
             // 
             // cmbPlayer2
             // 
+            this.cmbPlayer2.BackColor = System.Drawing.Color.DimGray;
+            this.cmbPlayer2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbPlayer2.ForeColor = System.Drawing.Color.Orange;
             this.cmbPlayer2.FormattingEnabled = true;
             this.cmbPlayer2.Location = new System.Drawing.Point(165, 338);
             this.cmbPlayer2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -114,31 +123,36 @@ namespace Praktijk_Opdracht.View
             // btnOpslaan
             // 
             this.btnOpslaan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpslaan.BackColor = System.Drawing.Color.Silver;
+            this.btnOpslaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpslaan.Location = new System.Drawing.Point(253, 474);
             this.btnOpslaan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOpslaan.Name = "btnOpslaan";
             this.btnOpslaan.Size = new System.Drawing.Size(198, 56);
             this.btnOpslaan.TabIndex = 18;
             this.btnOpslaan.Text = "Opslaan";
-            this.btnOpslaan.UseVisualStyleBackColor = true;
+            this.btnOpslaan.UseVisualStyleBackColor = false;
             this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
             // 
             // btnAnnuleren
             // 
             this.btnAnnuleren.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAnnuleren.BackColor = System.Drawing.Color.Silver;
+            this.btnAnnuleren.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnuleren.Location = new System.Drawing.Point(12, 474);
             this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(198, 56);
             this.btnAnnuleren.TabIndex = 17;
             this.btnAnnuleren.Text = "Annuleren";
-            this.btnAnnuleren.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.UseVisualStyleBackColor = false;
             this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(244, 32);
@@ -148,6 +162,7 @@ namespace Praktijk_Opdracht.View
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Orange;
             this.label1.Location = new System.Drawing.Point(29, 397);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 20);
@@ -156,6 +171,9 @@ namespace Praktijk_Opdracht.View
             // 
             // cmbReferee
             // 
+            this.cmbReferee.BackColor = System.Drawing.Color.DimGray;
+            this.cmbReferee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbReferee.ForeColor = System.Drawing.Color.Orange;
             this.cmbReferee.FormattingEnabled = true;
             this.cmbReferee.Location = new System.Drawing.Point(165, 394);
             this.cmbReferee.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -175,6 +193,9 @@ namespace Praktijk_Opdracht.View
             // 
             // cmbPlayer1
             // 
+            this.cmbPlayer1.BackColor = System.Drawing.Color.DimGray;
+            this.cmbPlayer1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbPlayer1.ForeColor = System.Drawing.Color.Orange;
             this.cmbPlayer1.FormattingEnabled = true;
             this.cmbPlayer1.Location = new System.Drawing.Point(165, 283);
             this.cmbPlayer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -185,6 +206,9 @@ namespace Praktijk_Opdracht.View
             // 
             // cmbWedstrijd
             // 
+            this.cmbWedstrijd.BackColor = System.Drawing.Color.DimGray;
+            this.cmbWedstrijd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbWedstrijd.ForeColor = System.Drawing.Color.Orange;
             this.cmbWedstrijd.FormattingEnabled = true;
             this.cmbWedstrijd.Location = new System.Drawing.Point(165, 129);
             this.cmbWedstrijd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -194,6 +218,9 @@ namespace Praktijk_Opdracht.View
             // 
             // cmbRound
             // 
+            this.cmbRound.BackColor = System.Drawing.Color.DimGray;
+            this.cmbRound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbRound.ForeColor = System.Drawing.Color.Orange;
             this.cmbRound.FormattingEnabled = true;
             this.cmbRound.Location = new System.Drawing.Point(165, 77);
             this.cmbRound.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -216,6 +243,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(483, 543);
             this.Controls.Add(this.dtpStarttime);
             this.Controls.Add(this.cmbRound);

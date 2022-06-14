@@ -41,10 +41,13 @@ namespace Praktijk_Opdracht.View
             this.lvScheidsrechter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvScheidsrechter.BackColor = System.Drawing.SystemColors.Window;
+            this.lvScheidsrechter.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lvScheidsrechter.HideSelection = false;
-            this.lvScheidsrechter.Location = new System.Drawing.Point(13, 39);
+            this.lvScheidsrechter.Location = new System.Drawing.Point(15, 52);
+            this.lvScheidsrechter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lvScheidsrechter.Name = "lvScheidsrechter";
-            this.lvScheidsrechter.Size = new System.Drawing.Size(572, 342);
+            this.lvScheidsrechter.Size = new System.Drawing.Size(653, 455);
             this.lvScheidsrechter.TabIndex = 9;
             this.lvScheidsrechter.UseCompatibleStateImageBehavior = false;
             this.lvScheidsrechter.SelectedIndexChanged += new System.EventHandler(this.lvScheidsrechter_SelectedIndexChanged);
@@ -52,58 +55,70 @@ namespace Praktijk_Opdracht.View
             // btnVerwijderen
             // 
             this.btnVerwijderen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnVerwijderen.BackColor = System.Drawing.Color.Silver;
             this.btnVerwijderen.Enabled = false;
-            this.btnVerwijderen.Location = new System.Drawing.Point(412, 398);
+            this.btnVerwijderen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerwijderen.Location = new System.Drawing.Point(471, 531);
+            this.btnVerwijderen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnVerwijderen.Name = "btnVerwijderen";
-            this.btnVerwijderen.Size = new System.Drawing.Size(173, 42);
+            this.btnVerwijderen.Size = new System.Drawing.Size(198, 56);
             this.btnVerwijderen.TabIndex = 8;
             this.btnVerwijderen.Text = "Verwijderen";
-            this.btnVerwijderen.UseVisualStyleBackColor = true;
+            this.btnVerwijderen.UseVisualStyleBackColor = false;
             this.btnVerwijderen.Click += new System.EventHandler(this.btnVerwijderen_Click);
             // 
             // btnWijzigen
             // 
             this.btnWijzigen.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnWijzigen.BackColor = System.Drawing.Color.Silver;
             this.btnWijzigen.Enabled = false;
-            this.btnWijzigen.Location = new System.Drawing.Point(213, 398);
+            this.btnWijzigen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWijzigen.Location = new System.Drawing.Point(243, 531);
+            this.btnWijzigen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnWijzigen.Name = "btnWijzigen";
-            this.btnWijzigen.Size = new System.Drawing.Size(173, 42);
+            this.btnWijzigen.Size = new System.Drawing.Size(198, 56);
             this.btnWijzigen.TabIndex = 7;
             this.btnWijzigen.Text = "Wijzigen";
-            this.btnWijzigen.UseVisualStyleBackColor = true;
+            this.btnWijzigen.UseVisualStyleBackColor = false;
             this.btnWijzigen.Click += new System.EventHandler(this.btnWijzigen_Click);
             // 
             // btnToevoegen
             // 
             this.btnToevoegen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnToevoegen.Location = new System.Drawing.Point(13, 398);
+            this.btnToevoegen.BackColor = System.Drawing.Color.Silver;
+            this.btnToevoegen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToevoegen.Location = new System.Drawing.Point(15, 531);
+            this.btnToevoegen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnToevoegen.Name = "btnToevoegen";
-            this.btnToevoegen.Size = new System.Drawing.Size(173, 42);
+            this.btnToevoegen.Size = new System.Drawing.Size(198, 56);
             this.btnToevoegen.TabIndex = 6;
             this.btnToevoegen.Text = "Toevoegen";
-            this.btnToevoegen.UseVisualStyleBackColor = true;
+            this.btnToevoegen.UseVisualStyleBackColor = false;
             this.btnToevoegen.Click += new System.EventHandler(this.btnToevoegen_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(13, 11);
+            this.label2.ForeColor = System.Drawing.Color.Orange;
+            this.label2.Location = new System.Drawing.Point(15, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 25);
+            this.label2.Size = new System.Drawing.Size(175, 32);
             this.label2.TabIndex = 5;
             this.label2.Text = "Scheidsrechter:";
             // 
             // FrmScheidsrechterOverview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 450);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(685, 600);
             this.Controls.Add(this.lvScheidsrechter);
             this.Controls.Add(this.btnVerwijderen);
             this.Controls.Add(this.btnWijzigen);
             this.Controls.Add(this.btnToevoegen);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmScheidsrechterOverview";
             this.Text = "FrmScheidsrechterOverview";
             this.Load += new System.EventHandler(this.FrmScheidsrechterOverview_Load);

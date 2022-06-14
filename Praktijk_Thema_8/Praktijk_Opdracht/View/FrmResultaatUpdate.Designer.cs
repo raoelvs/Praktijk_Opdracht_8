@@ -52,6 +52,7 @@ namespace Praktijk_Opdracht.View
             // lblUit
             // 
             this.lblUit.AutoSize = true;
+            this.lblUit.ForeColor = System.Drawing.Color.Orange;
             this.lblUit.Location = new System.Drawing.Point(445, 127);
             this.lblUit.Name = "lblUit";
             this.lblUit.Size = new System.Drawing.Size(17, 20);
@@ -61,6 +62,7 @@ namespace Praktijk_Opdracht.View
             // lblThuis
             // 
             this.lblThuis.AutoSize = true;
+            this.lblThuis.ForeColor = System.Drawing.Color.Orange;
             this.lblThuis.Location = new System.Drawing.Point(117, 127);
             this.lblThuis.Name = "lblThuis";
             this.lblThuis.Size = new System.Drawing.Size(17, 20);
@@ -70,27 +72,34 @@ namespace Praktijk_Opdracht.View
             // btnOpslaan
             // 
             this.btnOpslaan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpslaan.BackColor = System.Drawing.Color.Silver;
+            this.btnOpslaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpslaan.Location = new System.Drawing.Point(393, 479);
             this.btnOpslaan.Name = "btnOpslaan";
             this.btnOpslaan.Size = new System.Drawing.Size(139, 45);
             this.btnOpslaan.TabIndex = 35;
             this.btnOpslaan.Text = "Opslaan";
-            this.btnOpslaan.UseVisualStyleBackColor = true;
+            this.btnOpslaan.UseVisualStyleBackColor = false;
             this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
             // 
             // btnAnnuleren
             // 
             this.btnAnnuleren.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAnnuleren.BackColor = System.Drawing.Color.Silver;
+            this.btnAnnuleren.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnuleren.Location = new System.Drawing.Point(12, 479);
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(139, 45);
             this.btnAnnuleren.TabIndex = 34;
             this.btnAnnuleren.Text = "Annuleren";
-            this.btnAnnuleren.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.UseVisualStyleBackColor = false;
             this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // cmbWinnaar
             // 
+            this.cmbWinnaar.BackColor = System.Drawing.Color.DimGray;
+            this.cmbWinnaar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbWinnaar.ForeColor = System.Drawing.Color.Orange;
             this.cmbWinnaar.FormattingEnabled = true;
             this.cmbWinnaar.Location = new System.Drawing.Point(210, 366);
             this.cmbWinnaar.Name = "cmbWinnaar";
@@ -101,6 +110,7 @@ namespace Praktijk_Opdracht.View
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Orange;
             this.label7.Location = new System.Drawing.Point(139, 369);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 20);
@@ -110,24 +120,31 @@ namespace Praktijk_Opdracht.View
             // ckbUit
             // 
             this.ckbUit.AutoSize = true;
+            this.ckbUit.BackColor = System.Drawing.Color.Black;
+            this.ckbUit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ckbUit.ForeColor = System.Drawing.Color.Orange;
             this.ckbUit.Location = new System.Drawing.Point(433, 210);
             this.ckbUit.Name = "ckbUit";
-            this.ckbUit.Size = new System.Drawing.Size(18, 17);
+            this.ckbUit.Size = new System.Drawing.Size(14, 13);
             this.ckbUit.TabIndex = 31;
-            this.ckbUit.UseVisualStyleBackColor = true;
+            this.ckbUit.UseVisualStyleBackColor = false;
             // 
             // ckbThuis
             // 
             this.ckbThuis.AutoSize = true;
+            this.ckbThuis.BackColor = System.Drawing.Color.Black;
+            this.ckbThuis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ckbThuis.ForeColor = System.Drawing.Color.Orange;
             this.ckbThuis.Location = new System.Drawing.Point(140, 210);
             this.ckbThuis.Name = "ckbThuis";
-            this.ckbThuis.Size = new System.Drawing.Size(18, 17);
+            this.ckbThuis.Size = new System.Drawing.Size(14, 13);
             this.ckbThuis.TabIndex = 30;
-            this.ckbThuis.UseVisualStyleBackColor = true;
+            this.ckbThuis.UseVisualStyleBackColor = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Orange;
             this.label6.Location = new System.Drawing.Point(334, 207);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 20);
@@ -137,6 +154,7 @@ namespace Praktijk_Opdracht.View
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Orange;
             this.label5.Location = new System.Drawing.Point(54, 207);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 20);
@@ -146,6 +164,7 @@ namespace Praktijk_Opdracht.View
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Orange;
             this.label4.Location = new System.Drawing.Point(307, 127);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 20);
@@ -155,6 +174,7 @@ namespace Praktijk_Opdracht.View
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Orange;
             this.label3.Location = new System.Drawing.Point(4, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 20);
@@ -163,47 +183,56 @@ namespace Praktijk_Opdracht.View
             // 
             // btnuitPlus
             // 
+            this.btnuitPlus.BackColor = System.Drawing.Color.Silver;
+            this.btnuitPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnuitPlus.Location = new System.Drawing.Point(492, 123);
             this.btnuitPlus.Name = "btnuitPlus";
             this.btnuitPlus.Size = new System.Drawing.Size(34, 29);
             this.btnuitPlus.TabIndex = 25;
             this.btnuitPlus.Text = "+";
-            this.btnuitPlus.UseVisualStyleBackColor = true;
+            this.btnuitPlus.UseVisualStyleBackColor = false;
             this.btnuitPlus.Click += new System.EventHandler(this.btnuitPlus_Click);
             // 
             // btnUitMin
             // 
+            this.btnUitMin.BackColor = System.Drawing.Color.Silver;
+            this.btnUitMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUitMin.Location = new System.Drawing.Point(380, 123);
             this.btnUitMin.Name = "btnUitMin";
             this.btnUitMin.Size = new System.Drawing.Size(34, 29);
             this.btnUitMin.TabIndex = 24;
             this.btnUitMin.Text = "-";
-            this.btnUitMin.UseVisualStyleBackColor = true;
+            this.btnUitMin.UseVisualStyleBackColor = false;
             this.btnUitMin.Click += new System.EventHandler(this.btnUitMin_Click);
             // 
             // btnThuisPlus
             // 
+            this.btnThuisPlus.BackColor = System.Drawing.Color.Silver;
+            this.btnThuisPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThuisPlus.Location = new System.Drawing.Point(169, 123);
             this.btnThuisPlus.Name = "btnThuisPlus";
             this.btnThuisPlus.Size = new System.Drawing.Size(34, 29);
             this.btnThuisPlus.TabIndex = 23;
             this.btnThuisPlus.Text = "+";
-            this.btnThuisPlus.UseVisualStyleBackColor = true;
+            this.btnThuisPlus.UseVisualStyleBackColor = false;
             this.btnThuisPlus.Click += new System.EventHandler(this.btnThuisPlus_Click);
             // 
             // btnThuisMin
             // 
+            this.btnThuisMin.BackColor = System.Drawing.Color.Silver;
+            this.btnThuisMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThuisMin.Location = new System.Drawing.Point(64, 123);
             this.btnThuisMin.Name = "btnThuisMin";
             this.btnThuisMin.Size = new System.Drawing.Size(34, 29);
             this.btnThuisMin.TabIndex = 22;
             this.btnThuisMin.Text = "-";
-            this.btnThuisMin.UseVisualStyleBackColor = true;
+            this.btnThuisMin.UseVisualStyleBackColor = false;
             this.btnThuisMin.Click += new System.EventHandler(this.btnThuisMin_Click);
             // 
             // lblUitNaam
             // 
             this.lblUitNaam.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUitNaam.ForeColor = System.Drawing.Color.Orange;
             this.lblUitNaam.Location = new System.Drawing.Point(275, 47);
             this.lblUitNaam.Name = "lblUitNaam";
             this.lblUitNaam.Size = new System.Drawing.Size(257, 23);
@@ -214,6 +243,7 @@ namespace Praktijk_Opdracht.View
             // lblThuisNaam
             // 
             this.lblThuisNaam.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblThuisNaam.ForeColor = System.Drawing.Color.Orange;
             this.lblThuisNaam.Location = new System.Drawing.Point(12, 47);
             this.lblThuisNaam.Name = "lblThuisNaam";
             this.lblThuisNaam.Size = new System.Drawing.Size(257, 23);
@@ -225,6 +255,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(544, 536);
             this.Controls.Add(this.lblUit);
             this.Controls.Add(this.lblThuis);

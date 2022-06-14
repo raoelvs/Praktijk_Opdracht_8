@@ -56,6 +56,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Orange;
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 28);
@@ -65,6 +66,7 @@ namespace Praktijk_Opdracht.View
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(13, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(334, 20);
@@ -74,28 +76,33 @@ namespace Praktijk_Opdracht.View
             // btnNo
             // 
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNo.BackColor = System.Drawing.Color.Silver;
+            this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo.Location = new System.Drawing.Point(13, 318);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(94, 29);
             this.btnNo.TabIndex = 2;
             this.btnNo.Text = "Nee";
-            this.btnNo.UseVisualStyleBackColor = true;
+            this.btnNo.UseVisualStyleBackColor = false;
             this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
             // btnYes
             // 
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnYes.BackColor = System.Drawing.Color.Silver;
+            this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYes.Location = new System.Drawing.Point(310, 318);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(94, 29);
             this.btnYes.TabIndex = 3;
             this.btnYes.Text = "Ja";
-            this.btnYes.UseVisualStyleBackColor = true;
+            this.btnYes.UseVisualStyleBackColor = false;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Orange;
             this.label3.Location = new System.Drawing.Point(13, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(142, 20);
@@ -105,6 +112,7 @@ namespace Praktijk_Opdracht.View
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Orange;
             this.label4.Location = new System.Drawing.Point(13, 102);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 20);
@@ -114,6 +122,7 @@ namespace Praktijk_Opdracht.View
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Orange;
             this.label5.Location = new System.Drawing.Point(13, 126);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 20);
@@ -123,6 +132,7 @@ namespace Praktijk_Opdracht.View
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Orange;
             this.label6.Location = new System.Drawing.Point(13, 150);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 20);
@@ -132,6 +142,7 @@ namespace Praktijk_Opdracht.View
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Orange;
             this.label7.Location = new System.Drawing.Point(13, 174);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 20);
@@ -141,6 +152,7 @@ namespace Praktijk_Opdracht.View
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Orange;
             this.label8.Location = new System.Drawing.Point(13, 198);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 20);
@@ -150,6 +162,7 @@ namespace Praktijk_Opdracht.View
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Orange;
             this.label9.Location = new System.Drawing.Point(13, 222);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(75, 20);
@@ -159,6 +172,7 @@ namespace Praktijk_Opdracht.View
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Orange;
             this.label10.Location = new System.Drawing.Point(13, 246);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(108, 20);
@@ -168,6 +182,7 @@ namespace Praktijk_Opdracht.View
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Orange;
             this.label11.Location = new System.Drawing.Point(13, 270);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 20);
@@ -177,6 +192,7 @@ namespace Praktijk_Opdracht.View
             // txtReferee
             // 
             this.txtReferee.AutoSize = true;
+            this.txtReferee.ForeColor = System.Drawing.Color.Orange;
             this.txtReferee.Location = new System.Drawing.Point(163, 246);
             this.txtReferee.Name = "txtReferee";
             this.txtReferee.Size = new System.Drawing.Size(58, 20);
@@ -186,6 +202,7 @@ namespace Praktijk_Opdracht.View
             // txtWinner
             // 
             this.txtWinner.AutoSize = true;
+            this.txtWinner.ForeColor = System.Drawing.Color.Orange;
             this.txtWinner.Location = new System.Drawing.Point(163, 270);
             this.txtWinner.Name = "txtWinner";
             this.txtWinner.Size = new System.Drawing.Size(58, 20);
@@ -195,6 +212,7 @@ namespace Praktijk_Opdracht.View
             // txtPlayer2
             // 
             this.txtPlayer2.AutoSize = true;
+            this.txtPlayer2.ForeColor = System.Drawing.Color.Orange;
             this.txtPlayer2.Location = new System.Drawing.Point(163, 222);
             this.txtPlayer2.Name = "txtPlayer2";
             this.txtPlayer2.Size = new System.Drawing.Size(58, 20);
@@ -204,6 +222,7 @@ namespace Praktijk_Opdracht.View
             // txtPlayer1
             // 
             this.txtPlayer1.AutoSize = true;
+            this.txtPlayer1.ForeColor = System.Drawing.Color.Orange;
             this.txtPlayer1.Location = new System.Drawing.Point(163, 198);
             this.txtPlayer1.Name = "txtPlayer1";
             this.txtPlayer1.Size = new System.Drawing.Size(58, 20);
@@ -213,6 +232,7 @@ namespace Praktijk_Opdracht.View
             // txtEindtijd
             // 
             this.txtEindtijd.AutoSize = true;
+            this.txtEindtijd.ForeColor = System.Drawing.Color.Orange;
             this.txtEindtijd.Location = new System.Drawing.Point(163, 174);
             this.txtEindtijd.Name = "txtEindtijd";
             this.txtEindtijd.Size = new System.Drawing.Size(58, 20);
@@ -222,6 +242,7 @@ namespace Praktijk_Opdracht.View
             // txtStarttijd
             // 
             this.txtStarttijd.AutoSize = true;
+            this.txtStarttijd.ForeColor = System.Drawing.Color.Orange;
             this.txtStarttijd.Location = new System.Drawing.Point(163, 150);
             this.txtStarttijd.Name = "txtStarttijd";
             this.txtStarttijd.Size = new System.Drawing.Size(58, 20);
@@ -231,6 +252,7 @@ namespace Praktijk_Opdracht.View
             // txtMatch
             // 
             this.txtMatch.AutoSize = true;
+            this.txtMatch.ForeColor = System.Drawing.Color.Orange;
             this.txtMatch.Location = new System.Drawing.Point(163, 126);
             this.txtMatch.Name = "txtMatch";
             this.txtMatch.Size = new System.Drawing.Size(58, 20);
@@ -240,6 +262,7 @@ namespace Praktijk_Opdracht.View
             // txtRound
             // 
             this.txtRound.AutoSize = true;
+            this.txtRound.ForeColor = System.Drawing.Color.Orange;
             this.txtRound.Location = new System.Drawing.Point(163, 102);
             this.txtRound.Name = "txtRound";
             this.txtRound.Size = new System.Drawing.Size(58, 20);
@@ -250,6 +273,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(416, 359);
             this.Controls.Add(this.txtRound);
             this.Controls.Add(this.txtMatch);

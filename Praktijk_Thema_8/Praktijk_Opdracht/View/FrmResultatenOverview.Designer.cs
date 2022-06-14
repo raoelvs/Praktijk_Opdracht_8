@@ -39,6 +39,8 @@ namespace Praktijk_Opdracht.View
             this.lvResultaat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvResultaat.BackColor = System.Drawing.SystemColors.Window;
+            this.lvResultaat.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lvResultaat.HideSelection = false;
             this.lvResultaat.Location = new System.Drawing.Point(12, 45);
             this.lvResultaat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -52,6 +54,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 32);
@@ -71,6 +74,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1281, 454);
             this.Controls.Add(this.pnlResultaatUpdate);
             this.Controls.Add(this.lvResultaat);

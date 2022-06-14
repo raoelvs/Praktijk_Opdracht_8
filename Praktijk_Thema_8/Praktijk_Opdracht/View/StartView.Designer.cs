@@ -42,20 +42,21 @@ namespace Praktijk_Opdracht
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClose.BackColor = System.Drawing.Color.Silver;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Location = new System.Drawing.Point(0, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(173, 40);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Sluiten";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnExportCSV
             // 
             this.btnExportCSV.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnExportCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExportCSV.Location = new System.Drawing.Point(606, 0);
+            this.btnExportCSV.Location = new System.Drawing.Point(607, 0);
             this.btnExportCSV.Name = "btnExportCSV";
             this.btnExportCSV.Size = new System.Drawing.Size(173, 40);
             this.btnExportCSV.TabIndex = 1;
@@ -67,7 +68,7 @@ namespace Praktijk_Opdracht
             // 
             this.btnInlog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInlog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInlog.Location = new System.Drawing.Point(1206, 0);
+            this.btnInlog.Location = new System.Drawing.Point(1209, 0);
             this.btnInlog.Name = "btnInlog";
             this.btnInlog.Size = new System.Drawing.Size(173, 40);
             this.btnInlog.TabIndex = 2;
@@ -79,12 +80,13 @@ namespace Praktijk_Opdracht
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnInlog);
             this.panel1.Controls.Add(this.btnExportCSV);
-            this.panel1.Location = new System.Drawing.Point(3, 667);
+            this.panel1.Location = new System.Drawing.Point(0, 667);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1382, 40);
+            this.panel1.Size = new System.Drawing.Size(1385, 40);
             this.panel1.TabIndex = 3;
             // 
             // pContainer
@@ -113,6 +115,7 @@ namespace Praktijk_Opdracht
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1384, 708);
             this.Controls.Add(this.pForms);
             this.Name = "StartView";

@@ -38,27 +38,32 @@ namespace Praktijk_Opdracht.View
             // btnYes
             // 
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnYes.BackColor = System.Drawing.Color.Silver;
+            this.btnYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYes.Location = new System.Drawing.Point(392, 142);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(94, 29);
             this.btnYes.TabIndex = 26;
             this.btnYes.Text = "Ja";
-            this.btnYes.UseVisualStyleBackColor = true;
+            this.btnYes.UseVisualStyleBackColor = false;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // btnNo
             // 
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNo.BackColor = System.Drawing.Color.Silver;
+            this.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNo.Location = new System.Drawing.Point(12, 142);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(94, 29);
             this.btnNo.TabIndex = 25;
             this.btnNo.Text = "Nee";
-            this.btnNo.UseVisualStyleBackColor = true;
+            this.btnNo.UseVisualStyleBackColor = false;
             this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
             // label2
             // 
+            this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(12, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(474, 89);
@@ -70,6 +75,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Orange;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(366, 28);
@@ -80,6 +86,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(498, 183);
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.btnNo);

@@ -39,29 +39,36 @@ namespace Praktijk_Opdracht.View
             // btnOpslaan
             // 
             this.btnOpslaan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpslaan.BackColor = System.Drawing.Color.Silver;
+            this.btnOpslaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpslaan.Location = new System.Drawing.Point(342, 119);
             this.btnOpslaan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnOpslaan.Name = "btnOpslaan";
             this.btnOpslaan.Size = new System.Drawing.Size(198, 56);
             this.btnOpslaan.TabIndex = 27;
             this.btnOpslaan.Text = "Opslaan";
-            this.btnOpslaan.UseVisualStyleBackColor = true;
+            this.btnOpslaan.UseVisualStyleBackColor = false;
             this.btnOpslaan.Click += new System.EventHandler(this.btnOpslaan_Click);
             // 
             // btnAnnuleren
             // 
             this.btnAnnuleren.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAnnuleren.BackColor = System.Drawing.Color.Silver;
+            this.btnAnnuleren.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnuleren.Location = new System.Drawing.Point(12, 119);
             this.btnAnnuleren.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAnnuleren.Name = "btnAnnuleren";
             this.btnAnnuleren.Size = new System.Drawing.Size(198, 56);
             this.btnAnnuleren.TabIndex = 26;
             this.btnAnnuleren.Text = "Annuleren";
-            this.btnAnnuleren.UseVisualStyleBackColor = true;
+            this.btnAnnuleren.UseVisualStyleBackColor = false;
             this.btnAnnuleren.Click += new System.EventHandler(this.btnAnnuleren_Click);
             // 
             // txtNaam
             // 
+            this.txtNaam.BackColor = System.Drawing.Color.DimGray;
+            this.txtNaam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNaam.ForeColor = System.Drawing.Color.Orange;
             this.txtNaam.Location = new System.Drawing.Point(135, 62);
             this.txtNaam.MaxLength = 40;
             this.txtNaam.Name = "txtNaam";
@@ -71,6 +78,7 @@ namespace Praktijk_Opdracht.View
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(28, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 20);
@@ -81,6 +89,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Orange;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(190, 32);
@@ -91,6 +100,7 @@ namespace Praktijk_Opdracht.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(552, 188);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnAnnuleren);
