@@ -11,6 +11,9 @@ namespace Praktijk_Opdracht.Controller
 {
     public class SpelerController
     {
+        // connection string voor unix testing
+        //string connectionString = "Data Source=360580-vluggehandjes.database.windows.net;Initial Catalog = VluggeHandjes; Integrated Security = False; User ID = Quinten; Password=P@ssword";
+
         private string connectionString = ConfigurationManager.ConnectionStrings["connectionStringDeVluggehandjes"].ConnectionString;
 
         /// <summary>

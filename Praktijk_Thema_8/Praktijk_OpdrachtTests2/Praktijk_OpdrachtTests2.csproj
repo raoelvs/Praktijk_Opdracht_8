@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>.NETCoreApp,Version=v5.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.0" />
+    <PackageReference Include="coverlet.collector" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Praktijk_Opdracht\Praktijk_Opdracht.csproj" />
+  </ItemGroup>
+
+</Project>
+
+// Arrange
+SpelerModel testModel = SpelerModel();
+SpelerController contr = new SpelerController();
+
+testModel.SpelerId = 51;
+testModel.Voornaam = "Jarno";
+testModel.Tussenvoegsel = "van";
+testModel.Achternaam = "Overdijk";
+testModel.Geboortedatum = "7-2-1999 00:00:00";
+testModel.Groep = "2";
+testModel.SchoolId = 2;
+
+// Act
+int rows = contr.Update(testModel);
+int expected = 1;
+//Assert
+Assert.AreEqual(expected, rows);
