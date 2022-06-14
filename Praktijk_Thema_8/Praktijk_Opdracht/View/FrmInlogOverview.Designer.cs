@@ -40,10 +40,11 @@ namespace Praktijk_Opdracht.View
             // 
             // btnInloggen
             // 
+            this.btnInloggen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnInloggen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnInloggen.Location = new System.Drawing.Point(314, 371);
+            this.btnInloggen.Location = new System.Drawing.Point(562, 401);
             this.btnInloggen.Name = "btnInloggen";
-            this.btnInloggen.Size = new System.Drawing.Size(94, 29);
+            this.btnInloggen.Size = new System.Drawing.Size(161, 63);
             this.btnInloggen.TabIndex = 13;
             this.btnInloggen.Text = "Inloggen";
             this.btnInloggen.UseVisualStyleBackColor = true;
@@ -51,17 +52,19 @@ namespace Praktijk_Opdracht.View
             // 
             // btnSluiten
             // 
+            this.btnSluiten.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSluiten.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSluiten.Location = new System.Drawing.Point(44, 371);
+            this.btnSluiten.Location = new System.Drawing.Point(12, 401);
             this.btnSluiten.Name = "btnSluiten";
-            this.btnSluiten.Size = new System.Drawing.Size(94, 29);
+            this.btnSluiten.Size = new System.Drawing.Size(173, 63);
             this.btnSluiten.TabIndex = 12;
             this.btnSluiten.Text = "Sluiten";
             this.btnSluiten.UseVisualStyleBackColor = true;
             // 
             // txtWachtwoord
             // 
-            this.txtWachtwoord.Location = new System.Drawing.Point(226, 234);
+            this.txtWachtwoord.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtWachtwoord.Location = new System.Drawing.Point(378, 245);
             this.txtWachtwoord.Name = "txtWachtwoord";
             this.txtWachtwoord.PasswordChar = '*';
             this.txtWachtwoord.Size = new System.Drawing.Size(182, 27);
@@ -69,9 +72,10 @@ namespace Praktijk_Opdracht.View
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(44, 233);
+            this.label3.Location = new System.Drawing.Point(167, 244);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(128, 25);
             this.label3.TabIndex = 10;
@@ -79,9 +83,10 @@ namespace Praktijk_Opdracht.View
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(44, 143);
+            this.label2.Location = new System.Drawing.Point(167, 168);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 25);
             this.label2.TabIndex = 9;
@@ -89,16 +94,18 @@ namespace Praktijk_Opdracht.View
             // 
             // txtGebruikersnaam
             // 
-            this.txtGebruikersnaam.Location = new System.Drawing.Point(226, 143);
+            this.txtGebruikersnaam.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGebruikersnaam.Location = new System.Drawing.Point(378, 166);
             this.txtGebruikersnaam.Name = "txtGebruikersnaam";
             this.txtGebruikersnaam.Size = new System.Drawing.Size(182, 27);
             this.txtGebruikersnaam.TabIndex = 8;
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(44, 55);
+            this.label1.Location = new System.Drawing.Point(167, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(149, 39);
             this.label1.TabIndex = 7;

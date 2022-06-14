@@ -1,4 +1,9 @@
-﻿using Praktijk_Opdracht.Controller;
+﻿/*
+ * Author: Raoel van Schaijk
+ * Date: 10-6-2022
+ * Description: Resultaat controller with methods for CRUD
+ */
+using Praktijk_Opdracht.Controller;
 using Praktijk_Opdracht.Model;
 using System;
 using System.Collections.Generic;

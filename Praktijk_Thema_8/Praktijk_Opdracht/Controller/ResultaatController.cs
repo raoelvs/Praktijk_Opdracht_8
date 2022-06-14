@@ -16,8 +16,13 @@ namespace Praktijk_Opdracht.Controller
 {
     class ResultaatController
     {
+        // Verbinding met database
         private string connectionString = ConfigurationManager.ConnectionStrings["connectionStringDeVluggehandjes"].ConnectionString;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<ResultaatModel> ReadAll()
         {
             List<ResultaatModel> resultList = new List<ResultaatModel>();

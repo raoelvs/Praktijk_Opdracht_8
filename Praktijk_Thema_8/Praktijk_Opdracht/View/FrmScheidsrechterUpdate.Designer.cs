@@ -42,7 +42,6 @@ namespace Praktijk_Opdracht.View
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(67, 189);
             this.label5.Name = "label5";
@@ -52,7 +51,6 @@ namespace Praktijk_Opdracht.View
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(67, 139);
             this.label4.Name = "label4";
@@ -62,7 +60,6 @@ namespace Praktijk_Opdracht.View
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(67, 87);
             this.label3.Name = "label3";
@@ -72,7 +69,6 @@ namespace Praktijk_Opdracht.View
             // 
             // txtAchternaam
             // 
-            this.txtAchternaam.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtAchternaam.Location = new System.Drawing.Point(226, 185);
             this.txtAchternaam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAchternaam.MaxLength = 30;
@@ -82,7 +78,6 @@ namespace Praktijk_Opdracht.View
             // 
             // txtTussenvoegsel
             // 
-            this.txtTussenvoegsel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtTussenvoegsel.Location = new System.Drawing.Point(226, 135);
             this.txtTussenvoegsel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTussenvoegsel.MaxLength = 10;
@@ -92,7 +87,6 @@ namespace Praktijk_Opdracht.View
             // 
             // txtVoornaam
             // 
-            this.txtVoornaam.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtVoornaam.Location = new System.Drawing.Point(226, 83);
             this.txtVoornaam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtVoornaam.Name = "txtVoornaam";
