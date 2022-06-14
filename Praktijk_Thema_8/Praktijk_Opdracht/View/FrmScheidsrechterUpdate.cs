@@ -37,36 +37,44 @@ namespace Praktijk_Opdracht.View
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            // scheidsrechtermodel aanmaken met de aagepaste gegevens
-            ScheidsrechterModel updatedScheidsrechter = new ScheidsrechterModel();
-
-            updatedScheidsrechter.Voornaam = txtVoornaam.Text;
-            updatedScheidsrechter.Tussenvoegsel = txtTussenvoegsel.Text;
-            updatedScheidsrechter.Achternaam = txtAchternaam.Text;
-
-            //speler gebruiken van de geslecteerde speler uit listview
-            updatedScheidsrechter.ScheidsrechterCode = permScheidsrechter.ScheidsrechterCode;
-            updatedScheidsrechter.Wachtwoord = permScheidsrechter.Wachtwoord;
-
-
-            try
+            if (txtVoornaam.Text != "" &&
+                txtAchternaam.Text != "")
             {
-                scheidsrechterController.Update(updatedScheidsrechter);
-                MessageBox.Show("Scheidsrechter is geupdate");
-            }
-            catch
-            {
-                MessageBox.Show("Het is niet gelukt");
-            }
+                // scheidsrechtermodel aanmaken met de aagepaste gegevens
+                ScheidsrechterModel updatedScheidsrechter = new ScheidsrechterModel();
 
-            scheidsrechterOverview.FormBorderStyle = FormBorderStyle.None;
-            scheidsrechterOverview.TopLevel = false;
-            scheidsrechterOverview.TopMost = true;
-            scheidsrechterOverview.Dock = DockStyle.Fill;
-            this.Close();
-            scheidsrechterOverview.FillListVieuw();
-            scheidsrechterOverview.pnlForms.Controls.Add(scheidsrechterOverview);
-            scheidsrechterOverview.Show();
+                updatedScheidsrechter.Voornaam = txtVoornaam.Text;
+                updatedScheidsrechter.Tussenvoegsel = txtTussenvoegsel.Text;
+                updatedScheidsrechter.Achternaam = txtAchternaam.Text;
+
+                //speler gebruiken van de geslecteerde speler uit listview
+                updatedScheidsrechter.ScheidsrechterCode = permScheidsrechter.ScheidsrechterCode;
+                updatedScheidsrechter.Wachtwoord = permScheidsrechter.Wachtwoord;
+
+
+                try
+                {
+                    scheidsrechterController.Update(updatedScheidsrechter);
+                    MessageBox.Show("Scheidsrechter is geupdate");
+                    scheidsrechterOverview.FormBorderStyle = FormBorderStyle.None;
+                    scheidsrechterOverview.TopLevel = false;
+                    scheidsrechterOverview.TopMost = true;
+                    scheidsrechterOverview.Dock = DockStyle.Fill;
+                    this.Close();
+                    scheidsrechterOverview.FillListVieuw();
+                    scheidsrechterOverview.pnlForms.Controls.Add(scheidsrechterOverview);
+                    scheidsrechterOverview.Show();
+                }
+                catch
+                {
+                    MessageBox.Show("Het is niet gelukt");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Niet alle verplichte velden zijn gevuld");
+            }
+           
 
         }
 

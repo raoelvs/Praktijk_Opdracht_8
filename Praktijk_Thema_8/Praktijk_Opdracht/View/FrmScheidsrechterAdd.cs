@@ -39,33 +39,42 @@ namespace Praktijk_Opdracht.View
         // Speler toevoegen  daarna terug naar scheidsrechter overview
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            ScheidsrechterModel item = new ScheidsrechterModel();
-
-            item.ScheidsrechterCode = txtScheidsrechterCode.Text;
-            item.Voornaam = txtVoornaam.Text;
-            item.Tussenvoegsel = txtTussenvoegsel.Text;
-            item.Achternaam = txtAchternaam.Text;
-            item.Wachtwoord = txtWachtwoord.Text;
-
-            // als er een sql fout optreed vangt hij hem op in de catch
-            try
+            if (txtScheidsrechterCode.Text != "" &&
+                txtVoornaam.Text != "" &&
+                txtAchternaam.Text != "" &&
+                txtWachtwoord.Text != "")
             {
-                scheidrechterController.Create(item);
-                MessageBox.Show("Scheidsrechter is toegevoegd");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Er is iets misgegaan");
-            }
+                ScheidsrechterModel item = new ScheidsrechterModel();
 
-            scheidsrechterOverview.FormBorderStyle = FormBorderStyle.None;
-            scheidsrechterOverview.TopLevel = false;
-            scheidsrechterOverview.TopMost = true;
-            scheidsrechterOverview.Dock = DockStyle.Fill;
-            this.Close();
-            scheidsrechterOverview.FillListVieuw();
-            scheidsrechterOverview.pnlForms.Controls.Add(scheidsrechterOverview);
-            scheidsrechterOverview.Show();
+                item.ScheidsrechterCode = txtScheidsrechterCode.Text;
+                item.Voornaam = txtVoornaam.Text;
+                item.Tussenvoegsel = txtTussenvoegsel.Text;
+                item.Achternaam = txtAchternaam.Text;
+                item.Wachtwoord = txtWachtwoord.Text;
+
+                // als er een sql fout optreed vangt hij hem op in de catch
+                try
+                {
+                    scheidrechterController.Create(item);
+                    MessageBox.Show("Scheidsrechter is toegevoegd");
+                    scheidsrechterOverview.FormBorderStyle = FormBorderStyle.None;
+                    scheidsrechterOverview.TopLevel = false;
+                    scheidsrechterOverview.TopMost = true;
+                    scheidsrechterOverview.Dock = DockStyle.Fill;
+                    this.Close();
+                    scheidsrechterOverview.FillListVieuw();
+                    scheidsrechterOverview.pnlForms.Controls.Add(scheidsrechterOverview);
+                    scheidsrechterOverview.Show();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Er is iets misgegaan");
+                }                
+            }
+            else
+            {
+                MessageBox.Show("Niet alle verplichte velden zijn gevuld");
+            }
         }
     }
 }

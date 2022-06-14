@@ -46,9 +46,9 @@ namespace Praktijk_Opdracht.View
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(67, 189);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 20);
+            this.label5.Size = new System.Drawing.Size(99, 20);
             this.label5.TabIndex = 21;
-            this.label5.Text = "Achternaam";
+            this.label5.Text = "Achternaam *";
             // 
             // label4
             // 
@@ -66,9 +66,9 @@ namespace Praktijk_Opdracht.View
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(67, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 20);
+            this.label3.Size = new System.Drawing.Size(87, 20);
             this.label3.TabIndex = 19;
-            this.label3.Text = "Voornaam";
+            this.label3.Text = "Voornaam *";
             // 
             // txtAchternaam
             // 
