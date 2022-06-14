@@ -231,5 +231,55 @@ namespace Praktijk_Opdracht.Controller
             }
             return rowsAffected;
         }
+
+        public ResultaatModel ReadAllWedstrijdResultaat(int round, int match, SpelerModel speler)
+        {
+            ResultaatModel wedstrijdResultaat = new ResultaatModel();
+            // create connection
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM Resultaat " +
+                    "JOIN Wedstrijd " +
+                    "ON Resultaat.WedstrijdId = Wedstrijd.WedstrijdId " +
+                    "WHERE Ronde = @RondeValue " +
+                    "AND WedstrijdNummer = @WedstrijdNummerValue " +
+                    "AND SpelerId = @SpelerIdValue";
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("RondeValue", round);
+                    command.Parameters.AddWithValue("WedstrijdNummerValue", match);
+                    command.Parameters.AddWithValue("SpelerIdValue", speler.SpelerId);
+                    // open connection
+                    con.Open();
+
+                    // execute command
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    // fill wWedstrijdModel and add to list
+                    while (reader.Read() == true)
+                    {
+                        WedstrijdModel item = new WedstrijdModel();
+                        item.WedstrijdId = (int)reader["WedstrijdId"];
+                        item.Starttijd = (DateTime)reader["Starttijd"];
+                        item.Eindtijd = (DateTime)reader["Eindtijd"];
+                        item.Ronde = Convert.ToInt32(reader["Ronde"]);
+                        item.WedstrijdNummer = Convert.ToInt32(reader["WedstrijdNummer"]);
+
+                        SpelerModel spelerResultaat = new SpelerModel();
+                        spelerResultaat.SpelerId = (int)reader["Spelerid"];
+
+                        
+                        wedstrijdResultaat.ResultaatId = (int)reader["ResultaatId"];
+                        wedstrijdResultaat.Overgave = (bool)reader["Overgave"];
+                        wedstrijdResultaat.Punt = Convert.ToInt32(reader["Punt"]);
+                        wedstrijdResultaat.WedstrijdId = item;
+                        wedstrijdResultaat.SpelerId = spelerResultaat;
+
+
+                    }
+                }
+            }
+            return wedstrijdResultaat;
+        }
     }
 }

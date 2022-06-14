@@ -130,8 +130,7 @@ namespace Praktijk_Opdracht.View
                 resultaatOverview.Dock = DockStyle.Fill;
                 this.Close();
                 resultaatOverview.FillListView();
-                resultaatOverview.PnlResultaatUpdate.Controls.Add(resultaatOverview);
-                resultaatOverview.Show();
+                resultaatOverview.PnlResultaatUpdate.Controls.Clear();
             }
         }
 
@@ -143,8 +142,7 @@ namespace Praktijk_Opdracht.View
             resultaatOverview.Dock = DockStyle.Fill;
             this.Close();
             resultaatOverview.FillListView();
-            resultaatOverview.PnlResultaatUpdate.Controls.Add(resultaatOverview);
-            resultaatOverview.Show();
+            resultaatOverview.PnlResultaatUpdate.Controls.Clear();
         }
     }
 }
