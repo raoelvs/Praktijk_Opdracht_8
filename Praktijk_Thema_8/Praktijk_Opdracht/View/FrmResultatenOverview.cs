@@ -17,10 +17,12 @@ namespace Praktijk_Opdracht.View
         private ResultaatController ResultaatContr = new ResultaatController();
         private WedstrijdController wedsContr = new WedstrijdController();
         public Panel pnlForms;
+        public Panel PnlResultaatUpdate;
         public FrmResultatenOverview(Panel PnlForms)
         {
             InitializeComponent();
             pnlForms = PnlForms;
+            PnlResultaatUpdate = pnlResultaatUpdate;
         }
 
         private void FrmResultaten_Load(object sender, EventArgs e)
@@ -29,8 +31,8 @@ namespace Praktijk_Opdracht.View
             lvResultaat.Columns.Add("Uit speler", 250);
             lvResultaat.Columns.Add("Starttijd", 150);
             lvResultaat.Columns.Add("Eindtijd", 150);
-            lvResultaat.Columns.Add("Wedstrijd Ronde", 200);
-            lvResultaat.Columns.Add("Wedstrijd Nummer", 200);
+            lvResultaat.Columns.Add("Ronde", 100);
+            lvResultaat.Columns.Add("Wedstrijd", 100);
 /*            lvResultaat.Columns.Add("Spelernaam", 100);
             lvResultaat.Columns.Add("Geboortedatum", 150);
             lvResultaat.Columns.Add("Groep", 100);*/
@@ -68,20 +70,22 @@ namespace Praktijk_Opdracht.View
 
         }
 
-        private void btnToevoegen_Click(object sender, EventArgs e)
+        private void lvResultaat_SelectedIndexChanged(object sender, EventArgs e)
         {
-        }
-
-        private void btnWijzigen_Click(object sender, EventArgs e)
-        {
-            FrmResultaatUpdate frm = new FrmResultaatUpdate(this, (WedstrijdModel)lvResultaat.SelectedItems[0].Tag);
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.TopLevel = false;
-            frm.TopMost = true;
-            frm.Dock = DockStyle.Fill;
-            pnlForms.Controls.Clear();
-            pnlForms.Controls.Add(frm);
-            frm.Show();
+            if(lvResultaat.SelectedItems.Count == 1)
+            {
+                FrmResultaatUpdate frm = new FrmResultaatUpdate(this, (WedstrijdModel)lvResultaat.SelectedItems[0].Tag);
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.TopLevel = false;
+                frm.TopMost = true;
+                frm.Dock = DockStyle.Fill;                
+                pnlResultaatUpdate.Controls.Add(frm);
+                frm.Show();
+            }
+            else
+            {
+                pnlResultaatUpdate.Controls.Clear();
+            }
         }
     }
 }

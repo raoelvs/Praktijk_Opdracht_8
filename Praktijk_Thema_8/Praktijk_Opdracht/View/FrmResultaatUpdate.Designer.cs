@@ -203,23 +203,23 @@ namespace Praktijk_Opdracht.View
             // 
             // lblUitNaam
             // 
-            this.lblUitNaam.AutoSize = true;
-            this.lblUitNaam.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUitNaam.Location = new System.Drawing.Point(414, 47);
+            this.lblUitNaam.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUitNaam.Location = new System.Drawing.Point(275, 47);
             this.lblUitNaam.Name = "lblUitNaam";
-            this.lblUitNaam.Size = new System.Drawing.Size(86, 23);
+            this.lblUitNaam.Size = new System.Drawing.Size(257, 23);
             this.lblUitNaam.TabIndex = 21;
             this.lblUitNaam.Text = "Speler uit:";
+            this.lblUitNaam.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblThuisNaam
             // 
-            this.lblThuisNaam.AutoSize = true;
-            this.lblThuisNaam.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblThuisNaam.Location = new System.Drawing.Point(86, 47);
+            this.lblThuisNaam.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblThuisNaam.Location = new System.Drawing.Point(12, 47);
             this.lblThuisNaam.Name = "lblThuisNaam";
-            this.lblThuisNaam.Size = new System.Drawing.Size(103, 23);
+            this.lblThuisNaam.Size = new System.Drawing.Size(257, 23);
             this.lblThuisNaam.TabIndex = 20;
             this.lblThuisNaam.Text = "Speler thuis:";
+            this.lblThuisNaam.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FrmResultaatUpdate
             // 

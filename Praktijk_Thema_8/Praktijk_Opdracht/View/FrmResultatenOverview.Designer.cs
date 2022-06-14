@@ -30,8 +30,8 @@ namespace Praktijk_Opdracht.View
         private void InitializeComponent()
         {
             this.lvResultaat = new System.Windows.Forms.ListView();
-            this.btnWijzigen = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.pnlResultaatUpdate = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // lvResultaat
@@ -43,21 +43,10 @@ namespace Praktijk_Opdracht.View
             this.lvResultaat.Location = new System.Drawing.Point(12, 45);
             this.lvResultaat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lvResultaat.Name = "lvResultaat";
-            this.lvResultaat.Size = new System.Drawing.Size(662, 319);
+            this.lvResultaat.Size = new System.Drawing.Size(643, 396);
             this.lvResultaat.TabIndex = 9;
             this.lvResultaat.UseCompatibleStateImageBehavior = false;
-            // 
-            // btnWijzigen
-            // 
-            this.btnWijzigen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWijzigen.Location = new System.Drawing.Point(476, 385);
-            this.btnWijzigen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnWijzigen.Name = "btnWijzigen";
-            this.btnWijzigen.Size = new System.Drawing.Size(198, 56);
-            this.btnWijzigen.TabIndex = 7;
-            this.btnWijzigen.Text = "Wijzigen";
-            this.btnWijzigen.UseVisualStyleBackColor = true;
-            this.btnWijzigen.Click += new System.EventHandler(this.btnWijzigen_Click);
+            this.lvResultaat.SelectedIndexChanged += new System.EventHandler(this.lvResultaat_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -69,13 +58,22 @@ namespace Praktijk_Opdracht.View
             this.label2.TabIndex = 5;
             this.label2.Text = "Resultaten:";
             // 
+            // pnlResultaatUpdate
+            // 
+            this.pnlResultaatUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlResultaatUpdate.Location = new System.Drawing.Point(661, 45);
+            this.pnlResultaatUpdate.Name = "pnlResultaatUpdate";
+            this.pnlResultaatUpdate.Size = new System.Drawing.Size(608, 396);
+            this.pnlResultaatUpdate.TabIndex = 10;
+            // 
             // FrmResultatenOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 454);
+            this.ClientSize = new System.Drawing.Size(1281, 454);
+            this.Controls.Add(this.pnlResultaatUpdate);
             this.Controls.Add(this.lvResultaat);
-            this.Controls.Add(this.btnWijzigen);
             this.Controls.Add(this.label2);
             this.Name = "FrmResultatenOverview";
             this.Text = "FrmResultaten";
@@ -88,7 +86,7 @@ namespace Praktijk_Opdracht.View
         #endregion
 
         private System.Windows.Forms.ListView lvResultaat;
-        private System.Windows.Forms.Button btnWijzigen;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pnlResultaatUpdate;
     }
 }
