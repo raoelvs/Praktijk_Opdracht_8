@@ -14,8 +14,12 @@ using System.Threading.Tasks;
 
 namespace Praktijk_Opdracht.Controller
 {
-    class SchoolController
+    public class SchoolController
     {
+        // connection string voor unix testing
+        //string connectionString = "Data Source=360580-vluggehandjes.database.windows.net;Initial Catalog = VluggeHandjes; Integrated Security = False; User ID = Quinten; Password=P@ssword";
+
+
         // connection string
         private string connectionString = ConfigurationManager.ConnectionStrings["connectionStringDeVluggehandjes"].ConnectionString;
 
