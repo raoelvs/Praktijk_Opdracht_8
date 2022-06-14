@@ -1,4 +1,9 @@
-﻿using Praktijk_Opdracht.Model;
+﻿/*
+ * Author: Jarno van Overdijk
+ * Date: 14-6-2022
+ * Description: Speler Controller
+ */
+using Praktijk_Opdracht.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
