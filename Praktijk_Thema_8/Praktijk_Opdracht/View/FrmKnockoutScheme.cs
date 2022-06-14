@@ -43,39 +43,88 @@ namespace Praktijk_Opdracht.View
             {
                 // search all labelsof the specific round in the loop
                 labels = this.Controls.OfType<Label>().Where(name => name.Name.StartsWith("lblRonde" + (i + 1))).ToList();
-
                 // loop through matches in the specific round
-                for (int count = 0; count < roundMatches[i]; count++)
+                for (int count = 0; count < roundMatches[i]; count += 2)
                 {
-                    string labelName = "lblRonde" + (i + 1) + "Wedstrijd" + (count + 1);
+                    string labelName1 = "lblRonde" + (i + 1) + "Wedstrijd" + (count + 1);
 
                     // get the match
-                    WedstrijdModel wedstrijd = wedContr.ReadWhereRoundMatch(i + 1, count + 1);
-
+                    WedstrijdModel wedstrijd1 = wedContr.ReadWhereRoundMatch(i + 1, count + 1);
                     // does match exist?
-                    if (wedstrijd.WedstrijdId != 0)
+                    if (wedstrijd1.WedstrijdId != 0)
                     {
                         // loop through all labels of specific round
                         foreach (Label label in labels)
                         {
                             // if label name equal is to labelname where player Home or player Out
-                            if (label.Name == labelName + "Thuis")
+                            if (label.Name == labelName1 + "Thuis")
                             {
-                                if (wedstrijd.Winnaar.SpelerId != 0 && wedstrijd.Winnaar.SpelerId == wedstrijd.Thuis.SpelerId)
+                                if (wedstrijd1.Winnaar.SpelerId != 0 && wedstrijd1.Winnaar.SpelerId == wedstrijd1.Thuis.SpelerId)
                                 {
                                     label.Font = new Font(Label.DefaultFont, FontStyle.Bold);
                                 }
-                                label.Text = wedstrijd.Thuis.FullName;
+                                label.Text = wedstrijd1.Thuis.FullName;
                             }
-                            else if (label.Name == labelName + "Uit")
+                            else if (label.Name == labelName1 + "Uit")
                             {
-                                if (wedstrijd.Winnaar.SpelerId != 0 && wedstrijd.Winnaar.SpelerId == wedstrijd.Uit.SpelerId)
+                                if (wedstrijd1.Winnaar.SpelerId != 0 && wedstrijd1.Winnaar.SpelerId == wedstrijd1.Uit.SpelerId)
                                 {
                                     label.Font = new Font(Label.DefaultFont, FontStyle.Bold);
                                 }
-                                label.Text = wedstrijd.Uit.FullName;
+                                label.Text = wedstrijd1.Uit.FullName;
                             }
+                        }
+                    }
+                    WedstrijdModel wedstrijd2 = wedContr.ReadWhereRoundMatch(i + 1, count + 2);
+                    if (wedstrijd2.WedstrijdId != 0)
+                    {
+                        string labelName2 = "lblRonde" + (i + 1) + "Wedstrijd" + (count + 2);
+                        // loop through all labels of specific round
+                        foreach (Label label in labels)
+                        {
+                            // if label name equal is to labelname where player Home or player Out
+                            if (label.Name == labelName2 + "Thuis")
+                            {
+                                if (wedstrijd2.Winnaar.SpelerId != 0 && wedstrijd2.Winnaar.SpelerId == wedstrijd2.Thuis.SpelerId)
+                                {
+                                    label.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+                                }
+                                label.Text = wedstrijd2.Thuis.FullName;
+                            }
+                            else if (label.Name == labelName2 + "Uit")
+                            {
+                                if (wedstrijd2.Winnaar.SpelerId != 0 && wedstrijd2.Winnaar.SpelerId == wedstrijd2.Uit.SpelerId)
+                                {
+                                    label.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+                                }
+                                label.Text = wedstrijd2.Uit.FullName;
+                            }
+                        }
+                    }
+                    if (
+                        wedstrijd1.Winnaar != null &&
+                        wedstrijd2.Winnaar != null &&
+                        i < 4)
+                    {
+                        if (wedstrijd1.Winnaar.SpelerId != 0 &&
+                            wedstrijd2.Winnaar.SpelerId != 0)
+                        { 
+                            WedstrijdModel wedstrijd = new WedstrijdModel();
+                            wedstrijd.Ronde = i + 2;
+                            wedstrijd.WedstrijdNummer = wedstrijd2.WedstrijdNummer / 2;
+                            wedstrijd.Starttijd = DateTime.Parse("1-1-1960 12:00");
+                            wedstrijd.Eindtijd = DateTime.Parse("1-1-1960 12:10");
+                            wedstrijd.ScheidsrechterCode = wedstrijd1.ScheidsrechterCode;
+                            wedstrijd.Thuis = wedstrijd1.Winnaar;
+                            wedstrijd.Uit = wedstrijd2.Winnaar;
 
+                            try 
+                            {
+                                wedContr.Create(wedstrijd);
+                            }
+                            catch(Exception ex)
+                            {
+                            }
                             
                         }
                     }
