@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Praktijk_Opdracht.Controller
 {
-    class SpelerController
+    public class SpelerController
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["connectionStringDeVluggehandjes"].ConnectionString;
 
