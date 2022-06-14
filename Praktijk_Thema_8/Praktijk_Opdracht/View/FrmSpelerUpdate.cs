@@ -53,9 +53,9 @@ namespace Praktijk_Opdracht.View
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
             // checken of velden leeg zijn
-            if (txtVoornaam.SelectedText == null ||
-                txtAchternaam.SelectedText == null||
-                txtGroep.SelectedText == null ||
+            if (txtVoornaam.Text == "" ||
+                txtAchternaam.Text == ""||
+                txtGroep.Text == "" ||
                 cbSchool.SelectedItem == null )
             {
                 MessageBox.Show("Niet alle velden zijn ingevuld!");
