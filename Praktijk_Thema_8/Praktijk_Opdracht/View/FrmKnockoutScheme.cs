@@ -46,11 +46,12 @@ namespace Praktijk_Opdracht.View
                 // loop through matches in the specific round
                 for (int count = 0; count < roundMatches[i]; count += 2)
                 {
+                    // uneven match label
                     string labelName1 = "lblRonde" + (i + 1) + "Wedstrijd" + (count + 1);
 
-                    // get the match
+                    // get uneven match
                     WedstrijdModel wedstrijd1 = wedContr.ReadWhereRoundMatch(i + 1, count + 1);
-                    // does match exist?
+                    // does uneven match exist?
                     if (wedstrijd1.WedstrijdId != 0)
                     {
                         // loop through all labels of specific round
@@ -75,10 +76,16 @@ namespace Praktijk_Opdracht.View
                             }
                         }
                     }
+
+                    // even match label
+                    string labelName2 = "lblRonde" + (i + 1) + "Wedstrijd" + (count + 2);
+
+                    // get even match
                     WedstrijdModel wedstrijd2 = wedContr.ReadWhereRoundMatch(i + 1, count + 2);
+
+                    // does even match exist?
                     if (wedstrijd2.WedstrijdId != 0)
-                    {
-                        string labelName2 = "lblRonde" + (i + 1) + "Wedstrijd" + (count + 2);
+                    {                 
                         // loop through all labels of specific round
                         foreach (Label label in labels)
                         {
@@ -101,6 +108,7 @@ namespace Praktijk_Opdracht.View
                             }
                         }
                     }
+                    // checks if winneer is not null and if it's not the finale
                     if (
                         wedstrijd1.Winnaar != null &&
                         wedstrijd2.Winnaar != null &&
@@ -109,15 +117,18 @@ namespace Praktijk_Opdracht.View
                         if (wedstrijd1.Winnaar.SpelerId != 0 &&
                             wedstrijd2.Winnaar.SpelerId != 0)
                         { 
+                            // wedstrijd klaarzetten in juiste ronde en wedstrijd tegen de juiste speler
                             WedstrijdModel wedstrijd = new WedstrijdModel();
                             wedstrijd.Ronde = i + 2;
                             wedstrijd.WedstrijdNummer = wedstrijd2.WedstrijdNummer / 2;
+                            //standaard wedstrijd tijden
                             wedstrijd.Starttijd = DateTime.Parse("1-1-1960 12:00");
                             wedstrijd.Eindtijd = DateTime.Parse("1-1-1960 12:10");
                             wedstrijd.ScheidsrechterCode = wedstrijd1.ScheidsrechterCode;
                             wedstrijd.Thuis = wedstrijd1.Winnaar;
                             wedstrijd.Uit = wedstrijd2.Winnaar;
 
+                            // wedstrijd aanmaken en geen message geven als er iets fout gaat
                             try 
                             {
                                 wedContr.Create(wedstrijd);
