@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Jarno van Overdijk
+ * Date: 14-6-2022
+ * Description: Scheidsrechter model
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

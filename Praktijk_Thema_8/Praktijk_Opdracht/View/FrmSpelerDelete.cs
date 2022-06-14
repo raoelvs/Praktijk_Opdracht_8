@@ -1,4 +1,9 @@
-﻿using Praktijk_Opdracht.Controller;
+﻿/*
+ * Author: Jarno van Overdijk
+ * Date: 14-6-2022
+ * Description: Speler delete form
+ */
+using Praktijk_Opdracht.Controller;
 using Praktijk_Opdracht.Model;
 using System;
 using System.Collections.Generic;
