@@ -49,33 +49,51 @@ namespace Praktijk_Opdracht.View
 
         private void btnOpslaan_Click(object sender, EventArgs e)
         {
-            SpelerModel item = new SpelerModel();
-
-            item.Voornaam = txtVoornaam.Text;
-            item.Tussenvoegsel = txtTussenvoegsel.Text;
-            item.Achternaam = txtAchternaam.Text;
-            item.Geboortedatum = dtpGeboortedatum.Value;
-            item.Groep = Convert.ToInt32(txtGroep.Text);
-            item.SchoolId = (SchoolModel)cbSchool.SelectedItem;
-
-            int rowsAffected = spelerController.Create(item);
-
-            if (rowsAffected > 0)
+            if (txtVoornaam.Text == "" ||
+                txtAchternaam.Text == "" ||
+                txtGroep.Text == "" ||
+                cbSchool.SelectedItem == null)
             {
-                spelersOverview.FormBorderStyle = FormBorderStyle.None;
-                spelersOverview.TopLevel = false;
-                spelersOverview.TopMost = true;
-                spelersOverview.Dock = DockStyle.Fill;
-                this.Close();
-                spelersOverview.FillListVieuw();
-                spelersOverview.pnlForms.Controls.Add(spelersOverview);
-                spelersOverview.Show();
+                MessageBox.Show("Alle verplichten velden zijn niet gevuld");
             }
             else
             {
-                MessageBox.Show("Speler " + item.FullName + " is niet toegevoegd");
-            }
+                SpelerModel item = new SpelerModel();
 
+                item.Voornaam = txtVoornaam.Text;
+                item.Tussenvoegsel = txtTussenvoegsel.Text;
+                item.Achternaam = txtAchternaam.Text;
+                item.Geboortedatum = dtpGeboortedatum.Value;
+                item.Groep = Convert.ToInt32(txtGroep.Text);
+                item.SchoolId = (SchoolModel)cbSchool.SelectedItem;
+
+                try
+                {
+                    int rowsAffected = spelerController.Create(item);
+
+                    if (rowsAffected > 0)
+                    {
+                        spelersOverview.FormBorderStyle = FormBorderStyle.None;
+                        spelersOverview.TopLevel = false;
+                        spelersOverview.TopMost = true;
+                        spelersOverview.Dock = DockStyle.Fill;
+                        this.Close();
+                        spelersOverview.FillListVieuw();
+                        spelersOverview.pnlForms.Controls.Add(spelersOverview);
+                        spelersOverview.Show();
+
+                        MessageBox.Show("Speler is toegevoegd");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Speler " + item.FullName + " is niet toegevoegd");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("er is iets mis gegeaan");
+                }
+            }
             
         }
     }

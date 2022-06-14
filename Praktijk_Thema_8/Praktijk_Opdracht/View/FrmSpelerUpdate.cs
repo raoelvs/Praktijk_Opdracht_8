@@ -93,7 +93,7 @@ namespace Praktijk_Opdracht.View
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Het is niet gelukt: " + ex.Message);
+                    MessageBox.Show("Het is niet gelukt");
 
                 }
             }
