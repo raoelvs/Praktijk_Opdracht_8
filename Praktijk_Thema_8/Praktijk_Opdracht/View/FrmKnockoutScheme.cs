@@ -21,6 +21,7 @@ namespace Praktijk_Opdracht.View
     {
         // fields
         private WedstrijdController wedContr = new WedstrijdController();
+        private ResultaatController resuContr = new ResultaatController();
         public FrmKnockoutScheme()
         {
             InitializeComponent();
@@ -131,7 +132,28 @@ namespace Praktijk_Opdracht.View
                             // wedstrijd aanmaken en geen message geven als er iets fout gaat
                             try 
                             {
-                                wedContr.Create(wedstrijd);
+                                int rowsAffected = wedContr.Create(wedstrijd);
+                                if (rowsAffected > 0)
+                                {
+                                    // search the match that's created
+                                    WedstrijdModel wedstrijdResultaat = wedContr.ReadWhereRoundMatch(wedstrijd.Ronde, wedstrijd.WedstrijdNummer);
+
+                                    ResultaatModel thuisSpeler = new ResultaatModel();
+                                    thuisSpeler.Punt = 0;
+                                    thuisSpeler.Overgave = false;
+                                    thuisSpeler.SpelerId = wedstrijdResultaat.Thuis;
+                                    thuisSpeler.WedstrijdId = wedstrijdResultaat;
+
+                                    ResultaatModel uitSpeler = new ResultaatModel();
+                                    uitSpeler.Punt = 0;
+                                    uitSpeler.Overgave = false;
+                                    uitSpeler.SpelerId = wedstrijdResultaat.Uit;
+                                    uitSpeler.WedstrijdId = wedstrijdResultaat;
+
+                                    // creates also the results for the match that's created
+                                    resuContr.Create(thuisSpeler);
+                                    resuContr.Create(uitSpeler);
+                                }
                             }
                             catch(Exception ex)
                             {
