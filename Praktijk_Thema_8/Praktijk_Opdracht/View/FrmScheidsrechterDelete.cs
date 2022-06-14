@@ -27,7 +27,7 @@ namespace Praktijk_Opdracht.View
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void btnYes_Click(object sender, EventArgs e)
@@ -39,13 +39,13 @@ namespace Praktijk_Opdracht.View
                 MessageBox.Show("Het is geluk om de scheidsrechter te verwijderen: ");
 
 
-                this.Hide();
+                this.Close();
             }
             catch (SqlException ex)
             {
                 if (ex.Number == 547)
                 {
-                    this.Hide();
+                    this.Close();
                     MessageBox.Show("Deze scheidsrechter: (" + delScheidsrechter.Voornaam + " " + delScheidsrechter.Tussenvoegsel + " " + delScheidsrechter.Achternaam + ") heeft nog een relatie. " +
                         "Verwijder deze scheidsrechter eerst bij wedstrijden");
                 }

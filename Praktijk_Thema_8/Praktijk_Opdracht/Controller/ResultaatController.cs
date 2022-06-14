@@ -1,4 +1,9 @@
-﻿using Praktijk_Opdracht.Model;
+﻿/*
+ * Author: Raoel van Schaijk
+ * Date: 10-6-2022
+ * Description: Resultaat controller with methods for CRUD
+ */
+using Praktijk_Opdracht.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -93,7 +98,11 @@ namespace Praktijk_Opdracht.Controller
             }
             return rowsAffected;
         }
-
+        /// <summary>
+        /// Delete a
+        /// </summary>
+        /// <param name="resultaat"></param>
+        /// <returns></returns>
         public int Delete(ResultaatModel resultaat)
         {
             int rowsAffected = 0;
@@ -117,7 +126,11 @@ namespace Praktijk_Opdracht.Controller
             }
             return rowsAffected;
         }
-
+        /// <summary>
+        /// Create an update for the database
+        /// </summary>
+        /// <param name="update"></param>
+        /// <returns></returns>
         public int Update(ResultaatModel update)
         {
             int rowsAffected = 0;
@@ -143,6 +156,12 @@ namespace Praktijk_Opdracht.Controller
             }
             return rowsAffected;
         }
+        /// <summary>
+        /// Read the matchplayers
+        /// </summary>
+        /// <param name="match"></param>
+        /// <param name="playerId"></param>
+        /// <returns></returns>
         public ResultaatModel ReadWhereMatchPlayer(int match, int playerId)
         {
             ResultaatModel ResultaatItem = new ResultaatModel();
@@ -232,6 +251,13 @@ namespace Praktijk_Opdracht.Controller
             return rowsAffected;
         }
 
+        /// <summary>
+        /// Read all wedstrijd results
+        /// </summary>
+        /// <param name="round"></param>
+        /// <param name="match"></param>
+        /// <param name="speler"></param>
+        /// <returns></returns>
         public ResultaatModel ReadAllWedstrijdResultaat(int round, int match, SpelerModel speler)
         {
             ResultaatModel wedstrijdResultaat = new ResultaatModel();

@@ -81,51 +81,59 @@ namespace Praktijk_Opdracht
 
         private void btnExportCSV_Click(object sender, EventArgs e)
         {
-            // Maakt csv bestand aan
-            StreamWriter writer = File.CreateText(@"c:\Praktijk\CSV.csv");
-            // Maakt de tabellen
-            writer.WriteLine("Wedstrijd Ronde;Wedstrijd Nummer;Starttijd;Eindtijd;Thuis Speler;School;Score;Overgave;Uit Speler;School;Score;Overgave;Wedstrijd Winnaar");
-            // Krijg alle items.
-            List<WedstrijdModel> listToCSV = new List<WedstrijdModel>();
-            listToCSV = wedsContr.ReadAll();
-            foreach (WedstrijdModel item in listToCSV)
+            try
             {
-                ResultaatModel thuis = ResultaatContr.ReadAllWedstrijdResultaat(item.Ronde, item.WedstrijdNummer, item.Thuis);
-                ResultaatModel uit = ResultaatContr.ReadAllWedstrijdResultaat(item.Ronde, item.WedstrijdNummer, item.Uit);
 
-                // Schrijft alle taken uit
-                string Ronde = item.Ronde.ToString();
-                string Wedstrijd = item.WedstrijdNummer.ToString();
-                string Starttijd = item.Starttijd.ToShortDateString() + " " + item.Starttijd.ToShortTimeString();
-                string Eindtijd = item.Eindtijd.ToShortDateString() + " " + item.Eindtijd.ToShortTimeString(); 
-                string ThuisSpeler = item.Thuis.FullName;
-                string ThuisSchool = item.Thuis.SchoolId.Naam;
-                string ThuisPunt = thuis.Punt.ToString();
-                string ThuisOvergave = thuis.Overgave.ToString();
-                string UitSpeler = item.Uit.FullName;
-                string UitSchool = item.Uit.SchoolId.Naam;
-                string UitPunt = uit.Punt.ToString();
-                string UitOvergave = uit.Overgave.ToString();
-                string Winnaar = item.Winnaar.FullName;
 
-                writer.WriteLine(Ronde + ";" + Wedstrijd + ";" + Starttijd + ";" + Eindtijd + ";" + ThuisSpeler + ";" + ThuisSchool + ";" + ThuisPunt + ";" + ThuisOvergave + ";" + UitSpeler + ";" + UitSchool + ";" + UitPunt + ";" + UitOvergave + ";" + Winnaar + ";");
+
+                // Maakt csv bestand aan
+                StreamWriter writer = File.CreateText(@"c:\Praktijk\CSV.csv");
+                // Maakt de tabellen
+                writer.WriteLine("Wedstrijd Ronde;Wedstrijd Nummer;Starttijd;Eindtijd;Thuis Speler;School;Score;Overgave;Uit Speler;School;Score;Overgave;Wedstrijd Winnaar");
+                // Krijg alle items.
+                List<WedstrijdModel> listToCSV = new List<WedstrijdModel>();
+                listToCSV = wedsContr.ReadAll();
+                foreach (WedstrijdModel item in listToCSV)
+                {
+                    ResultaatModel thuis = ResultaatContr.ReadAllWedstrijdResultaat(item.Ronde, item.WedstrijdNummer, item.Thuis);
+                    ResultaatModel uit = ResultaatContr.ReadAllWedstrijdResultaat(item.Ronde, item.WedstrijdNummer, item.Uit);
+
+                    // Schrijft alle taken uit
+                    string Ronde = item.Ronde.ToString();
+                    string Wedstrijd = item.WedstrijdNummer.ToString();
+                    string Starttijd = item.Starttijd.ToShortDateString() + " " + item.Starttijd.ToShortTimeString();
+                    string Eindtijd = item.Eindtijd.ToShortDateString() + " " + item.Eindtijd.ToShortTimeString();
+                    string ThuisSpeler = item.Thuis.FullName;
+                    string ThuisSchool = item.Thuis.SchoolId.Naam;
+                    string ThuisPunt = thuis.Punt.ToString();
+                    string ThuisOvergave = thuis.Overgave.ToString();
+                    string UitSpeler = item.Uit.FullName;
+                    string UitSchool = item.Uit.SchoolId.Naam;
+                    string UitPunt = uit.Punt.ToString();
+                    string UitOvergave = uit.Overgave.ToString();
+                    string Winnaar = item.Winnaar.FullName;
+
+                    writer.WriteLine(Ronde + ";" + Wedstrijd + ";" + Starttijd + ";" + Eindtijd + ";" + ThuisSpeler + ";" + ThuisSchool + ";" + ThuisPunt + ";" + ThuisOvergave + ";" + UitSpeler + ";" + UitSchool + ";" + UitPunt + ";" + UitOvergave + ";" + Winnaar + ";");
+                }
+                // kijkt of het geschreven kan worden
+                bool writable = writer.BaseStream.CanWrite;
+
+                writer.Close();
+
+                // Bepaal of het is gelukt
+                if (writable == true)
+                {
+                    MessageBox.Show("CSV is gemaakt");
+                }
+                else
+                {
+                    MessageBox.Show("CSV is mislukt");
+                }
             }
-            // kijkt of het geschreven kan worden
-            bool writable = writer.BaseStream.CanWrite;
-
-            writer.Close();
-
-            // Bepaal of het is gelukt
-            if (writable == true)
+            catch (Exception ex)
             {
-                MessageBox.Show("CSV is gemaakt");
+                MessageBox.Show("CSV is mislukt te exporteren, dit kan zijn door open bestand.");
             }
-            else
-            {
-                MessageBox.Show("CSV is mislukt");
-            }
-
-
         }
     }
     

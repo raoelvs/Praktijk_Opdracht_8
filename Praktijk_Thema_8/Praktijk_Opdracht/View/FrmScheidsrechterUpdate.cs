@@ -52,7 +52,7 @@ namespace Praktijk_Opdracht.View
             try
             {
                 scheidsrechterController.Update(updatedScheidsrechter);
-                MessageBox.Show("Klant is geupdate");
+                MessageBox.Show("Scheidsrechter is geupdate");
             }
             catch
             {

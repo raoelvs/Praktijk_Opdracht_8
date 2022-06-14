@@ -28,7 +28,7 @@ namespace Praktijk_Opdracht.View
         {
             //listvieuw tonen 
             lvScheidsrechter.Columns.Add("Voornaam", 100);
-            lvScheidsrechter.Columns.Add("Tussenvoegsel", 100);
+            lvScheidsrechter.Columns.Add("Tussenvoegsel", 150);
             lvScheidsrechter.Columns.Add("Achternaam", 100);
 
             //geeft itema weer als in een row
@@ -104,7 +104,7 @@ namespace Praktijk_Opdracht.View
             ScheidsrechterModel scheidsrechterDel = (ScheidsrechterModel)lvScheidsrechter.SelectedItems[0].Tag;
 
             FrmScheidsrechterDelete frm = new FrmScheidsrechterDelete(scheidsrechterDel);
-            frm.Show();
+            frm.ShowDialog();
 
             FillListVieuw();
         }

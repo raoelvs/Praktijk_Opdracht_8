@@ -129,9 +129,9 @@ namespace Praktijk_Opdracht.View
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(16, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 32);
+            this.label2.Size = new System.Drawing.Size(274, 32);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Wijzigen Spelers:";
+            this.label2.Text = "Wijzigen Scheidsrechter:";
             // 
             // FrmScheidsrechterUpdate
             // 
