@@ -256,7 +256,7 @@ namespace Praktijk_Opdracht.Controller
                     command.Parameters.AddWithValue("AchternaamValue", update.Achternaam);
                     command.Parameters.AddWithValue("GeboortedatumValue", update.Geboortedatum);
                     command.Parameters.AddWithValue("GroepValue", update.Groep);
-                    command.Parameters.AddWithValue("SchoolIdValue", update.SchoolId);
+                    command.Parameters.AddWithValue("SchoolIdValue", update.SchoolId.SchoolId);
 
                     con.Open();
 
