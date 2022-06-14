@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Praktijk_Opdracht", "Praktijk_Opdracht\Praktijk_Opdracht.csproj", "{2D54E1E4-A0DC-4A05-B9AC-52E2E2315CD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Praktijk_Opdracht", "Praktijk_Opdracht\Praktijk_Opdracht.csproj", "{2D54E1E4-A0DC-4A05-B9AC-52E2E2315CD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Praktijk_OpdrachtTests3", "Praktijk_OpdrachtTests3\Praktijk_OpdrachtTests3.csproj", "{764BD155-8D51-48C8-AEA1-8398CFEFD153}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2D54E1E4-A0DC-4A05-B9AC-52E2E2315CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D54E1E4-A0DC-4A05-B9AC-52E2E2315CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D54E1E4-A0DC-4A05-B9AC-52E2E2315CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{764BD155-8D51-48C8-AEA1-8398CFEFD153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{764BD155-8D51-48C8-AEA1-8398CFEFD153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{764BD155-8D51-48C8-AEA1-8398CFEFD153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{764BD155-8D51-48C8-AEA1-8398CFEFD153}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
