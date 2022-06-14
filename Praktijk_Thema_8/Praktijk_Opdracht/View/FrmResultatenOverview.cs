@@ -19,7 +19,7 @@ namespace Praktijk_Opdracht.View
 {
     public partial class FrmResultatenOverview : Form
     {
-        private ResultaatController ResultaatContr = new ResultaatController();
+        // Fields
         private WedstrijdController wedsContr = new WedstrijdController();
         public Panel pnlForms;
         public Panel PnlResultaatUpdate;
@@ -30,36 +30,44 @@ namespace Praktijk_Opdracht.View
             PnlResultaatUpdate = pnlResultaatUpdate;
         }
 
+        /// <summary>
+        /// Laad de resultaten in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmResultaten_Load(object sender, EventArgs e)
         {
+            // Geeft de colommen een naam en grootte
             lvResultaat.Columns.Add("Thuis speler", 250);
             lvResultaat.Columns.Add("Uit speler", 250);
             lvResultaat.Columns.Add("Starttijd", 150);
             lvResultaat.Columns.Add("Eindtijd", 150);
             lvResultaat.Columns.Add("Ronde", 100);
             lvResultaat.Columns.Add("Wedstrijd", 100);
-/*            lvResultaat.Columns.Add("Spelernaam", 100);
-            lvResultaat.Columns.Add("Geboortedatum", 150);
-            lvResultaat.Columns.Add("Groep", 100);*/
 
+            // Geeft de view weer
             lvResultaat.View = System.Windows.Forms.View.Details;
 
+            // Selecteerd de regel
             lvResultaat.FullRowSelect = true;
 
-            lvResultaat.HeaderStyle = ColumnHeaderStyle.Clickable;
-
+            // Vult de Listview
             FillListView();
         }
 
+        /// <summary>
+        /// Vult de Listview
+        /// </summary>
         public void FillListView()
         {
+            // Krijgt lijst met modellen uit database
             List<WedstrijdModel> wedstrijdList = wedsContr.ReadAll();
 
             lvResultaat.Items.Clear();
 
+            // Vult de List met items
             foreach (WedstrijdModel item in wedstrijdList)
             {
-                //listvieuw item aanmaken
 
                 ListViewItem lvItem = new ListViewItem(item.Thuis.FullName);
                 lvItem.SubItems.Add(item.Uit.FullName);
@@ -68,6 +76,7 @@ namespace Praktijk_Opdracht.View
                 lvItem.SubItems.Add(item.Ronde.ToString());
                 lvItem.SubItems.Add(item.WedstrijdNummer.ToString());
 
+                // slaat het item op
                 lvItem.Tag = item;
 
                 lvResultaat.Items.Add(lvItem);
@@ -75,10 +84,17 @@ namespace Praktijk_Opdracht.View
 
         }
 
+        /// <summary>
+        /// Als er een geselecteerd item is wordt resultaat weergegeven in panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lvResultaat_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Kijkt of er een geselecteerd item is in Listview
             if(lvResultaat.SelectedItems.Count == 1)
             {
+                // Opent update form
                 FrmResultaatUpdate frm = new FrmResultaatUpdate(this, (WedstrijdModel)lvResultaat.SelectedItems[0].Tag);
                 frm.FormBorderStyle = FormBorderStyle.None;
                 frm.TopLevel = false;

@@ -79,20 +79,25 @@ namespace Praktijk_Opdracht
             frm.Show();
         }
 
+        /// <summary>
+        /// Exporteerd wedstrijd data naar CSV
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExportCSV_Click(object sender, EventArgs e)
         {
+            // probeert CSV uit te voeren
             try
             {
-
-
-
-                // Maakt csv bestand aan
+                // Maakt CSV bestand aan
                 StreamWriter writer = File.CreateText(@"c:\Praktijk\CSV.csv");
+
                 // Maakt de tabellen
                 writer.WriteLine("Wedstrijd Ronde;Wedstrijd Nummer;Starttijd;Eindtijd;Thuis Speler;School;Score;Overgave;Uit Speler;School;Score;Overgave;Wedstrijd Winnaar");
-                // Krijg alle items.
-                List<WedstrijdModel> listToCSV = new List<WedstrijdModel>();
-                listToCSV = wedsContr.ReadAll();
+
+                List<WedstrijdModel> listToCSV = wedsContr.ReadAll();
+
+                
                 foreach (WedstrijdModel item in listToCSV)
                 {
                     ResultaatModel thuis = ResultaatContr.ReadAllWedstrijdResultaat(item.Ronde, item.WedstrijdNummer, item.Thuis);
@@ -115,12 +120,13 @@ namespace Praktijk_Opdracht
 
                     writer.WriteLine(Ronde + ";" + Wedstrijd + ";" + Starttijd + ";" + Eindtijd + ";" + ThuisSpeler + ";" + ThuisSchool + ";" + ThuisPunt + ";" + ThuisOvergave + ";" + UitSpeler + ";" + UitSchool + ";" + UitPunt + ";" + UitOvergave + ";" + Winnaar + ";");
                 }
+
                 // kijkt of het geschreven kan worden
                 bool writable = writer.BaseStream.CanWrite;
 
                 writer.Close();
 
-                // Bepaal of het is gelukt
+                // Bepaalt of het is gelukt
                 if (writable == true)
                 {
                     MessageBox.Show("CSV is gemaakt");
