@@ -64,6 +64,7 @@ namespace Praktijk_Opdracht.View
             this.btnSluiten.TabIndex = 12;
             this.btnSluiten.Text = "Sluiten";
             this.btnSluiten.UseVisualStyleBackColor = false;
+            this.btnSluiten.Click += new System.EventHandler(this.btnSluiten_Click);
             // 
             // txtWachtwoord
             // 

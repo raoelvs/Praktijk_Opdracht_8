@@ -90,5 +90,17 @@ namespace Praktijk_Opdracht.View
             }
            
         }
+
+        private void btnSluiten_Click(object sender, EventArgs e)
+        {
+            StartView frm = new StartView();
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.TopLevel = false;
+            frm.TopMost = true;
+            frm.Dock = DockStyle.Fill;
+            this.Close();
+            panel.Controls.Add(frm);
+            frm.Show();
+        }
     }
 }
