@@ -161,7 +161,7 @@ namespace Praktijk_Opdracht.View
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show("Er is iets misgegaan met wedstrijd: " + wedstrijd.Thuis.FullName + " tegen " + wedstrijd.Uit.FullName + ". Vraag hulp aan de organisator.");
+                                    MessageBox.Show("Er is iets misgegaan met wedstrijd: " + wedstrijd.Thuis.FullName + " tegen " + wedstrijd.Uit.FullName);
                                 }
                             }
                         }

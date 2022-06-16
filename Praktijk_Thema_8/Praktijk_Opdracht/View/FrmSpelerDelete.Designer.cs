@@ -37,13 +37,12 @@ namespace Praktijk_Opdracht.View
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(14, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 40);
+            this.label2.Size = new System.Drawing.Size(441, 40);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Weet u zeker dat u de speler\r\n wilt verwijderen?";
+            this.label2.Text = "Weet u zeker dat u de speler wilt verwijderen?";
             // 
             // label1
             // 
