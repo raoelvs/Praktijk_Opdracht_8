@@ -117,48 +117,53 @@ namespace Praktijk_Opdracht.View
                     {
                         if (wedstrijd1.Winnaar.SpelerId != 0 &&
                             wedstrijd2.Winnaar.SpelerId != 0)
-                        { 
-                            // wedstrijd klaarzetten in juiste ronde en wedstrijd tegen de juiste speler
-                            WedstrijdModel wedstrijd = new WedstrijdModel();
-                            wedstrijd.Ronde = i + 2;
-                            wedstrijd.WedstrijdNummer = wedstrijd2.WedstrijdNummer / 2;
-                            //standaard wedstrijd tijden
-                            wedstrijd.Starttijd = DateTime.Parse("1-1-1960 12:00");
-                            wedstrijd.Eindtijd = DateTime.Parse("1-1-1960 12:10");
-                            wedstrijd.ScheidsrechterCode = wedstrijd1.ScheidsrechterCode;
-                            wedstrijd.Thuis = wedstrijd1.Winnaar;
-                            wedstrijd.Uit = wedstrijd2.Winnaar;
-
-                            // wedstrijd aanmaken en geen message geven als er iets fout gaat
-                            try 
+                        {
+                            WedstrijdModel controleWedstrijd = wedContr.ReadWhereRoundMatch(i + 2, wedstrijd2.WedstrijdNummer / 2);
+                            if (controleWedstrijd.WedstrijdId == 0)
                             {
-                                int rowsAffected = wedContr.Create(wedstrijd);
-                                if (rowsAffected > 0)
+                                // wedstrijd klaarzetten in juiste ronde en wedstrijd tegen de juiste speler
+                                WedstrijdModel wedstrijd = new WedstrijdModel();
+                                wedstrijd.Ronde = i + 2;
+                                wedstrijd.WedstrijdNummer = wedstrijd2.WedstrijdNummer / 2;
+                                wedstrijd.ScheidsrechterCode = wedstrijd1.ScheidsrechterCode;
+                                wedstrijd.Thuis = wedstrijd1.Winnaar;
+                                wedstrijd.Uit = wedstrijd2.Winnaar;
+
+                                //standaard wedstrijd tijden
+                                wedstrijd.Starttijd = DateTime.Parse("1-1-1960 12:00");
+                                wedstrijd.Eindtijd = DateTime.Parse("1-1-1960 12:10");
+
+                                // wedstrijd aanmaken en geen message geven als er iets fout gaat
+                                try
                                 {
-                                    // search the match that's created
-                                    WedstrijdModel wedstrijdResultaat = wedContr.ReadWhereRoundMatch(wedstrijd.Ronde, wedstrijd.WedstrijdNummer);
+                                    int rowsAffected = wedContr.Create(wedstrijd);
+                                    if (rowsAffected > 0)
+                                    {
+                                        // search the match that's created
+                                        WedstrijdModel wedstrijdResultaat = wedContr.ReadWhereRoundMatch(wedstrijd.Ronde, wedstrijd.WedstrijdNummer);
 
-                                    ResultaatModel thuisSpeler = new ResultaatModel();
-                                    thuisSpeler.Punt = 0;
-                                    thuisSpeler.Overgave = false;
-                                    thuisSpeler.SpelerId = wedstrijdResultaat.Thuis;
-                                    thuisSpeler.WedstrijdId = wedstrijdResultaat;
+                                        ResultaatModel thuisSpeler = new ResultaatModel();
+                                        thuisSpeler.Punt = 0;
+                                        thuisSpeler.Overgave = false;
+                                        thuisSpeler.SpelerId = wedstrijdResultaat.Thuis;
+                                        thuisSpeler.WedstrijdId = wedstrijdResultaat;
 
-                                    ResultaatModel uitSpeler = new ResultaatModel();
-                                    uitSpeler.Punt = 0;
-                                    uitSpeler.Overgave = false;
-                                    uitSpeler.SpelerId = wedstrijdResultaat.Uit;
-                                    uitSpeler.WedstrijdId = wedstrijdResultaat;
+                                        ResultaatModel uitSpeler = new ResultaatModel();
+                                        uitSpeler.Punt = 0;
+                                        uitSpeler.Overgave = false;
+                                        uitSpeler.SpelerId = wedstrijdResultaat.Uit;
+                                        uitSpeler.WedstrijdId = wedstrijdResultaat;
 
-                                    // creates also the results for the match that's created
-                                    resuContr.Create(thuisSpeler);
-                                    resuContr.Create(uitSpeler);
+                                        // creates also the results for the match that's created
+                                        resuContr.Create(thuisSpeler);
+                                        resuContr.Create(uitSpeler);
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Er is iets misgegaan met wedstrijd: " + wedstrijd.Thuis.FullName + " tegen " + wedstrijd.Uit.FullName + ". Vraag hulp aan de organisator.");
                                 }
                             }
-                            catch(Exception ex)
-                            {
-                            }
-                            
                         }
                     }
                 }
